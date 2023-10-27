@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/white">
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="match_parent"
+        android:layout_height="263dp"
+        android:layout_marginTop="112dp"
+        android:src="@drawable/logo_get_started_main" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="Hallo Petani"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:layout_marginTop="375dp"
+        android:textSize="31dp"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="Selamat datang di sistem ketelusuran
+pertanian komoditas padi!"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:layout_marginTop="432dp"
+        android:textSize="13sp"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="Siapkah anda menjadi versi terbaik?"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:layout_marginTop="485dp"
+        android:textSize="13sp"/>
+
+    <Button
+        android:id="@+id/btnGetStarted"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="528dp"
+        android:background="@drawable/corner_button_shadow"
+        android:fontFamily="@font/inter_bold"
+        android:paddingBottom="5dp"
+        android:text="Get Started"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:onClick="startGetStartedTransition"/>
+
+    <Button
+        android:id="@+id/btnSudahMemilikiAkun"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="586dp"
+        android:background="@drawable/stroke_corner_button_shadow"
+        android:fontFamily="@font/inter_bold"
+        android:text="SAYA SUDAH MEMILIKI AKUN"
+        android:textAllCaps="false"
+        android:textColor="@color/shadow_button_green"
+        android:textSize="14sp" />
+
+</RelativeLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Shape Selector -->
+    <item android:state_pressed="true">
+        <shape android:shape="oval">
+            <solid android:color="@color/shadow_button_green"/>
+        </shape>
+    </item>
+    <!-- Green Background -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/button_green" />
+        </shape>
+    </item>
+
+
+
+    <!-- Arrow Drawable Inside Shape -->
+    <item android:drawable="@drawable/arrow_right"
+        android:gravity="center" ></item>
+</layer-list>

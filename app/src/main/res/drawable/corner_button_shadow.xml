@@ -1,0 +1,38 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <layer-list>
+            <!-- Shape untuk bayangan -->
+            <item android:top="10dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/shadow_button_green" />
+                    <corners android:radius="22dp" />
+                </shape>
+            </item>
+            <!-- Shape untuk tombol utama -->
+            <item android:bottom="5dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/button_green" />
+                    <corners android:radius="22dp" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item>
+        <layer-list>
+            <!-- Shape untuk bayangan -->
+            <item android:top="10dp"> <!-- Tambahkan margin atas 4dp di sini -->
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/shadow_button_green" />
+                    <corners android:radius="22dp" />
+                </shape>
+            </item>
+            <!-- Shape untuk tombol utama -->
+            <item android:bottom="5dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/button_green" />
+                    <corners android:radius="22dp" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>
