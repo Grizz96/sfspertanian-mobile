@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/btnBackToLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/arrow_left"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="20dp"/>
+        <TextView
+            android:layout_width="270dp"
+            android:layout_marginLeft="20dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:text="Isi Data Diri anda"
+            android:textSize="25dp"
+            android:fontFamily="@font/inter_bold"
+            android:textColor="@color/black"/>
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="251dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/logo_register_isi_data_diri"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="400dp"
+
+        android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txtemail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_regular"
+        android:layout_marginLeft="10dp"
+        android:text="Email"
+        android:textSize="13dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:id="@+id/etEmail"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        android:background="@drawable/inputbox_background"
+        android:drawablePadding="30dp"
+        android:drawableStart="@drawable/gmail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"
+        android:hint="Masukkan Alamat Email"
+        android:textSize="13dp"
+        />
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:id="@+id/txtpassword"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:text="Password"
+        android:fontFamily="@font/inter_regular"
+        android:textSize="13dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="116dp"
+        android:id="@+id/etPassword"
+        android:background="@drawable/inputbox_background"
+        android:drawableStart="@drawable/key"
+        android:drawablePadding="30dp"
+        android:inputType="textPassword"
+        android:fontFamily="@font/inter_regular"
+        android:hint="Masukkan Password"
+        android:textSize="13dp"
+        android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:id="@+id/btnDaftar"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="205dp"
+            android:background="@drawable/corner_button_shadow"
+            android:fontFamily="@font/inter_bold"
+            android:text="DAFTAR"
+            android:paddingBottom="5dp"
+            android:textColor="@color/white"
+            android:onClick="startGetStartedTransition"/>
+    </RelativeLayout>
+</RelativeLayout>

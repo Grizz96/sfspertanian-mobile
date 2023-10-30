@@ -13,12 +13,8 @@
 
         <!-- Specify the MAIN activity with LAUNCHER category -->
         <activity
-            android:name=".SplashActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:name=".SplashActivity">
+
         </activity>
 
         <!-- Other activities -->
@@ -38,7 +34,20 @@
             android:name=".login_email" />
 
         <activity
-            android:name=".MainActivity" />
+            android:name=".register_email"/>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".RegisterIsiData1Activity"/>
+
+
 
         <meta-data
             android:name="preloaded_fonts"

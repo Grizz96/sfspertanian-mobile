@@ -170,8 +170,9 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <ImageButton
-                    android:id="@+id/imageButton"
+                    android:id="@+id/facebook_sign_in_button"
                     android:layout_alignParentLeft="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -180,7 +181,7 @@
                     />
 
                 <ImageButton
-                    android:id="@+id/imageButton2"
+                    android:id="@+id/google_sign_in_button"
                     android:layout_alignParentRight="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -202,7 +203,7 @@
                     android:fontFamily="@font/inter_regular"
                     tools:ignore="TextSizeCheck" />
                 <TextView
-                    android:id="@+id/txtdaftar"
+                    android:id="@+id/txtRegister"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Daftar"
@@ -228,6 +229,7 @@
     Privasi dan Syarat dan Ketentuan yang berlaku"
                 android:textSize="13dp"
                 android:gravity="center"
+                android:layout_centerHorizontal="true"
                 android:layout_marginLeft="13dp"
                 android:textStyle="bold"
                 tools:ignore="TextSizeCheck" />

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "738360078736",
+    "project_id": "sfs-pertanian-bc0ae",
+    "storage_bucket": "sfs-pertanian-bc0ae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:738360078736:android:ea20a5c7637469e35b0315",
+        "android_client_info": {
+          "package_name": "com.example.sfspertanian"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "738360078736-jaubjmu62g2i063cvl94hq17asa6l6c1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sfspertanian",
+            "certificate_hash": "b5b9566183585c0347d91fd2d25de0b550104e06"
+          }
+        },
+        {
+          "client_id": "738360078736-ouhlq3j7e263nhsnbmtpqfin5bdugel3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC04yN_DAk00JK1gi4uUj-DxHSt6uftW80"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "738360078736-ouhlq3j7e263nhsnbmtpqfin5bdugel3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
