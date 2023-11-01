@@ -1,23 +1,333 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/pencatatanFragment"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/logo_pesan_foreground"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="35dp"/>
+
+        <RelativeLayout
+            android:layout_width="255dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <ImageView
+                android:layout_width="88dp"
+                android:layout_height="46dp"
+                android:background="@drawable/logo_ud_tani_rejo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="75dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="UD. Tani Rejo"
+                android:textColor="@color/button_green"
+
+                android:textSize="24dp" />
+        </RelativeLayout>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/logo_ringtone_foreground"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="35dp"
+            android:layout_marginRight="15dp"
+            />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginHorizontal="20dp">
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="20dp"
+                android:textColor="@color/title_fragment"
+                android:text="PENCATATAN" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="60dp"
+                android:background="@drawable/bg_list_lokasi"
+                android:layout_centerHorizontal="true">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true">
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="91dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="20dp" >
+                        <RelativeLayout
+                            android:id="@+id/lokasi_sawah"
+                            android:background="@drawable/bg_lokasi_white"
+                            android:layout_width="133dp"
+                            android:layout_height="match_parent"/>
+
+                        <TextView
+                            android:layout_width="170dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="145dp"
+                            android:width="150dp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Sawah Cendekia"
+                            android:textSize="15sp"
+                            android:textColor="@color/title_fragment"/>
+
+                        <TextView
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="145dp"
+                            android:text="Tanggal Mulai: 20 September 2023"
+                            android:fontFamily="@font/poppins"
+                            android:textColor="@color/title_fragment"
+                            android:layout_marginTop="25dp"
+                            android:textSize="8sp"/>
+                        <TextView
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="145dp"
+                            android:text="Lokasi: Jl. Kenanga 24"
+                            android:fontFamily="@font/poppins"
+                            android:textColor="@color/title_fragment"
+                            android:layout_marginTop="38dp"
+                            android:textSize="8sp"/>
+                        <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="147dp"
+                            android:layout_marginTop="55dp"
+                            android:background="@drawable/logo_detail"/>
+
+                        <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/logo_delete"
+                            android:layout_marginTop="55dp"
+                            android:layout_marginLeft="240dp"
+                            />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="91dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="130dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="20dp" >
+                        <RelativeLayout
+                            android:id="@+id/lokasi_sawah_2"
+                            android:background="@drawable/bg_lokasi_white"
+                            android:layout_width="133dp"
+                            android:layout_height="match_parent"/>
+
+                        <TextView
+                            android:layout_width="170dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="145dp"
+                            android:width="150dp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Sawah Cendekia"
+                            android:textSize="15sp"
+                            android:textColor="@color/title_fragment"/>
+
+                        <TextView
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="145dp"
+                            android:text="Tanggal Mulai: 20 September 2023"
+                            android:fontFamily="@font/poppins"
+                            android:textColor="@color/title_fragment"
+                            android:layout_marginTop="25dp"
+                            android:textSize="8sp"/>
+                        <TextView
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="145dp"
+                            android:text="Lokasi: Jl. Kenanga 24"
+                            android:fontFamily="@font/poppins"
+                            android:textColor="@color/title_fragment"
+                            android:layout_marginTop="38dp"
+                            android:textSize="8sp"/>
+                        <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="147dp"
+                            android:layout_marginTop="55dp"
+                            android:background="@drawable/logo_detail"/>
+
+                        <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/logo_delete"
+                            android:layout_marginTop="55dp"
+                            android:layout_marginLeft="240dp"
+                            />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="91dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="240dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="20dp" >
+
+                        <RelativeLayout
+                            android:id="@+id/lokasi_sawah_3"
+                            android:layout_width="133dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_lokasi_white" />
+
+                        <TextView
+                            android:layout_width="170dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="145dp"
+                            android:width="150dp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Sawah Cendekia"
+                            android:textSize="15sp"
+                            android:textColor="@color/title_fragment"/>
+
+                        <TextView
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="145dp"
+                            android:text="Tanggal Mulai: 20 September 2023"
+                            android:fontFamily="@font/poppins"
+                            android:textColor="@color/title_fragment"
+                            android:layout_marginTop="25dp"
+                            android:textSize="8sp"/>
+                        <TextView
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="145dp"
+                            android:text="Lokasi: Jl. Nusantara, Jenggawah"
+                            android:fontFamily="@font/poppins"
+                            android:textColor="@color/title_fragment"
+                            android:layout_marginTop="38dp"
+                            android:textSize="8sp"/>
+                        <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="147dp"
+                            android:layout_marginTop="55dp"
+                            android:background="@drawable/logo_detail"/>
+
+                        <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/logo_delete"
+                            android:layout_marginTop="55dp"
+                            android:layout_marginLeft="240dp"
+                            />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="91dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="350dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="20dp" >
+                        <RelativeLayout
+                            android:id="@+id/lokasi_sawah_4"
+                            android:background="@drawable/bg_lokasi_white"
+                            android:layout_width="133dp"
+                            android:layout_height="match_parent"/>
+
+                        <TextView
+                            android:layout_width="170dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="145dp"
+                            android:width="150dp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Sawah Cendekia"
+                            android:textSize="15sp"
+                            android:textColor="@color/title_fragment"/>
+
+                        <TextView
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="145dp"
+                            android:text="Tanggal Mulai: 20 September 2023"
+                            android:fontFamily="@font/poppins"
+                            android:textColor="@color/title_fragment"
+                            android:layout_marginTop="25dp"
+                            android:textSize="8sp"/>
+                        <TextView
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="145dp"
+                            android:text="Lokasi: Jl. Panda, Jenggawah"
+                            android:fontFamily="@font/poppins"
+                            android:textColor="@color/title_fragment"
+                            android:layout_marginTop="38dp"
+                            android:textSize="8sp"/>
+                        <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="147dp"
+                            android:layout_marginTop="55dp"
+                            android:background="@drawable/logo_detail"/>
+
+                        <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/logo_delete"
+                            android:layout_marginTop="55dp"
+                            android:layout_marginLeft="240dp"
+                            />
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pencatatan Fragment"
-        android:textColor="#43a047"
-        android:textSize="40sp"
-        android:textStyle="italic|bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="end|bottom"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/logo_add_location_foreground"
+        android:contentDescription="@string/submit" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

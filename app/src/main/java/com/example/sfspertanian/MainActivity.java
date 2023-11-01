@@ -4,13 +4,17 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity
         implements BottomNavigationView
         .OnNavigationItemSelectedListener {
 
     BottomNavigationView bottomNavigationView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -24,6 +28,7 @@ public class MainActivity extends AppCompatActivity
         bottomNavigationView
                 .setOnNavigationItemSelectedListener(this);
         bottomNavigationView.setSelectedItemId(R.id.home);
+
     }
 
     BerandaFragment berandaFragment = new BerandaFragment();
@@ -61,10 +66,11 @@ public class MainActivity extends AppCompatActivity
             case R.id.account:
                 getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.flFragment, pencatatanFragment)
+                        .replace(R.id.flFragment, profileFragment)
                         .commit();
                 return true;
         }
         return false;
     }
+
 }

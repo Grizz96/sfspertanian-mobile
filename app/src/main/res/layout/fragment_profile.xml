@@ -1,5 +1,5 @@
-mnh<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,16 +8,13 @@ mnh<?xml version="1.0" encoding="utf-8"?>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        tools:ignore="MissingConstraints">
-
+        android:layout_height="100dp">
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="55dp"
-            android:background="@drawable/message"
-            tools:ignore="SpeakableTextPresentCheck" />
+            android:background="@drawable/logo_pesan_foreground"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="35dp"/>
 
         <RelativeLayout
             android:layout_width="255dp"
@@ -40,15 +37,14 @@ mnh<?xml version="1.0" encoding="utf-8"?>
 
                 android:textSize="24dp" />
         </RelativeLayout>
-
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/logo_ringtone_foreground"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="55dp"
-            android:layout_marginRight="35dp"
-            android:background="@drawable/notification"
-            tools:ignore="SpeakableTextPresentCheck" />
+            android:layout_marginTop="35dp"
+            android:layout_marginRight="15dp"
+            />
 
     </RelativeLayout>
 
@@ -165,7 +161,7 @@ mnh<?xml version="1.0" encoding="utf-8"?>
                         android:layout_height="47dp"
                         android:layout_marginStart="40dp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:srcCompat="@drawable/notification"
+                        app:srcCompat="@drawable/logo_ringtone_foreground"
                         tools:layout_editor_absoluteY="16dp"
                         tools:ignore="DuplicateIds,MissingConstraints" />
 
@@ -211,7 +207,7 @@ mnh<?xml version="1.0" encoding="utf-8"?>
                         android:layout_height="47dp"
                         android:layout_marginStart="40dp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:srcCompat="@drawable/pesan"
+                        app:srcCompat="@drawable/logo_pesan_foreground"
                         tools:ignore="DuplicateIds,MissingConstraints"
                         tools:layout_editor_absoluteY="16dp" />
 
@@ -256,7 +252,7 @@ mnh<?xml version="1.0" encoding="utf-8"?>
                         android:layout_height="47dp"
                         android:layout_marginStart="40dp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:srcCompat="@drawable/logout"
+                        app:srcCompat="@drawable/logo_logout_foreground"
                         tools:ignore="MissingConstraints"
                         tools:layout_editor_absoluteY="16dp" />
 
@@ -276,4 +272,4 @@ mnh<?xml version="1.0" encoding="utf-8"?>
         </ScrollView>
     </RelativeLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

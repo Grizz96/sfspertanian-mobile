@@ -11,4 +11,9 @@
     <color name="shadow_button_green">#136047</color>
     <color name="stroke_grey">#C4C4C4</color>
     <color name="text_grey">#5F5F5F</color>
+    <color name="green_bg_list_lokasi">#CCEABB</color>
+    <color name="title_fragment">#12121D</color>
+    <color name="green_txt_beranda">#013220</color>
+    <color name="sub_green">#476C5F</color>
+    <color name="title_literasi_beranda">#12121D</color>
 </resources>
