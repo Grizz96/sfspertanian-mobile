@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+mnh<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,18 +6,274 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/profileFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Profile Fragment"
-        android:textColor="#43a047"
-        android:textSize="40sp"
-        android:textStyle="italic|bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="55dp"
+            android:background="@drawable/message"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <RelativeLayout
+            android:layout_width="255dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <ImageView
+                android:layout_width="88dp"
+                android:layout_height="46dp"
+                android:background="@drawable/logo_ud_tani_rejo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="75dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="UD. Tani Rejo"
+                android:textColor="@color/button_green"
+
+                android:textSize="24dp" />
+        </RelativeLayout>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="55dp"
+            android:layout_marginRight="35dp"
+            android:background="@drawable/notification"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".login_email">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:background="#FFFFFF">
+
+                    <Button
+                        android:id="@+id/button9"
+                        android:layout_width="330dp"
+                        android:layout_height="31dp"
+                        android:layout_marginBottom="36dp"
+                        android:background="@drawable/rounded_corner_button"
+                        android:ems="10"
+                        android:shadowColor="@color/cardview_light_background"
+                        android:text="Edit Profil"
+                        android:textColor="#FFFFFF"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        tools:ignore="MissingConstraints,TouchTargetSizeCheck"
+                        tools:layout_editor_absoluteX="40dp" />
+
+                    <ImageView
+                        android:id="@+id/imageView7"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        app:srcCompat="@drawable/user_1"
+                        tools:layout_editor_absoluteX="16dp"
+                        tools:layout_editor_absoluteY="88dp"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="PROFIL"
+                        android:textColor="#000000"
+                        android:textSize="30sp"
+                        tools:layout_editor_absoluteX="155dp"
+                        tools:layout_editor_absoluteY="16dp"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_bold"
+                        android:text="Petani"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        tools:ignore="MissingConstraints"
+                        tools:layout_editor_absoluteX="133dp"
+                        tools:layout_editor_absoluteY="97dp" />
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Rizky Pradika"
+                        android:textColor="#0D986A"
+                        android:textSize="20sp"
+                        tools:ignore="MissingConstraints"
+                        tools:layout_editor_absoluteX="133dp"
+                        tools:layout_editor_absoluteY="133dp" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="410dp"
+                    android:layout_height="79dp">
+
+
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Notifikasi"
+                        android:textColor="#000000"
+                        tools:layout_editor_absoluteX="101dp"
+                        tools:layout_editor_absoluteY="30dp"
+                        tools:ignore="DuplicateIds,MissingConstraints" />
+
+                    <androidx.fragment.app.FragmentContainerView
+                        android:id="@+id/fragmentContainerView"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/rounded_corner"
+                        tools:layout_editor_absoluteX="30dp"
+                        tools:layout_editor_absoluteY="9dp"
+                        tools:ignore="MissingConstraints" />
+
+                    <ImageView
+                        android:layout_width="41dp"
+                        android:layout_height="47dp"
+                        android:layout_marginStart="40dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:srcCompat="@drawable/notification"
+                        tools:layout_editor_absoluteY="16dp"
+                        tools:ignore="DuplicateIds,MissingConstraints" />
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/arrow_right"
+                        tools:ignore="MissingConstraints"
+                        tools:layout_editor_absoluteX="364dp"
+                        tools:layout_editor_absoluteY="24dp" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="410dp"
+                    android:layout_height="79dp">
+
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Pesan"
+                        android:textColor="#000000"
+                        tools:ignore="DuplicateIds,MissingConstraints"
+                        tools:layout_editor_absoluteX="101dp"
+                        tools:layout_editor_absoluteY="30dp" />
+
+                    <androidx.fragment.app.FragmentContainerView
+                        android:id="@+id/fragmentContainerView"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/rounded_corner"
+                        tools:ignore="DuplicateIds,MissingConstraints"
+                        tools:layout_editor_absoluteX="30dp"
+                        tools:layout_editor_absoluteY="9dp" />
+
+                    <ImageView
+
+                        android:layout_width="41dp"
+                        android:layout_height="47dp"
+                        android:layout_marginStart="40dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:srcCompat="@drawable/pesan"
+                        tools:ignore="DuplicateIds,MissingConstraints"
+                        tools:layout_editor_absoluteY="16dp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/arrow_right"
+                        tools:layout_editor_absoluteX="361dp"
+                        tools:layout_editor_absoluteY="27dp"
+                        tools:ignore="MissingConstraints" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="410dp"
+                    android:layout_height="79dp">
+
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Keluar"
+                        android:textColor="#000000"
+                        tools:ignore="DuplicateIds,MissingConstraints"
+                        tools:layout_editor_absoluteX="101dp"
+                        tools:layout_editor_absoluteY="30dp" />
+
+                    <androidx.fragment.app.FragmentContainerView
+                        android:id="@+id/fragmentContainerView"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/rounded_corner"
+                        tools:ignore="DuplicateIds,MissingConstraints"
+                        tools:layout_editor_absoluteX="30dp"
+                        tools:layout_editor_absoluteY="9dp" />
+
+                    <ImageView
+                        android:id="@+id/imageView10"
+                        android:layout_width="41dp"
+                        android:layout_height="47dp"
+                        android:layout_marginStart="40dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:srcCompat="@drawable/logout"
+                        tools:ignore="MissingConstraints"
+                        tools:layout_editor_absoluteY="16dp" />
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/arrow_right"
+                        tools:layout_editor_absoluteX="361dp"
+                        tools:layout_editor_absoluteY="27dp"
+                        tools:ignore="MissingConstraints" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
