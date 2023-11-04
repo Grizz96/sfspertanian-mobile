@@ -33,8 +33,6 @@
         <activity
             android:name=".login_email" />
 
-        <activity
-            android:name=".register_email"/>
 
         <activity
             android:name=".MainActivity"
@@ -46,7 +44,6 @@
         </activity>
 
         <activity android:name=".RegisterIsiData1Activity"/>
-
 
 
         <meta-data

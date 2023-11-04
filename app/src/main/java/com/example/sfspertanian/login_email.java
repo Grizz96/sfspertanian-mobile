@@ -32,7 +32,7 @@ public class login_email extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
 
-        protected FirebaseAuth firebaseAuth;
+        FirebaseAuth firebaseAuth;
         getWindow().setEnterTransition(new Fade());
         getWindow().setExitTransition(new Fade());
 

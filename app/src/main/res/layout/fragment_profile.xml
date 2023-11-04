@@ -1,23 +1,272 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/profileFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Profile Fragment"
-        android:textColor="#43a047"
-        android:textSize="40sp"
-        android:textStyle="italic|bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/logo_pesan_foreground"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="35dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <RelativeLayout
+            android:layout_width="255dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <ImageView
+                android:layout_width="88dp"
+                android:layout_height="46dp"
+                android:background="@drawable/logo_ud_tani_rejo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="75dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="UD. Tani Rejo"
+                android:textColor="@color/button_green"
+
+                android:textSize="24dp" />
+        </RelativeLayout>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/logo_ringtone_foreground"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="35dp"
+            android:layout_marginRight="15dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".login_email">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF">
+
+                    <Button
+                        android:id="@+id/button9"
+                        android:layout_width="330dp"
+                        android:layout_height="32dp"
+                        android:layout_marginTop="175dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="36dp"
+                        android:background="@drawable/rounded_corner_button"
+                        android:ems="10"
+                        android:shadowColor="@color/cardview_light_background"
+                        android:text="Edit Profil"
+                        android:textColor="#FFFFFF"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        tools:ignore="MissingConstraints,TouchTargetSizeCheck"
+                        tools:layout_editor_absoluteX="40dp" />
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="PROFIL"
+                        android:textColor="#000000"
+                        android:textSize="30sp"/>
+                    <RelativeLayout
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="65dp">
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/inter_bold"
+                            android:text="Petani"
+                            android:textColor="@color/black"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginLeft="80dp"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="15sp"/>
+
+
+                        <ImageView
+                            android:id="@+id/imageView7"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+
+                            app:srcCompat="@drawable/user_1" />
+
+
+                        <TextView
+                            android:id="@+id/textView5"
+                            android:layout_marginLeft="80dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="30dp"
+                            android:fontFamily="@font/inter_medium"
+                            android:text="Rizky Pradika"
+                            android:textColor="#0D986A"
+                            android:textSize="20sp" />
+                    </RelativeLayout>
+
+                </RelativeLayout>
+                
+                <RelativeLayout
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="250dp">
+
+                    <RelativeLayout
+                        android:layout_width="410dp"
+                        android:layout_height="79dp"
+                        >
+
+
+
+                        <TextView
+                            android:id="@+id/textView6"
+                            android:layout_width="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Notifikasi"
+                            android:textColor="#000000"
+                            tools:layout_editor_absoluteX="101dp"
+                            tools:layout_editor_absoluteY="30dp"
+                            tools:ignore="DuplicateIds,MissingConstraints" />
+
+                        <RelativeLayout
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/rounded_corner">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                app:srcCompat="@drawable/logo_ringtone_foreground"/>
+
+                        </RelativeLayout>
+
+                        <ImageView
+                            android:id="@+id/imageView4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            app:srcCompat="@drawable/arrow_right"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="410dp"
+                        android:layout_height="79dp"
+                        android:layout_marginTop="80dp">
+
+
+                        <TextView
+                            android:id="@+id/textView7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Pesan"
+                            android:layout_centerInParent="true"
+                            android:textColor="#000000"/>
+
+                        <RelativeLayout
+                            android:id="@+id/fragmentContainerView"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/rounded_corner">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:srcCompat="@drawable/logo_pesan_foreground"/>
+
+                        </RelativeLayout>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            app:srcCompat="@drawable/arrow_right" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="410dp"
+                        android:layout_height="79dp"
+                        android:layout_marginTop="160dp">
+
+                        <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Keluar"
+                            android:textColor="#000000"/>
+
+                        <RelativeLayout
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/rounded_corner">
+
+                            <ImageView
+                                android:id="@+id/imageView10"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                app:srcCompat="@drawable/logo_logout_foreground" />
+                        </RelativeLayout>
+
+
+                        <ImageView
+                            android:id="@+id/imageView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            app:srcCompat="@drawable/arrow_right" />
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+
+
+
+            </RelativeLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,23 +1,331 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true">
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/logo_pesan_foreground"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="35dp"/>
 
-    <TextView
-        android:id="@+id/berandaFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Beranda Fragment"
-        android:textColor="#43a047"
-        android:textSize="40sp"
-        android:textStyle="italic|bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                <RelativeLayout
+                    android:layout_width="255dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                    <ImageView
+                        android:layout_width="88dp"
+                        android:layout_height="46dp"
+                        android:background="@drawable/logo_ud_tani_rejo" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="75dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:text="UD. Tani Rejo"
+                        android:textColor="@color/button_green"
+
+                        android:textSize="24dp" />
+                </RelativeLayout>
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/logo_ringtone_foreground"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginRight="15dp"
+                    />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/status"
+                android:layout_below="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="346dp"
+                    android:background="@drawable/bg_green_beranda">
+
+                    <RelativeLayout
+                        android:layout_centerHorizontal="true"
+                        android:layout_width="350dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Minggu, 20 Oktober 2023"
+                            android:textColor="@color/green_txt_beranda"
+                            android:textSize="20sp"
+                            android:fontFamily="@font/poppins_bold"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hari ini"
+                            android:textColor="@color/sub_green"
+                            android:layout_marginTop="30dp"
+                            android:textSize="15dp"
+                            android:fontFamily="@font/poppins_semibold"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="100dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_width="370dp"
+                        android:layout_centerHorizontal="true">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Infromasi Cuaca"
+                            android:textColor="@color/green_txt_beranda"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textSize="15sp"/>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="35sp"
+                            >
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true">
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:background="@drawable/logo_intensitas_cahaya"/>
+                                <TextView
+                                    android:layout_marginTop="40dp"
+                                    android:layout_width="70dp"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="10sp"
+                                    android:textColor="@color/green_txt_beranda"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:text="INTENSITAS CAHAYA"/>
+                                <TextView
+                                    android:layout_marginTop="70dp"
+                                    android:layout_width="70dp"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="10sp"
+                                    android:textColor="@color/button_green"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:text="35%-45%"/>
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_marginLeft="85dp">
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:background="@drawable/logo_temperatur"/>
+                                <TextView
+                                    android:layout_marginTop="40dp"
+                                    android:layout_width="70dp"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="10sp"
+                                    android:textColor="@color/green_txt_beranda"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:text="TEMPERATUR"/>
+                                <TextView
+                                    android:layout_marginTop="70dp"
+                                    android:layout_width="70dp"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="10sp"
+                                    android:textColor="@color/button_green"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:text="35%-45%"/>
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_marginLeft="170dp">
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:background="@drawable/logo_kualitas_air"/>
+                                <TextView
+                                    android:layout_marginTop="40dp"
+                                    android:layout_width="70dp"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="10sp"
+                                    android:textColor="@color/green_txt_beranda"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:text="KUALITAS AIR"/>
+                                <TextView
+                                    android:layout_marginTop="70dp"
+                                    android:layout_width="70dp"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="10sp"
+                                    android:textColor="@color/button_green"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:text="35%-45%"/>
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_marginLeft="255dp">
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:background="@drawable/logo_kadar_air"/>
+                                <TextView
+                                    android:layout_marginTop="40dp"
+                                    android:layout_width="70dp"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="10sp"
+                                    android:textColor="@color/green_txt_beranda"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:text="KUALITAS AIR"/>
+                                <TextView
+                                    android:layout_marginTop="70dp"
+                                    android:layout_width="70dp"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="10sp"
+                                    android:textColor="@color/button_green"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:text="35%-45%"/>
+                            </RelativeLayout>
+
+                        </RelativeLayout>
+
+
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_centerHorizontal="true"
+                        android:layout_width="315dp"
+                        android:layout_height="88dp"
+                        android:layout_marginTop="250dp"
+                        android:background="@drawable/bg_cuaca">
+                        <pl.droidsonroids.gif.GifImageView
+                            android:layout_width="81dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/logo_rainy"/>
+                        <RelativeLayout
+                            android:layout_width="210dp"
+                            android:layout_height="70dp"
+                            android:layout_alignParentRight="true"
+                            >
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Waspada!! Hujan Lebat"
+                                android:fontFamily="@font/inter_bold"
+                                android:textSize="16sp"
+                                android:layout_marginTop="10dp"
+                                android:textColor="@color/green_txt_beranda"/>
+
+                            <TextView
+                                android:layout_marginTop="30dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Silahkan berteduh jangan keluar hingga reda"
+                                android:fontFamily="@font/inter_bold"
+                                android:textSize="11sp"
+                                android:textColor="@color/green_txt_beranda"/>
+                            <TextView
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="15dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Desa Jenggawah"
+                                android:fontFamily="@font/inter_bold"
+                                android:textSize="11sp"
+                                android:textColor="@color/green_txt_beranda"/>
+                        </RelativeLayout>
+
+
+
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+
+
+
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/status"
+                android:layout_centerHorizontal="true">
+                <TextView
+                    android:id="@+id/txtInformasi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Informasi &amp; Pembelajaran"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/title_literasi_beranda"
+                    android:fontFamily="@font/poppins_bold"/>
+                <RelativeLayout
+                        android:id="@+id/bgTabLayout"
+                        android:layout_width="387dp"
+                        android:layout_height="45dp"
+                        android:layout_below="@+id/txtInformasi"
+                        android:background="@drawable/bg_fragment_beranda">
+                        <com.google.android.material.tabs.TabLayout
+                            android:id="@+id/tab_layout"
+                            android:layout_width="324dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="15dp"
+                            >
+                            <com.google.android.material.tabs.TabItem
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Pra Tanam"/>
+                            <com.google.android.material.tabs.TabItem
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Tanam"/>
+                            <com.google.android.material.tabs.TabItem
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Pasca Tanam"/>
+
+                        </com.google.android.material.tabs.TabLayout>
+                    </RelativeLayout>
+
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/view_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/bgTabLayout"/>
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
