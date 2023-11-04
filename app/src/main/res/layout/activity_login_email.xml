@@ -119,7 +119,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="438dp"
         android:background="@drawable/corner_button_shadow"
-        android:fontFamily="@font/inter_bold"
+        android:textStyle="bold"
         android:text="Masuk"
         android:paddingBottom="5dp"
         android:textColor="@color/white"
