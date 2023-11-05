@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true">
+        <ImageButton
+            android:id="@+id/backToHalamanBefore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/arrow_left_back_foreground"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="28dp"/>
+
+        <RelativeLayout
+            android:layout_width="255dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <ImageView
+                android:layout_width="88dp"
+                android:layout_height="46dp"
+                android:background="@drawable/logo_ud_tani_rejo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="75dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="UD. Tani Rejo"
+                android:textColor="@color/button_green"
+
+                android:textSize="24dp" />
+        </RelativeLayout>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/logo_ringtone_foreground"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="35dp"
+            android:layout_marginRight="15dp"
+            />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header">
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/wa_gif"
+            android:layout_width="162dp"
+            android:layout_height="162dp"
+            android:layout_marginTop="219px"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/logo_wa_for_pesan"/>
+        <RelativeLayout
+            android:id="@+id/card_txt"
+            android:layout_width="267dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/bg_txt_pesan"
+            android:layout_below="@+id/wa_gif"
+            android:layout_marginTop="35dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Bergabung dengan Whatsapp"/>
+            
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginTop="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/card_txt"
+            android:layout_width="319dp"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="151dp"
+                android:layout_height="34dp"
+                android:background="@drawable/green_radius_button">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="CHAT ADMIN"
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_alignParentRight="true"
+                android:layout_width="151dp"
+
+                android:background="@drawable/grey_card_radius"
+                android:layout_height="34dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="CHAT ADMIN"
+                    android:textColor="@color/black"
+                    android:textSize="13sp" />
+            </RelativeLayout>
+            
+        </RelativeLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

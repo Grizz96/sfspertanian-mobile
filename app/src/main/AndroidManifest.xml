@@ -19,7 +19,13 @@
 
         <!-- Other activities -->
         <activity
-            android:name=".GetStartedMainActivity" />
+            android:name=".GetStartedMainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".GetStarted2Activity" />
         <activity
@@ -32,15 +38,13 @@
 
         <activity
             android:name=".login_email" />
+        <activity
+            android:name=".pesanActivity" />
 
 
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:name=".MainActivity">
+
         </activity>
 
         <activity android:name=".RegisterIsiData1Activity"/>
