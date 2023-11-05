@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.fragment.app.Fragment;
 import com.google.android.material.tabs.TabLayout;
@@ -22,7 +23,7 @@ public class BerandaFragment extends Fragment {
     }
 
     // Perbaikan: Deklarasikan button btnPesan
-    Button btnPesan;
+    ImageButton btnPesan;
 
     TabLayout tabLayout;
     ViewPager2 viewPager2;
@@ -47,14 +48,6 @@ public class BerandaFragment extends Fragment {
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(requireActivity(), v, "smart_animate");
             startActivity(intent, options.toBundle());
 
-            // Tunggu selama 2 detik sebelum menutup
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    // Perbaikan: Gunakan requireActivity() untuk mengakhiri activity
-                    requireActivity().finish();
-                }
-            }, 2000);
         });
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

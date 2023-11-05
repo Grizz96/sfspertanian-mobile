@@ -27,17 +27,7 @@ public class pesanActivity extends AppCompatActivity {
 
         btnBack = findViewById(R.id.backToHalamanBefore);
         btnBack.setOnClickListener(v->{
-            getWindow().setExitTransition(new Fade());
-            Intent intent = new Intent(this, BerandaFragment.class);
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, v, "smart_animate");
-            startActivity(intent, options.toBundle());
-            // Tunggu selama 2 detik sebelum menutup
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    finish();
-                }
-            }, 2000);
+            finish();
         });
 
     }
