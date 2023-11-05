@@ -100,7 +100,6 @@
                         <ImageView
                             android:id="@+id/imageView7"
                             android:layout_width="120dp"
-                            android
                             android:layout_height="120dp"
                             android:layout_centerHorizontal="true"
                             app:srcCompat="@drawable/user_2"
@@ -119,35 +118,15 @@
 
                         <EditText
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:paddingLeft="2dp"
-                            android:paddingRight="2dp"
+                            android:layout_height="40dp"
+                            android:paddingLeft="4dp"
+                            android:paddingRight="4dp"
                             android:background="@drawable/inputbox_background"
-                            android:drawablePadding="15dp"
-                            android:layout_marginTop="250dp"
+                            android:drawablePadding="100dp"
+                            android:layout_marginTop="70dp"
                             android:hint="35782127080400001"
 
                 </RelativeLayout>
-                <RelativeLayout
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="200dp"
-                android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:paddingLeft="2dp"
-                        android:paddingRight="2dp"
-                        android:background="@drawable/inputbox_background"
-                        android:drawablePadding="30dp"
-                        android:layout_marginTop="100dp"
-                        android:hint="3578212708040001"
-                        layout
 
 
 
@@ -155,7 +134,6 @@
 
 
 
-                    <RelativeLayout
                     
 
 
