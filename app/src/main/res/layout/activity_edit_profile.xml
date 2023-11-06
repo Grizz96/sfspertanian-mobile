@@ -189,14 +189,14 @@
                             android:fontFamily="@font/poppins_medium"
                             android:hint="Verifikasi Email"
                             android:paddingLeft="10dp"
-                            android:layout_marginRight="50dp"
+                            android:layout_marginRight="60dp"
                             android:layout_centerHorizontal="true"
                             android:textSize="12sp"
                             android:layout_marginTop="15dp"
                             android:textColor="#000000">
                         </EditText>
                         <Button
-                            android:layout_width="40dp"
+                            android:layout_width="50dp"
                             android:layout_height="40dp"
                             android:layout_centerHorizontal="true"
                             android:background="@drawable/inputbox_background"
@@ -206,8 +206,14 @@
                             android:layout_marginTop="15dp"
                             android:hint="Kirim"/>
 
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/nomortelepon"
+                            android:layout_marginTop="15dp"
 
-                        </Button>
+
+
 
 
                     </RelativeLayout>
