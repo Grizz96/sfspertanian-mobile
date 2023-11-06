@@ -31,10 +31,12 @@
             android:name=".GetStarted4Activity" />
 
         <activity
-            android:name=".register_email" />
+            android:name=".register_email"
+            android:exported="true"/>
 
         <activity
-            android:name=".login_email" />
+            android:name=".login_email"
+            android:exported="true"/>
         <activity
             android:name=".pesanActivity" />
 
