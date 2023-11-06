@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 
 public class PencatatanFragment extends Fragment {
 
-    ImageButton btnPesan;
+    ImageButton btnPesan,btnDetail;
     public PencatatanFragment(){
         // require a empty public constructor
     }
@@ -26,10 +26,19 @@ public class PencatatanFragment extends Fragment {
 
         // Perbaikan: Menginisialisasi btnPesan dengan ID dari layout
         btnPesan = view.findViewById(R.id.btnPesan);
+        btnDetail = view.findViewById(R.id.detailLokasi1);
 
         btnPesan.setOnClickListener(v -> {
             Intent intent = new Intent(requireActivity(), pesanActivity.class); // Perbaikan: Nama kelas diawali huruf kapital
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(requireActivity(), v, "smart_animate");
+            startActivity(intent, options.toBundle());
+
+
+        });
+
+        btnDetail.setOnClickListener(v -> {
+            Intent intent = new Intent(requireActivity(), PencatatanKetelusuranActivity.class); // Perbaikan: Nama kelas diawali huruf kapital
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(requireActivity(), v, "dissolve_ease_out");
             startActivity(intent, options.toBundle());
 
 
