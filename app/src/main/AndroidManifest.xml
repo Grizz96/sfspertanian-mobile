@@ -19,12 +19,8 @@
 
         <!-- Other activities -->
         <activity
-            android:name=".GetStartedMainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:name=".GetStartedMainActivity">
+
         </activity>
         <activity
             android:name=".GetStarted2Activity" />
@@ -40,6 +36,17 @@
             android:name=".login_email" />
         <activity
             android:name=".pesanActivity" />
+        <activity
+            android:name=".RatingActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+
+        </activity>
+
 
 
         <activity
