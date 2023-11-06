@@ -118,6 +118,7 @@
                             android:layout_marginTop="38dp"
                             android:textSize="8sp"/>
                         <ImageButton
+                            android:id="@+id/detailLokasi1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="147dp"
