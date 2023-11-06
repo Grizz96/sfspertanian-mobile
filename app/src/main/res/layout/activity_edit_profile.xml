@@ -1,12 +1,223 @@
+
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="EDIT PROFILE"
-        android:textSize="34sp"/>
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/logo_pesan_foreground" />
+
+        <RelativeLayout
+            android:layout_width="255dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <ImageView
+                android:layout_width="88dp"
+                android:layout_height="46dp"
+                android:background="@drawable/logo_ud_tani_rejo" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="75dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="UD. Tani Rejo"
+                android:textColor="@color/button_green"
+                android:textSize="24dp" />
+        </RelativeLayout>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="35dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/logo_ringtone_foreground" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation ="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF">
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="EDIT PROFIL"
+                        android:textColor="#000000"
+                        android:textSize="30sp">
+                    </TextView>
+
+                    <RelativeLayout
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="65dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ubah Foto Profil"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginBottom="250sp"
+                            android:fontFamily="@font/inter_bold"
+                            android:textColor="#000000"
+                            android:textSize="20sp"/>
+
+
+                        <ImageView
+                            android:id="@+id/imageView7"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:layout_centerHorizontal="true"
+                            app:srcCompat="@drawable/user_2"/>
+                    </RelativeLayout>
+                    </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="250dp"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/TextNik"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:paddingLeft="5dp"
+                        android:background="@drawable/inputbox_background"
+                        android:drawablePadding="100dp"
+                        android:hint="NIK"/>
+                    <RelativeLayout
+                        android:id="@+id/nama"
+                        android:layout_marginTop="15dp"
+                        android:layout_below="@+id/TextNik"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp">
+                        <EditText
+                            android:id="@+id/TextNama1"
+                            android:layout_width="140dp"
+                            android:layout_height="40dp"
+                            android:paddingLeft="5dp"
+                            android:background="@drawable/inputbox_background"
+                            android:layout_alignParentLeft="true"
+                            android:hint="Nama Depan"
+                            android:textSize="15sp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textColor="#000000"/>
+
+                        <EditText
+                            android:id="@+id/TextNama2"
+                            android:layout_width="140dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginLeft="140dp"
+                            android:layout_marginBottom="100dp"
+                            android:background="@drawable/inputbox_background"
+                            android:drawablePadding="120dp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:hint="Nama Belakang"
+                            android:paddingLeft="5dp"
+                            android:textSize="15sp"
+                            android:textColor="#000000" />
+                    </RelativeLayout>
+                    <EditText
+                        android:layout_below="@+id/nama"
+                        android:id="@+id/TextEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:paddingLeft="10dp"
+                        android:background="@drawable/inputbox_background"
+                        android:drawablePadding="50dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="15dp"
+                        android:hint="Email"
+                        android:orientation="horizontal"/>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/TextEmail">
+
+                        <TextView
+                            android:id="@+id/VerifikasiEmail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="25dp"
+                            android:layout_marginRight="0dp"
+                            android:text="Verifikasi Email"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textColor="#000000"/>
+
+                        <EditText
+                            android:layout_width="130dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginBottom="100dp"
+                            android:background="@drawable/inputbox_background"
+                            android:drawablePadding="120dp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:hint="Verifikasi Email"
+                            android:paddingLeft="10dp"
+                            android:layout_marginRight="60dp"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="12sp"
+                            android:layout_marginTop="15dp"
+                            android:textColor="#000000">
+                        </EditText>
+                        <Button
+                            android:layout_width="50dp"
+                            android:layout_height="40dp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/inputbox_background"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textColor="#000000"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="15dp"
+                            android:hint="Kirim"/>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/nomortelepon"
+                            android:layout_marginTop="15dp"
+
+
+
+
+
+                    </RelativeLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+    </RelativeLayout>
 </RelativeLayout>

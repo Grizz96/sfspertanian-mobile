@@ -20,11 +20,8 @@
         <!-- Other activities -->
         <activity
             android:name=".GetStartedMainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            >
+
         </activity>
         <activity
             android:name=".GetStarted2Activity" />
@@ -43,11 +40,20 @@
 
 
         <activity
-            android:name=".MainActivity">
-
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
+        <activity android:name=".PilihBibitActivity"/>
+
         <activity android:name=".RegisterIsiData1Activity"/>
+        <activity android:name=".PencatatanKetelusuranActivity">
+
+        </activity>
 
 
         <meta-data

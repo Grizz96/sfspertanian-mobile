@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/unsplash_pilihbibit">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pilih Varietas Padi"
+            android:layout_centerVertical="true"
+            android:textSize="20sp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/black"
+            android:layout_marginLeft="15dp"
+            android:layout_alignParentLeft="true"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/filter"
+        android:layout_marginHorizontal="30dp"
+        android:layout_below="@+id/header"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <RelativeLayout
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="30dp"
+                android:layout_width="58dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_kategori_pilih_bibit"/>
+                <TextView
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kategori"
+                    android:fontFamily="@font/inter_regular"
+                    android:textColor="@color/text_grey"
+                    android:textSize="10sp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="30dp"
+                android:layout_width="58dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_terbaru_pilih_bibit"/>
+                <TextView
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Terbaru"
+                    android:fontFamily="@font/inter_regular"
+                    android:textColor="@color/text_grey"
+                    android:textSize="10sp"/>
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_below="@+id/filter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="30dp">
+        <HorizontalScrollView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="165dp"
+            android:id="@+id/horizontalScrollViewGlobal">
+            <androidx.cardview.widget.CardView
+                android:layout_width="133dp"
+                android:layout_height="155dp">
+                <ImageView
+                    android:layout_width="153dp"
+                    android:layout_height="92dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/padi_1"
+                    android:id="@+id/gridImageGlobal"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="90dp"
+                    android:text="PADI PERA"
+                    android:textSize="16dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="110dp"
+                    android:text="Tekstur nasi sedikit keras"
+                    android:textSize="10dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:textColor="@color/black"/>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/detail_bibit_semua"
+                    android:layout_marginTop="130dp"
+                    android:layout_marginLeft="8dp"/>
+
+
+            </androidx.cardview.widget.CardView>
+
+        </HorizontalScrollView>
+    </RelativeLayout>
+
+</RelativeLayout>

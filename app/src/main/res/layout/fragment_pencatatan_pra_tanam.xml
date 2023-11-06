@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".PencatatanKetelusuranActivity">
+    <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:id="@+id/card_pilih_padi"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:background="@drawable/bg_list_catatan">
+
+        <RelativeLayout
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginHorizontal="30dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/logo_growth" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="Anda Belum Memilih Varietas Padi"
+                    android:textColor="#002140"
+                    android:textSize="12sp" />
+
+                <RelativeLayout
+                    android:layout_width="119dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/bg_tambahkan">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:text="Tambahkan"
+                        android:textColor="#136047" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/logo_add_foreground" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_marginVertical="5dp"
+        android:id="@+id/title_persemaian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Semai"
+        android:layout_below="@+id/card_pilih_padi"
+        android:fontFamily="@font/poppins"/>
+    <RelativeLayout
+        android:id="@+id/card_persemaian"
+        android:layout_below="@+id/title_persemaian"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:background="@drawable/bg_list_catatan">
+        <RelativeLayout
+            android:layout_centerInParent="true"
+            android:layout_marginHorizontal="30dp"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/logo_agriculture"/>
+            <RelativeLayout
+                android:layout_marginLeft="80dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:textColor="#002140"
+                    android:textSize="12sp"
+                    android:text="Anda Belum Menambahkan Informasi Persemaian"/>
+                <RelativeLayout
+                    android:layout_marginTop="45dp"
+                    android:layout_width="119dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_tambahkan">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tambahkan"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="#136047"/>
+                    <ImageView
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/logo_add_foreground"/>
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_marginVertical="5dp"
+        android:id="@+id/title_quality_control"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quality Control"
+        android:layout_below="@+id/card_persemaian"
+        android:fontFamily="@font/poppins"/>
+    <RelativeLayout
+        android:id="@+id/quality_control"
+        android:layout_below="@+id/title_quality_control"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:background="@drawable/bg_list_catatan">
+        <RelativeLayout
+            android:layout_centerInParent="true"
+            android:layout_marginHorizontal="30dp"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/logo_quality_control"/>
+            <RelativeLayout
+                android:layout_marginLeft="80dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:textColor="#002140"
+                    android:textSize="12sp"
+                    android:text="Quality Control Bibit"/>
+                <RelativeLayout
+                    android:layout_marginTop="45dp"
+                    android:layout_width="119dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_tambahkan">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lihat Informasi"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="#136047"/>
+
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

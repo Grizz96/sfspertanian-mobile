@@ -9,6 +9,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <RelativeLayout
+
                 android:id="@+id/header"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
@@ -303,6 +304,7 @@
                             android:layout_width="324dp"
                             android:layout_height="35dp"
                             android:layout_marginLeft="15dp"
+                            app:tabTextAppearance="@style/TabTextStyle"
                             >
                             <com.google.android.material.tabs.TabItem
                                 android:layout_width="match_parent"
