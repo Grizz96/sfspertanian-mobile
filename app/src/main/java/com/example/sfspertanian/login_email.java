@@ -1,5 +1,4 @@
 package com.example.sfspertanian;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -53,7 +54,7 @@ public class login_email extends AppCompatActivity {
                                 Toast.makeText(login_email.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(login_email.this, MainActivity.class));
                             } else {
-                                Toast.makeText(login_email.this, "Login Gagal Cuy", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(login_email.this, "Password atau Email anda tidak sesuai", Toast.LENGTH_SHORT).show();
                             }
                         }
                     }, new Response.ErrorListener() {

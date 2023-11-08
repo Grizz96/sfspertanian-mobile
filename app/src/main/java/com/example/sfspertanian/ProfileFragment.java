@@ -6,13 +6,17 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 
 import androidx.fragment.app.Fragment;
 
 public class ProfileFragment extends Fragment {
     ImageButton btnPesan;
+    RelativeLayout btnSignOut;
 
+    Button btnEditProfile;
     public ProfileFragment(){
         // require a empty public constructor
     }
@@ -25,6 +29,8 @@ public class ProfileFragment extends Fragment {
 
         // Perbaikan: Menginisialisasi btnPesan dengan ID dari layout
         btnPesan = view.findViewById(R.id.btnPesan);
+        btnEditProfile = view.findViewById(R.id.btnEditProfil);
+        btnSignOut = view.findViewById(R.id.btnKeluar);
 
         btnPesan.setOnClickListener(v -> {
             Intent intent = new Intent(requireActivity(), pesanActivity.class); // Perbaikan: Nama kelas diawali huruf kapital
@@ -32,6 +38,18 @@ public class ProfileFragment extends Fragment {
             startActivity(intent, options.toBundle());
 
         });
+        btnEditProfile.setOnClickListener(v->{
+            Intent intent = new Intent(requireActivity(),EditProfilActivity.class);
+            startActivity(intent);
+        });
+        btnSignOut.setOnClickListener(v -> {
+            Intent intent = new Intent(requireActivity(), GetStartedMainActivity.class); // Perbaikan: Nama kelas diawali huruf kapital
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(requireActivity(), v, "smart_animate");
+            startActivity(intent, options.toBundle());
+
+        });
+
+
 
         return view;
     }

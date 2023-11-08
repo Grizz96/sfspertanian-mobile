@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -245,7 +244,6 @@
                                 android:id="@+id/alamat"
                                 android:layout_width="match_parent"
                                 android:layout_height="80dp"
-                                android:layout_below="@id/nomordanttl"
                                 android:background="@drawable/inputbox_background"
                                 android:paddingLeft="10dp"
                                 android:drawablePadding="10dp"

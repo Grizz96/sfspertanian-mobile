@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 public class BerandaViewPageAdapter extends FragmentStateAdapter {
-    public BerandaViewPageAdapter(@NonNull FragmentActivity fragmentActivity) {
+    public BerandaViewPageAdapter(FragmentActivity fragmentActivity) {
         super(fragmentActivity);
     }
 
@@ -22,7 +22,6 @@ public class BerandaViewPageAdapter extends FragmentStateAdapter {
                 return new literasiPascaTanam();
             default:
                 return new literasiPraTanam();
-
         }
     }
     @Override

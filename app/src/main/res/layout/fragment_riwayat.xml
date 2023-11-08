@@ -316,17 +316,17 @@
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/search"
-            android:layout_width="260dp"
-            android:layout_marginTop="43dp"
+            android:layout_width="290dp"
+            android:layout_marginTop="45dp"
             android:layout_centerHorizontal="true"
             android:background="@drawable/bg_grey_shadow_radius"
-            android:layout_height="42dp">
+            android:layout_height="50dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cari lokasi sawah.."
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="20dp"/>
+                android:text="Cari sawah..."
+                android:layout_marginTop="11dp"
+                android:layout_marginLeft="23dp"/>
 
         </RelativeLayout>
 

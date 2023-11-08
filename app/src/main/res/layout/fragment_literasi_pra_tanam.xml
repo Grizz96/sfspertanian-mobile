@@ -9,8 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="165dp"
         android:id="@+id/horizontalScrollViewLocal">
-
-
         <androidx.cardview.widget.CardView
             android:layout_width="133dp"
             android:layout_height="155dp"
@@ -40,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:text="20 Agustus 2023"
                 android:fontFamily="@font/poppins"
-                    android:textColor="@color/title_fragment"
+                android:textColor="@color/title_fragment"
                 android:lineSpacingMultiplier="0.8"
                 android:textSize="8sp"/>
         </androidx.cardview.widget.CardView>
@@ -101,7 +99,6 @@
         </androidx.cardview.widget.CardView>
 
     </HorizontalScrollView>
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

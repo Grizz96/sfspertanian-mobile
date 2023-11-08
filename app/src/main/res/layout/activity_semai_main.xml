@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <RelativeLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true">
+            <ImageButton
+                android:id="@+id/backToHalamanBefore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/arrow_left_back_foreground"
+                android:layout_marginTop="28dp"/>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:text="Semai"
+                    android:textColor="@color/black"
+                    android:textSize="24dp" />
+            </RelativeLayout>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/logo_ringtone_foreground"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="35dp"
+                android:layout_marginRight="15dp"
+                />
+
+        </RelativeLayout>
+        <LinearLayout
+            android:id="@+id/navTop"
+            android:layout_centerHorizontal="true"
+            android:layout_width="232dp"
+            android:layout_below="@+id/header"
+            android:layout_height="42dp"
+            android:weightSum="2"
+            android:background="@drawable/bg_white_radius">
+            <TextView
+                android:id="@+id/tabItem1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Overview"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/green_txt_beranda"
+                android:gravity="center"
+                android:background="@drawable/bg_green_radius"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/tabItem2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Catatan"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:fontFamily="@font/poppins_semibold"
+
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+
+
+</ScrollView>

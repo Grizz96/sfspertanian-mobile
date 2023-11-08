@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true">
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/arrow_left_back_foreground"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="26dp"/>
+
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/logo_ringtone_foreground"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="32dp"
+            android:layout_marginRight="15dp"
+            />
+
+    </RelativeLayout>
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_marginHorizontal="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/masa_panen"/>
+    <ScrollView
+        android:id="@+id/content"
+        android:layout_marginTop="300dp"
+        android:layout_marginHorizontal="50dp"
+        android:layout_below="@id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/titleMasaPanen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MASA PANEN"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="20sp"
+                android:layout_centerHorizontal="true"
+                android:textColor="#12121D"/>
+            <RelativeLayout
+                android:id="@+id/bgnQuest1"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/titleMasaPanen">
+                <TextView
+                    android:id="@+id/subTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Warna dan Kematangan Bulir Padi:"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textColor="#12121D"
+                    android:textSize="10sp"/>
+                <RelativeLayout
+                    android:layout_below="@+id/subTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <CheckBox
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/checkBox1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:onClick="onCheckBoxClicked"
+                        android:textSize="11sp"
+                        android:text="Bulir padi telah berubah warna menjadi kuning keemasan." />
+                    <CheckBox
+                        android:id="@+id/checkBox2"
+                        android:layout_below="@+id/checkBox1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:onClick="onCheckBoxClicked"
+                        android:textSize="11sp"
+                        android:text="Bulir padi terasa keras ketika dipencet, bukan lembek." />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/bgnQuest2"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bgnQuest1">
+                <TextView
+                    android:id="@+id/subTitle2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kondisi Tanaman Padi:"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textColor="#12121D"
+                    android:textSize="10sp"/>
+                <RelativeLayout
+                    android:layout_below="@+id/subTitle2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <CheckBox
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/checkBox3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:onClick="onCheckBoxClicked"
+                        android:textSize="11sp"
+                        android:text="Bagian atas tanaman padi (malai) telah mulai menguning dan mengering." />
+                    <CheckBox
+                        android:id="@+id/checkBox4"
+                        android:layout_below="@+id/checkBox3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:onClick="onCheckBoxClicked"
+                        android:textSize="11sp"
+                        android:text="Bulir padi telah berubah warna menjadi kuning keemasan." />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+    <RelativeLayout
+        android:layout_marginBottom="20dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <LinearLayout
+            android:weightSum="4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_marginHorizontal="5dp"
+                android:layout_weight="3"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/inputbox_background"
+                android:drawablePadding="30dp"
+                android:drawableStart="@drawable/logo_padi"
+                android:hint="Jumlah Panen"
+                android:textSize="13dp"/>
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="/Kwn"/>
+
+        </LinearLayout>
+        <Button
+            android:layout_alignParentBottom="true"
+            android:id="@+id/btnPanen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/green_radius_button"
+            android:text="PANEN SEKARANG"
+            android:textColor="@color/white"
+            android:fontFamily="@font/inter_regular"
+            android:textSize="11sp"/>
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

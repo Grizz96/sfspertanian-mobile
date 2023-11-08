@@ -1,12 +1,11 @@
 package com.example.sfspertanian;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
 
 public class literasiPraTanam extends Fragment {
     @Override
@@ -15,4 +14,5 @@ public class literasiPraTanam extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_literasi_pra_tanam, container, false);
     }
+
 }

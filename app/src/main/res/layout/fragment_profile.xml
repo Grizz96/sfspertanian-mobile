@@ -70,7 +70,7 @@
                     android:background="#FFFFFF">
 
                     <Button
-                        android:id="@+id/button9"
+                        android:id="@+id/btnEditProfil"
                         android:layout_width="330dp"
                         android:layout_height="32dp"
                         android:layout_marginTop="175dp"
@@ -224,6 +224,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/btnKeluar"
                         android:layout_width="410dp"
                         android:layout_height="79dp"
                         android:layout_marginTop="160dp">
