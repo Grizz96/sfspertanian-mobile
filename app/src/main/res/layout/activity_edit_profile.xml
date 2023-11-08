@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -195,12 +196,13 @@
                             android:textColor="#000000">
                         </EditText>
                         <Button
-                            android:layout_width="50dp"
+                            android:layout_width="55dp"
                             android:layout_height="40dp"
                             android:layout_centerHorizontal="true"
                             android:background="@drawable/inputbox_background"
                             android:fontFamily="@font/poppins_medium"
                             android:textColor="#000000"
+                            android:backgroundTint="@color/button_green"
                             android:layout_alignParentRight="true"
                             android:layout_marginTop="15dp"
                             android:hint="Kirim"/>
@@ -208,13 +210,77 @@
                         <RelativeLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/nomortelepon"
-                            android:layout_marginTop="15dp"/>
+                            android:id="@+id/nomordanttl"
+                            android:layout_marginTop="70dp">
+
+                            <EditText
+                                android:id="@+id/nomortelepon"
+                                android:layout_width="140dp"
+                                android:layout_height="40dp"
+                                android:paddingLeft="5dp"
+                                android:layout_alignParentLeft="true"
+                                android:background="@drawable/inputbox_background"
+                                android:hint="Nomor Telepon"
+                                android:layout_centerHorizontal="true"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/poppins_medium"
+                                android:textColor="#000000"/>
+
+                            <EditText
+                                android:id="@+id/tanggallahir"
+                                android:layout_width="140dp"
+                                android:layout_height="40dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="140dp"
+                                android:layout_marginBottom="100dp"
+                                android:background="@drawable/inputbox_background"
+                                android:drawablePadding="120dp"
+                                android:fontFamily="@font/poppins_medium"
+                                android:hint="TanggalLahir"
+                                android:paddingLeft="10dp"
+                                android:textSize="15sp"
+                                android:textColor="#000000"/>
+
+                            <EditText
+                                android:id="@+id/alamat"
+                                android:layout_width="match_parent"
+                                android:layout_height="80dp"
+                                android:layout_below="@id/nomordanttl"
+                                android:background="@drawable/inputbox_background"
+                                android:paddingLeft="10dp"
+                                android:drawablePadding="10dp"
+                                android:layout_centerVertical="true"
+                                android:fontFamily="@font/poppins_medium"
+                                android:textSize="15sp"
+                                android:layout_alignParentTop="true"
+                                android:hint="Alamat Lengkap"
+                                android:orientation="horizontal"/>
+
+                            <Button
+                                android:id="@+id/btnsimpan"
+                                android:layout_width="200dp"
+                                android:layout_height="50dp"
+                                android:layout_centerHorizontal="true"
+                                android:hint="Simpan"
+                                android:fontFamily="@font/poppins_bold"
+                                android:textColor="#FFFFFF"
+                                android:background="@drawable/corner_button_shadow"
+                                android:layout_marginTop="100dp"/>
+                            <Button
+                                android:id="@+id/btnbatal"
+                                android:layout_width="200dp"
+                                android:layout_height="50dp"
+                                android:layout_centerHorizontal="true"
+                                android:hint="Batal"
+                                android:fontFamily="@font/poppins_bold"
+                                android:textColor="#FFFFFF"
+                                android:backgroundTint="#FE0000"
+                                android:background="@drawable/rounded_corner_button"
+                                android:layout_marginTop="170dp"/>
 
 
 
-
-
+                        </RelativeLayout>
                     </RelativeLayout>
                 </RelativeLayout>
             </RelativeLayout>
