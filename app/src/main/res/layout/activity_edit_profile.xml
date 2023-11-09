@@ -272,8 +272,7 @@
                                 android:hint="Batal"
                                 android:fontFamily="@font/poppins_bold"
                                 android:textColor="#FFFFFF"
-                                android:backgroundTint="#FE0000"
-                                android:background="@drawable/rounded_corner_button"
+                                android:background="@drawable/bg_grey_shadow_radius"
                                 android:layout_marginTop="170dp"/>
 
 
