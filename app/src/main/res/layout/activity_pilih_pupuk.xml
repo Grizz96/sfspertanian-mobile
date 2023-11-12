@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/unsplash_pilihbibit">
+        <ImageButton
+            android:id="@+id/btnBackBefore"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_back_with_bg"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pilih Pupuk"
+            android:layout_centerVertical="true"
+            android:textSize="20sp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/black"
+            android:layout_marginLeft="15dp"
+            android:layout_alignParentLeft="true"/>
+        <Button
+            android:layout_width="140dp"
+            android:layout_height="42dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentRight="true"
+            android:hint="Buat Kombinasi"
+            android:background="@drawable/bg_grey_shadow_radius"
+            android:layout_marginTop="35dp"
+            android:drawableStart="@drawable/logo_add_foreground"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/filter"
+        android:layout_marginHorizontal="20dp"
+        android:layout_below="@+id/header"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <RelativeLayout
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="30dp"
+                android:layout_width="58dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_kategori_pilih_bibit"/>
+                <TextView
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kategori"
+                    android:fontFamily="@font/inter_regular"
+                    android:textColor="@color/text_grey"
+                    android:textSize="10sp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="30dp"
+                android:layout_width="58dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_terbaru_pilih_bibit"/>
+                <TextView
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Terbaru"
+                    android:fontFamily="@font/inter_regular"
+                    android:textColor="@color/text_grey"
+                    android:textSize="10sp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="58dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Berikan Aku Rekomendasi"
+                android:textSize="10sp"/>
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_below="@+id/filter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp">
+        <ScrollView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/horizontalScrollViewGlobal">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:layout_alignParentLeft="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <RelativeLayout
+                            android:id="@+id/card1"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:background="@drawable/card_bg_radius">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="92dp"
+                                android:background="@drawable/padi_1"
+                                android:scaleType="centerCrop" />
+                            <RelativeLayout
+                                android:layout_width="130dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="85dp"
+                                android:layout_marginHorizontal="5dp"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Pupuk NPK"
+                                    android:textSize="16dp"
+                                    android:fontFamily="@font/inter_regular"
+                                    android:textColor="@color/black"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="20dp"
+                                    android:text="Peningkatan Pertumbuhan"
+                                    android:textSize="10dp"
+                                    android:fontFamily="@font/inter_regular"
+                                    android:textColor="@color/black"/>
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/detail_bibit_semua"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginBottom="15dp"
+                                android:layout_marginLeft="7dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:text="Detail Pupuk"
+                                    android:textColor="#D9D9D9"
+                                    android:textSize="10sp" />
+                            </RelativeLayout>
+
+
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_below="@+id/card1"
+                            android:id="@+id/card3"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:background="@drawable/card_bg_radius">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="92dp"
+                                android:background="@drawable/padi_1"
+                                android:scaleType="centerCrop" />
+                            <RelativeLayout
+                                android:layout_width="130dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="85dp"
+                                android:layout_marginHorizontal="5dp"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Pupuk Kandang"
+                                    android:textSize="16dp"
+                                    android:fontFamily="@font/inter_regular"
+                                    android:textColor="@color/black"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="20dp"
+                                    android:text="Menyuburkan Tanaman"
+                                    android:textSize="10dp"
+                                    android:fontFamily="@font/inter_regular"
+                                    android:textColor="@color/black"/>
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/detail_bibit_semua"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginBottom="15dp"
+                                android:layout_marginLeft="7dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:text="Detail Pupuk"
+                                    android:textColor="#D9D9D9"
+                                    android:textSize="10sp" />
+                            </RelativeLayout>
+
+
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_below="@+id/card3"
+                            android:id="@+id/card5"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:background="@drawable/card_bg_radius">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="92dp"
+                                android:background="@drawable/padi_1"
+                                android:scaleType="centerCrop" />
+                            <RelativeLayout
+                                android:layout_width="130dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="85dp"
+                                android:layout_marginHorizontal="5dp"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Pupuk KCI"
+                                    android:textSize="16dp"
+                                    android:fontFamily="@font/inter_regular"
+                                    android:textColor="@color/black"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="20dp"
+                                    android:text="Memasuk Unsur Kalium"
+                                    android:textSize="10dp"
+                                    android:fontFamily="@font/inter_regular"
+                                    android:textColor="@color/black"/>
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/detail_bibit_semua"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginBottom="15dp"
+                                android:layout_marginLeft="7dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:text="Detail Pupuk"
+                                    android:textColor="#D9D9D9"
+                                    android:textSize="10sp" />
+                            </RelativeLayout>
+
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <RelativeLayout
+                            android:id="@+id/card2"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:background="@drawable/card_bg_radius">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="92dp"
+                                android:background="@drawable/padi_1"
+                                android:scaleType="centerCrop" />
+                            <RelativeLayout
+                                android:layout_width="130dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="85dp"
+                                android:layout_marginHorizontal="5dp"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Pupuk Daun"
+                                    android:textSize="16dp"
+                                    android:fontFamily="@font/inter_regular"
+                                    android:textColor="@color/black"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="20dp"
+                                    android:text="Menangani Efisiensi"
+                                    android:textSize="10dp"
+                                    android:fontFamily="@font/inter_regular"
+                                    android:textColor="@color/black"/>
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/detail_bibit_semua"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginBottom="15dp"
+                                android:layout_marginLeft="7dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:text="Detail Pupuk"
+                                    android:textColor="#D9D9D9"
+                                    android:textSize="10sp" />
+                            </RelativeLayout>
+
+
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_marginTop="5dp"
+                            android:id="@+id/card4"
+                            android:layout_below="@id/card2"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:background="@drawable/card_bg_radius">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="92dp"
+                                android:background="@drawable/padi_1"
+                                android:scaleType="centerCrop" />
+                            <RelativeLayout
+                                android:layout_width="130dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="85dp"
+                                android:layout_marginHorizontal="5dp"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Pupuk Serasah"
+                                    android:textSize="16dp"
+                                    android:fontFamily="@font/inter_regular"
+                                    android:textColor="@color/black"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="20dp"
+                                    android:text="Tekstur nasi sedikit keras"
+                                    android:textSize="10dp"
+                                    android:fontFamily="@font/inter_regular"
+                                    android:textColor="@color/black"/>
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/detail_bibit_semua"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginBottom="15dp"
+                                android:layout_marginLeft="7dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:text="Detail Pupuk"
+                                    android:textColor="#D9D9D9"
+                                    android:textSize="10sp" />
+                            </RelativeLayout>
+
+
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_marginTop="5dp"
+                            android:id="@+id/card6"
+                            android:layout_below="@id/card4"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:background="@drawable/card_bg_radius">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="92dp"
+                                android:background="@drawable/padi_1"
+                                android:scaleType="centerCrop" />
+                            <RelativeLayout
+                                android:layout_width="130dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="85dp"
+                                android:layout_marginHorizontal="5dp"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Pupuk SP-36"
+                                    android:textSize="16dp"
+                                    android:fontFamily="@font/inter_regular"
+                                    android:textColor="@color/black"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="20dp"
+                                    android:text="Penambah Unsur Hara Fosfor"
+                                    android:textSize="10dp"
+                                    android:fontFamily="@font/inter_regular"
+                                    android:textColor="@color/black"/>
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:id="@+id/btnDetailBibit2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/detail_bibit_semua"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginBottom="15dp"
+                                android:layout_marginLeft="7dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:text="Detail Pupuk"
+                                    android:textColor="#D9D9D9"
+                                    android:textSize="10sp" />
+                            </RelativeLayout>
+
+
+                        </RelativeLayout>
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+
+
+        </ScrollView>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/search"
+        android:layout_width="290dp"
+        android:layout_marginTop="195dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bg_grey_shadow_radius"
+        android:layout_height="50dp">
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Cari pupuk pilihan anda..."
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="15sp"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="23dp"
+            android:drawableStart="@drawable/search"
+            android:drawableTint="#000000"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
