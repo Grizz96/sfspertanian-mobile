@@ -4,17 +4,377 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FragmentOverviewSemai">
-
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="404dp"
-            android:background="@drawable/semai_bg">
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:id="@+id/content1"
+                android:layout_width="match_parent"
+                android:layout_height="404dp"
+                android:background="@drawable/semai_bg">
 
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_centerHorizontal="true"
+                android:layout_width="315dp"
+                android:layout_height="88dp"
+                android:layout_marginTop="175dp"
+                android:background="@drawable/bg_cuaca">
+                <pl.droidsonroids.gif.GifImageView
+                    android:layout_width="81dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/logo_rainy"/>
+                <RelativeLayout
+                    android:layout_width="210dp"
+                    android:layout_height="70dp"
+                    android:layout_alignParentRight="true"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Waspada!! Hujan Lebat"
+                        android:fontFamily="@font/inter_bold"
+                        android:textSize="16sp"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/green_txt_beranda"/>
+
+                    <TextView
+                        android:layout_marginTop="30dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Silahkan berteduh jangan keluar hingga reda"
+                        android:fontFamily="@font/inter_bold"
+                        android:textSize="11sp"
+                        android:textColor="@color/green_txt_beranda"/>
+                    <TextView
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Desa Jenggawah"
+                        android:fontFamily="@font/inter_bold"
+                        android:textSize="11sp"
+                        android:textColor="@color/green_txt_beranda"/>
+                </RelativeLayout>
+
+
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_marginTop="30dp"
+                android:layout_below="@+id/content1"
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="30dp"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="Semai Anda"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"/>
+                <RelativeLayout
+                    android:id="@+id/content2"
+                    android:layout_below="@id/title"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="315dp"
+                    android:layout_height="88dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_cuaca">
+                    <RelativeLayout
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/card_bg_radius"
+                        android:layout_width="81dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_height="78dp">
+
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="210dp"
+                        android:layout_height="70dp"
+                        android:layout_alignParentRight="true">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Padi Pera"
+                            android:fontFamily="@font/inter_bold"
+                            android:textSize="16sp"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/white"/>
+
+                        <TextView
+                            android:layout_marginTop="30dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="12 Minggu yang lalu"
+                            android:fontFamily="@font/inter_bold"
+                            android:textSize="11sp"
+                            android:textColor="@color/green_txt_beranda"/>
+                        <RelativeLayout
+                            android:layout_marginTop="23dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/logo_info"/>
+
+                    </RelativeLayout>
+
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/groupInfo"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/content2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+
+                        android:layout_centerHorizontal="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <RelativeLayout
+                            android:id="@+id/Info1"
+                            android:layout_alignParentLeft="true"
+                            android:layout_width="84dp"
+                            android:background="@drawable/bg_list_catatan"
+                            android:layout_height="87dp">
+
+                            <ImageView
+                                android:layout_marginTop="2dp"
+                                android:id="@+id/imgInfo1"
+                                android:layout_centerHorizontal="true"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/plan"/>
+
+                            <TextView
+                                android:id="@+id/txtInfo1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/imgInfo1"
+                                android:layout_centerInParent="true"
+                                android:layout_marginTop="6dp"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="JENIS TANAH"
+                                android:textColor="#013220"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/txtInfo1"
+                                android:layout_centerInParent="true"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Tenis Gembur"
+                                android:textColor="#0D986A"
+                                android:textSize="10sp" />
+
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:id="@+id/Info2"
+                            android:layout_marginHorizontal="15dp"
+                            android:layout_toRightOf="@+id/Info1"
+                            android:layout_width="84dp"
+                            android:background="@drawable/bg_list_catatan"
+                            android:layout_height="87dp">
+                            <ImageView
+                                android:layout_marginTop="8dp"
+                                android:id="@+id/imgInfo2"
+                                android:layout_centerHorizontal="true"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/logo_panen"/>
+
+                            <TextView
+                                android:id="@+id/txtInfo2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/imgInfo2"
+                                android:layout_centerInParent="true"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="PANEN"
+                                android:textColor="#013220"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/txtInfo2"
+                                android:layout_centerInParent="true"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="3-5 Bulan"
+                                android:textColor="#0D986A"
+                                android:textSize="10sp" />
+
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:id="@+id/Info3"
+                            android:layout_toRightOf="@+id/Info2"
+                            android:layout_width="84dp"
+                            android:background="@drawable/bg_list_catatan"
+                            android:layout_height="87dp">
+                            <ImageView
+                                android:layout_marginTop="5dp"
+                                android:id="@+id/imgInfo3"
+                                android:layout_centerHorizontal="true"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/logo_weather"/>
+
+                            <TextView
+                                android:id="@+id/txtInfo3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/imgInfo3"
+                                android:layout_centerInParent="true"
+                                android:layout_marginTop="3dp"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="CUACA"
+                                android:textColor="#013220"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/txtInfo3"
+                                android:layout_centerInParent="true"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Hujan Sedang"
+                                android:textColor="#0D986A"
+                                android:textSize="10sp" />
+
+                        </RelativeLayout>
+
+
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@id/groupInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_marginLeft="20dp"
+                        android:id="@+id/title2"
+                        android:textSize="18sp"
+                        android:textColor="@color/title_literasi_beranda"
+                        android:fontFamily="@font/poppins_bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Panduan Semai"/>
+                    <HorizontalScrollView
+                        android:layout_below="@id/title2"
+                        android:layout_width="match_parent"
+                        android:layout_height="165dp"
+                        android:id="@+id/horizontalScrollViewLocal">
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="133dp"
+                            android:layout_height="155dp">
+                            <ImageView
+                                android:layout_width="133dp"
+                                android:layout_height="92dp"
+                                android:scaleType="centerCrop"
+                                android:id="@+id/gridImageLocal"/>
+                            <TextView
+                                android:layout_marginTop="95dp"
+                                android:layout_width="133dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_height="wrap_content"
+                                android:text="Pemupukan yang Tepat &amp; Berimbang untuk Tanaman Padi"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:textColor="@color/black"
+                                android:lineSpacingMultiplier="0.8"
+                                android:textSize="10sp"/>
+                            <TextView
+                                android:layout_marginTop="140dp"
+                                android:layout_width="133dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_height="wrap_content"
+                                android:text="20 Agustus 2023"
+                                android:fontFamily="@font/poppins"
+                                android:textColor="@color/title_fragment"
+                                android:lineSpacingMultiplier="0.8"
+                                android:textSize="8sp"/>
+                        </androidx.cardview.widget.CardView>
+
+                    </HorizontalScrollView>
+
+                    <TextView
+                        android:id="@+id/txtArtikelVideoLain"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/horizontalScrollViewLocal"
+                        android:text="Artikel dan Video Lainnya"
+                        android:layout_marginLeft="20dp"
+                        android:textSize="18sp"
+                        android:textColor="@color/title_literasi_beranda"
+                        android:fontFamily="@font/poppins_bold"/>
+
+                    <HorizontalScrollView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="165dp"
+                        android:layout_below="@+id/txtArtikelVideoLain"
+                        android:id="@+id/horizontalScrollViewGlobal">
+
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="133dp"
+                            android:layout_height="155dp">
+                            <ImageView
+                                android:layout_width="133dp"
+                                android:layout_height="92dp"
+                                android:scaleType="centerCrop"
+                                android:id="@+id/gridImageGlobal"/>
+                            <TextView
+                                android:layout_marginTop="95dp"
+                                android:layout_width="133dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_height="wrap_content"
+                                android:text="Pemupukan yang Tepat &amp; Berimbang untuk Tanaman Padi"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:textColor="@color/black"
+                                android:lineSpacingMultiplier="0.8"
+                                android:textSize="10sp"/>
+                            <TextView
+                                android:layout_marginTop="140dp"
+                                android:layout_width="133dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_height="wrap_content"
+                                android:text="20 Agustus 2023"
+                                android:fontFamily="@font/poppins"
+                                android:textColor="@color/title_fragment"
+                                android:lineSpacingMultiplier="0.8"
+                                android:textSize="8sp"/>
+                        </androidx.cardview.widget.CardView>
+
+                    </HorizontalScrollView>
+
+                </RelativeLayout>
+
+
+
+            </RelativeLayout>
         </RelativeLayout>
-    </RelativeLayout>
-
+    </ScrollView>
 
 </FrameLayout>

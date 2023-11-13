@@ -54,14 +54,16 @@
             </intent-filter>
 
         </activity>
-
+        <activity android:name=".MasaPanen"/>
+        <activity android:name=".MasaPanenActivity"/>
+        <activity android:name=".BottomSheetLayout"/>
+        <activity android:name=".PilihPupukActivity"/>
+        <activity android:name=".DetailPupukActivity"/>
 
         <activity android:name=".RegisterIsiData1Activity"/>
+        <activity android:name=".RatingActivity"/>
         <activity android:name=".PencatatanKetelusuranActivity">
-
         </activity>
-
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

@@ -11,13 +11,13 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class DetailBibitActivity extends AppCompatActivity {
+public class DetailPupukActivity extends AppCompatActivity {
     ImageButton btnBack;
     Button btnPilih;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_bibit);
+        setContentView(R.layout.activity_detail_pupuk);
 
         btnBack = findViewById(R.id.backToHalamanBefore);
 

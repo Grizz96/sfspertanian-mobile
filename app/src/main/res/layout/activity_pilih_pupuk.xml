@@ -483,15 +483,13 @@
         android:background="@drawable/bg_grey_shadow_radius"
         android:layout_height="50dp">
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Cari pupuk pilihan anda..."
-            android:fontFamily="@font/poppins_medium"
-            android:textSize="15sp"
-            android:layout_marginTop="0dp"
-            android:layout_marginLeft="23dp"
-            android:drawableStart="@drawable/search"
-            android:drawableTint="#000000"/>
+            android:hint="Cari pupuk..."
+            android:fontFamily="@font/inter_regular"
+            android:textSize="12sp"
+            android:layout_marginHorizontal="23dp"
+            android:layout_centerHorizontal="true"/>
 
     </RelativeLayout>
 

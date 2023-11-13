@@ -321,12 +321,14 @@
             android:layout_centerHorizontal="true"
             android:background="@drawable/bg_grey_shadow_radius"
             android:layout_height="50dp">
-            <TextView
-                android:layout_width="wrap_content"
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cari sawah..."
-                android:layout_marginTop="11dp"
-                android:layout_marginLeft="23dp"/>
+                android:hint="Cari sawah..."
+                android:fontFamily="@font/inter_regular"
+                android:textSize="12sp"
+                android:layout_marginHorizontal="23dp"
+                android:layout_centerHorizontal="true"/>
 
         </RelativeLayout>
 

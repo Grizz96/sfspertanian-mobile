@@ -7,11 +7,8 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FragmentCatatanSemai#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class FragmentCatatanSemai extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -55,9 +52,26 @@ public class FragmentCatatanSemai extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_catatan_semai, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_catatan_semai, container, false);
+
+        FloatingActionButton addButton = view.findViewById(R.id.add);
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showBottomSheet();
+            }
+        });
+
+        return view;
     }
+
+
+    // ...
+
+    private void showBottomSheet() {
+        BottomSheetLayout bottomSheetFragment = new BottomSheetLayout();
+        bottomSheetFragment.show(requireActivity().getSupportFragmentManager(), bottomSheetFragment.getTag());
+    }
+
 }

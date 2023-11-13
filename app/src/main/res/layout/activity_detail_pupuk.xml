@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".DetailPupukActivity"
     android:layout_height="match_parent">
 
     <RelativeLayout
@@ -78,7 +80,7 @@
                     android:fontFamily="@font/poppins"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Padi Pera"/>
+                    android:text="Pupuk NPK"/>
                 <TextView
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
@@ -253,7 +255,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="10sp"
                 android:fontFamily="@font/inter_regular"
-                android:text="Padi pera adalah salah satu varietas padi yang memiliki karakteristik khusus, dan ini telah menjadikannya pilihan yang menarik dalam budidaya padi di berbagai wilayah. Dengan butiran yang besar dan rasa yang enak, varietas ini berkontribusi pada produksi nasi berkualitas tinggi yang banyak digunakan dalam berbagai hidangan."/>
+                android:text="Pupuk NPK adalah salah satu varietas padi yang memiliki karakteristik khusus, dan ini telah menjadikannya pilihan yang menarik dalam budidaya padi di berbagai wilayah. Dengan butiran yang besar dan rasa yang enak, varietas ini berkontribusi pada produksi nasi berkualitas tinggi yang banyak digunakan dalam berbagai hidangan."/>
 
         </RelativeLayout>
         <RelativeLayout
@@ -272,7 +274,7 @@
                 android:fontFamily="@font/montserrat_subrayada"
                 android:textSize="20sp"
                 android:textColor="#000000"
-                android:text="FOTO BIBIT" />
+                android:text="FOTO PUPUK" />
             <HorizontalScrollView
                 android:layout_below="@id/titleFoto"
                 android:layout_width="match_parent"

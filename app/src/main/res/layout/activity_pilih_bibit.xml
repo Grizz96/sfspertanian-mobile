@@ -455,12 +455,13 @@
         android:background="@drawable/bg_grey_shadow_radius"
         android:layout_height="50dp">
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Cari bibit pilihan anda..."
-            android:layout_marginTop="11dp"
-            android:layout_marginLeft="23dp"/>
-
+            android:hint="Cari padi..."
+            android:fontFamily="@font/inter_regular"
+            android:textSize="12sp"
+            android:layout_marginHorizontal="23dp"
+            android:layout_centerHorizontal="true"/>
     </RelativeLayout>
 
 </RelativeLayout>

@@ -8,5 +8,14 @@
     <string name="facebook_application_id" translatable="false">YOUR_APP_ID</string>
     <string name="facebook_login_protocol_scheme" translatable="false">fbYOUR_APP_ID</string>
 
+    <string name="dropdown_jadwal_semai">Perlakuan Semai</string>
+    <string-array name="jadwal_semai_array">
+        <item>Pilih</item>
+        <item>Persiapan Tempat</item>
+        <item>Pemilihan Media Tanam</item>
+        <item>Penyemaian Bibit</item>
+        <item>Catatan</item>
+    </string-array>
+
 
 </resources>

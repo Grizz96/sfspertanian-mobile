@@ -4,12 +4,14 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 public class SemaiMainActivity extends AppCompatActivity {
+    private ImageButton btnBack;
     private TextView tabItem1, tabItem2;
     private int selectedTabNumber = 1;
 
@@ -30,6 +32,10 @@ public class SemaiMainActivity extends AppCompatActivity {
 
         tabItem1.setOnClickListener(v -> selectTab(1));
         tabItem2.setOnClickListener(v -> selectTab(2));
+        btnBack = findViewById(R.id.backToHalamanBefore);
+        btnBack.setOnClickListener(v->{
+            finish();
+        });
     }
 
     private void selectTab(int tabNumber) {

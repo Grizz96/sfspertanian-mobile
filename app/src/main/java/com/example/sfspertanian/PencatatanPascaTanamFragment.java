@@ -26,6 +26,10 @@ public class PencatatanPascaTanamFragment extends Fragment {
             Intent intent = new Intent(requireActivity(), MasaPanenActivity.class);
             startActivity(intent);
         });
+        cardCatatanKualitasPanen.setOnClickListener(v->{
+            Intent intent = new Intent(requireActivity(), RatingActivity.class);
+            startActivity(intent);
+        });
         return view;
 
     }
