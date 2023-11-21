@@ -86,7 +86,7 @@
                 android:textSize="20sp"
                 android:fontFamily="@font/poppins_bold"
                 android:textColor="@color/white"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="15dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -95,7 +95,7 @@
                 android:textSize="10sp"
                 android:fontFamily="@font/poppins_medium"
                 android:textColor="@color/white"
-                android:layout_marginTop="45dp"/>
+                android:layout_marginTop="50dp"/>
             </RelativeLayout>
 
         </RelativeLayout>
@@ -260,7 +260,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="10sp"
                 android:fontFamily="@font/inter_regular"
-                android:text="Jumlah Benih: 50 Benih      Media Tanam: Serbuk Kelapa"/>
+                android:text="Jumlah Benih: 50 Benih      Media Tanam: Serbuk Kelapa    Tanggal Persemaian: 15 Sept   Lokasi: Rumah Pak Bayu    Estimasi Biaya: Rp. 55000   Jumlah Panen: -"/>
 
         </RelativeLayout>
         <RelativeLayout
