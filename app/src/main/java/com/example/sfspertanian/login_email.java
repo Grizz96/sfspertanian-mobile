@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class login_email extends AppCompatActivity {
-
+    private TextView;
     private EditText etEmail, etPassword;
     private Button btnLogin;
 
@@ -33,6 +34,16 @@ public class login_email extends AppCompatActivity {
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
 
+        TextView txtRegister = findViewById(R.id.txtRegister);
+
+        txtRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Intent untuk membuka kelas RegisterEmail
+                Intent intent = new Intent(login_email.this, register_email.class);
+                startActivity(intent);
+            }
+        });
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
