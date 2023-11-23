@@ -163,6 +163,7 @@
                         android:hint="Email"
                         android:orientation="horizontal"/>
 
+
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -171,8 +172,36 @@
                         <RelativeLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/nomordanttl"
-                            android:layout_marginTop="20dp">
+                            android:id="@+id/nomordanttl">
+
+                            <EditText
+                                android:id="@+id/NomorTelepon"
+                                android:layout_width="140dp"
+                                android:layout_height="40dp"
+                                android:paddingLeft="5dp"
+                                android:background="@drawable/inputbox_background"
+                                android:layout_alignParentLeft="true"
+                                android:hint="Nomor Telepon"
+                                android:textSize="15sp"
+                                android:layout_marginTop="20dp"
+                                android:fontFamily="@font/poppins_medium"
+                                android:textColor="#000000"/>
+
+                            <EditText
+                                android:id="@+id/ttl"
+                                android:layout_width="140dp"
+                                android:layout_height="40dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="140dp"
+                                android:layout_marginBottom="100dp"
+                                android:background="@drawable/inputbox_background"
+                                android:drawablePadding="120dp"
+                                android:fontFamily="@font/poppins_medium"
+                                android:hint="Tanggal Lahir"
+                                android:paddingLeft="5dp"
+                                android:layout_marginTop="20dp"
+                                android:textSize="15sp"
+                                android:textColor="#000000" />
 
                             <EditText
                                 android:id="@+id/alamat"
@@ -185,6 +214,7 @@
                                 android:fontFamily="@font/poppins_medium"
                                 android:textSize="15sp"
                                 android:layout_alignParentTop="true"
+                                android:layout_marginTop="80dp"
                                 android:hint="Alamat Lengkap"
                                 android:orientation="horizontal"/>
 
@@ -197,7 +227,7 @@
                                 android:fontFamily="@font/poppins_bold"
                                 android:textColor="#FFFFFF"
                                 android:background="@drawable/corner_button_shadow"
-                                android:layout_marginTop="100dp"/>
+                                android:layout_marginTop="180dp"/>
                             <Button
                                 android:id="@+id/btnbatal"
                                 android:layout_width="200dp"
@@ -207,9 +237,7 @@
                                 android:fontFamily="@font/poppins_bold"
                                 android:textColor="#FFFFFF"
                                 android:background="@drawable/bg_grey_shadow_radius"
-                                android:layout_marginTop="170dp"/>
-
-
+                                android:layout_marginTop="250dp"/>
 
                         </RelativeLayout>
                     </RelativeLayout>
