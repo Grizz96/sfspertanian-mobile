@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 80vh;
+        }
+
+        #search-container {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            background-color: white;
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+<div id="search-container">
+    <input type="text" id="search-input" placeholder="Enter location">
+    <button onclick="searchLocation()">Search</button>
+</div>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+        var map = L.map('map').setView([0, 0], 2);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        map.on('contextmenu', function (e) {
+            // Handle long press event
+            var latitude = e.latlng.lat;
+            var longitude = e.latlng.lng;
+
+            // Open the form in Android activity with coordinates
+            Android.openForm(latitude, longitude);
+        });
+
+        function searchLocation() {
+            var searchText = document.getElementById('search-input').value;
+
+            // Perform a search and update the map based on the search text
+            // You can use a geocoding service, like OpenCage, to convert the search text to coordinates
+            // For simplicity, this example just logs the search text to the console
+            console.log('Search Text:', searchText);
+        }
+    </script>
+</body>
+</html>
