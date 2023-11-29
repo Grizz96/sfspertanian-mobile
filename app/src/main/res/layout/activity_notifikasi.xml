@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/arrow_left_back_foreground" />
+
+        <RelativeLayout
+            android:layout_width="255dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <ImageView
+                android:layout_width="88dp"
+                android:layout_height="46dp"
+                android:background="@drawable/logo_ud_tani_rejo" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="75dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="UD. Tani Rejo"
+                android:textColor="@color/button_green"
+                android:textSize="24dp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation ="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/navTopNotif"
+                android:layout_centerHorizontal="true"
+                android:layout_width="232dp"
+                android:layout_below="@+id/header"
+                android:layout_height="42dp"
+                android:weightSum="2"
+                android:background="@drawable/bg_white_radius">
+                <TextView
+                    android:id="@+id/tabItem1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="Terbaru"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:background="@drawable/bg_green_radius"
+                    android:layout_weight="1"/>
+                <TextView
+                    android:id="@+id/tabItem2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="Telah dibaca"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_marginTop="75dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="NOTIFIKASI"
+                    android:textColor="#000000"
+                    android:textSize="20sp">
+                </TextView>
+
+
+            <RelativeLayout
+                android:id="@+id/notif1"
+                android:layout_width="300dp"
+                android:layout_height="85dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="120dp"
+                android:background="@drawable/bg_txt_pesan">
+
+                <TextView
+                    android:id="@+id/DeksripsiNotif1"
+                    android:layout_width="175dp"
+                    android:layout_height="35dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Sudah 2 Hari Nih! Jangan Lupa, Dipantau Sawahmu"
+                    android:textColor="#616161"
+                    android:textSize="12sp"/>
+
+
+                <TextView
+                    android:id="@+id/waktunotif1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="20dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Sekarang"
+                    android:textSize="10dp"/>
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/notif2"
+                    android:layout_width="300dp"
+                    android:layout_height="85dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="325dp"
+                    android:background="@drawable/bg_txt_pesan">
+
+                    <TextView
+                        android:id="@+id/DeskripsiNotif2"
+                        android:layout_width="175dp"
+                        android:layout_height="45dp"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Selamat!, Umur Padi Kamu Sudah 1 Bulan"
+                        android:textColor="#0D986A"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:id="@+id/waktunotif2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="1 Bulan yang Lalu"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="10sp"/>
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/notif3"
+                    android:layout_width="300dp"
+                    android:layout_height="85dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="430dp"
+                    android:background="@drawable/bg_txt_pesan">
+
+                    <TextView
+                        android:id="@+id/DeksripsiNotif3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Padimu Sedang Terkena Penyakit!"
+                        android:textColor="#FF0000"
+                        android:textSize="13sp"/>
+
+                    <TextView
+                        android:id="@+id/waktunotif3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="1 Bulan yang Lalu"
+                        android:textSize="10sp"/>
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/notif4"
+                    android:layout_width="300dp"
+                    android:layout_height="85dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="535dp"
+                    android:background="@drawable/bg_txt_pesan">
+
+                    <TextView
+                        android:id="@+id/DeskripsiNotif4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Padimu Sedang Diserang oleh Hama!"
+                        android:textSize="13sp"
+                        android:textColor="#FF0000"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="3 Bulan yang lalu"
+                        android:textSize="10sp"/>
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="330dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="700dp">
+
+                    <Button
+                        android:id="@+id/btnNotifikasi"
+                        android:layout_width="330dp"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/corner_button_shadow"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Notifikasi telah dibaca semua"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/white"
+                        android:onClick="startGetStartedTransition"/>
+
+        </RelativeLayout>
+</RelativeLayout>
