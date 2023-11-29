@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class login_email extends AppCompatActivity {
-    private TextView;
+    private TextView txtRegister;
     private EditText etEmail, etPassword;
     private Button btnLogin;
 

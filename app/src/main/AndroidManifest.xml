@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,59 +16,58 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
 
+        <!--
+             TODO: Before you run your application, you need a Google Maps API key.
+
+             To get one, follow the directions here:
+
+                https://developers.google.com/maps/documentation/android-sdk/get-api-key
+
+             Once you have your API key (it starts with "AIza"), define a new property in your
+             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
+             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="YOUR_API_KEY" />
+
         <!-- Specify the MAIN activity with LAUNCHER category -->
-        <activity
-            android:name=".SplashActivity">
-        </activity>
-        <activity android:name=".PilihBibitActivity"/>
-        <activity android:name=".DetailBibitActivity"/>
-
-
-        <!-- Other activities -->
-        <activity
-            android:name=".GetStartedMainActivity"
-            >
-
-        </activity>
-        <activity
-            android:name=".GetStarted2Activity" />
-        <activity
-            android:name=".GetStarted3Activity" />
-        <activity android:name=".SemaiMainActivity"/>
-        <activity
-            android:name=".GetStarted4Activity" />
-
+        <activity android:name=".SplashActivity"></activity>
+        <activity android:name=".PilihBibitActivity"
+            android:exported="true" />
+        <activity android:name=".DetailBibitActivity" /> <!-- Other activities -->
+        <activity android:name=".GetStartedMainActivity"></activity>
+        <activity android:name=".GetStarted2Activity" />
+        <activity android:name=".MapsFragment" />
+        <activity android:name=".GetStarted3Activity" />
+        <activity android:name=".SemaiMainActivity" />
+        <activity android:name=".GetStarted4Activity" />
         <activity
             android:name=".register_email"
-            android:exported="true"/>
-
+            android:exported="true" />
         <activity
             android:name=".login_email"
-            android:exported="true"/>
+            android:exported="true" />
+        <activity android:name=".pesanActivity" />
+        <activity android:name=".EditProfilActivity" />
         <activity
-            android:name=".pesanActivity" />
-        <activity android:name=".EditProfilActivity"/>
-
-
-        <activity
-            android:exported="true"
-            android:name=".MainActivity">
+            android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-        <activity android:name=".MasaPanen"/>
-        <activity android:name=".MasaPanenActivity"/>
-        <activity android:name=".BottomSheetLayout"/>
-        <activity android:name=".PilihPupukActivity"/>
-        <activity android:name=".DetailPupukActivity"/>
+        <activity android:name=".MasaPanen" />
+        <activity android:name=".MasaPanenActivity" />
+        <activity android:name=".BottomSheetLayout" />
+        <activity android:name=".PilihPupukActivity" />
+        <activity android:name=".DetailPupukActivity" />
+        <activity android:name=".RegisterIsiData1Activity" />
+        <activity android:name=".RatingActivity" />
+        <activity android:name=".PencatatanKetelusuranActivity"></activity>
 
-        <activity android:name=".RegisterIsiData1Activity"/>
-        <activity android:name=".RatingActivity"/>
-        <activity android:name=".PencatatanKetelusuranActivity">
-        </activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

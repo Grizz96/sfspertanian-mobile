@@ -53,6 +53,7 @@
             android:layout_width="278dp"
             android:layout_height="155dp">
             <ImageView
+                android:id="@+id/gambar_main"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
         </RelativeLayout>
@@ -70,6 +71,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="42dp">
                 <TextView
+                    android:id="@+id/bibitNameTextView"
                     android:layout_centerVertical="true"
                     android:layout_alignParentLeft="true"
                     android:layout_marginTop="10dp"
@@ -78,7 +80,7 @@
                     android:fontFamily="@font/poppins"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Padi Pera"/>
+                    android:text=""/>
                 <TextView
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
@@ -88,12 +90,13 @@
                     android:text="estimasi biaya:"
                     android:textColor="#0D986A"/>
                 <TextView
+                    android:id="@+id/hargaTextView"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_semibold"
-                    android:text="55.000/kg"
+                    android:text="/kg"
                     android:textColor="#0D986A"/>
 
 
@@ -102,7 +105,7 @@
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/groupInfo"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:layout_below="@+id/title"
             android:layout_centerHorizontal="true"
             android:layout_width="match_parent"
@@ -140,6 +143,7 @@
                         android:textSize="10sp" />
 
                     <TextView
+                        android:id="@+id/jenistanahtv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/txtInfo1"
@@ -178,6 +182,7 @@
                         android:textSize="10sp" />
 
                     <TextView
+                        android:id="@+id/estimasipanentv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/txtInfo2"
@@ -215,6 +220,7 @@
                         android:textSize="10sp" />
 
                     <TextView
+                        android:id="@+id/cuacatv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/txtInfo3"
@@ -248,12 +254,13 @@
                 android:textColor="#000000"
                 android:text="DESKRIPSI" />
             <TextView
+                android:id="@+id/deskripsiTextView"
                 android:layout_below="@+id/titleDeskripsi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="10sp"
                 android:fontFamily="@font/inter_regular"
-                android:text="Padi pera adalah salah satu varietas padi yang memiliki karakteristik khusus, dan ini telah menjadikannya pilihan yang menarik dalam budidaya padi di berbagai wilayah. Dengan butiran yang besar dan rasa yang enak, varietas ini berkontribusi pada produksi nasi berkualitas tinggi yang banyak digunakan dalam berbagai hidangan."/>
+                android:text=""/>
 
         </RelativeLayout>
         <RelativeLayout

@@ -7,13 +7,17 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class PencatatanFragment extends Fragment {
 
     ImageButton btnPesan,btnDetail;
+    FloatingActionButton btnTambah;
     public PencatatanFragment(){
         // require a empty public constructor
     }
@@ -27,6 +31,16 @@ public class PencatatanFragment extends Fragment {
         // Perbaikan: Menginisialisasi btnPesan dengan ID dari layout
         btnPesan = view.findViewById(R.id.btnPesan);
         btnDetail = view.findViewById(R.id.detailLokasi1);
+        btnTambah = view.findViewById(R.id.btntambahmap);
+
+
+        btnTambah.setOnClickListener(v -> {
+            Intent intent = new Intent(requireActivity(), MapsFragment.class); // Perbaikan: Nama kelas diawali huruf kapital
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(requireActivity(), v, "smart_animate");
+            startActivity(intent, options.toBundle());
+
+
+        });
 
         btnPesan.setOnClickListener(v -> {
             Intent intent = new Intent(requireActivity(), pesanActivity.class); // Perbaikan: Nama kelas diawali huruf kapital
