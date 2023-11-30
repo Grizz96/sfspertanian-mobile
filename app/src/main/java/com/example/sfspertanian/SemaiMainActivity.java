@@ -1,106 +1,97 @@
 package com.example.sfspertanian;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
+import android.transition.Fade;
 import android.widget.ImageButton;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SemaiMainActivity extends AppCompatActivity {
     private ImageButton btnBack;
-    private TextView tabItem1, tabItem2;
-    private int selectedTabNumber = 1;
+    private RecyclerView recyclerView;
+    private adapter_card_semai adapter;
+    private List<ModelCardSemai> dataItemList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getWindow().setEnterTransition(new Fade());
+        getWindow().setExitTransition(new Fade());
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_semai_main);
 
-        tabItem1 = findViewById(R.id.tabItem1);
-        tabItem2 = findViewById(R.id.tabItem2);
+        btnBack = findViewById(R.id.backToHalamanBefore); // Assuming you have an ImageButton with this ID
+        recyclerView = findViewById(R.id.recyclesemai);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        dataItemList = new ArrayList<>();
+        adapter = new adapter_card_semai(this,dataItemList);
+        recyclerView.setAdapter(adapter);
 
-        // Default first fragment
-        FragmentOverviewSemai fragmentOverviewSemai = new FragmentOverviewSemai();
-        getSupportFragmentManager().beginTransaction()
-                .setReorderingAllowed(true)
-                .replace(R.id.fragmentContainerView, fragmentOverviewSemai)
-                .commit();
-
-        tabItem1.setOnClickListener(v -> selectTab(1));
-        tabItem2.setOnClickListener(v -> selectTab(2));
-        btnBack = findViewById(R.id.backToHalamanBefore);
-        btnBack.setOnClickListener(v->{
+        btnBack.setOnClickListener(v -> {
             finish();
         });
+
+        makeVolleyRequest();
     }
 
-    private void selectTab(int tabNumber) {
-        if (tabNumber == selectedTabNumber) {
-            return; // No need to do anything if the selected tab is already active.
-        }
+    private void makeVolleyRequest() {
+        String url = "http://192.168.0.106/sfs_pertanian/get_data_semai.php";
 
-        Fragment newFragment;
-        TextView selectedTextView, nonSelectedTextView;
+        JsonArrayRequest request = new JsonArrayRequest(
+                Request.Method.GET,
+                url,
+                null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        dataItemList.clear();
+                        for (int i = 0; i < response.length(); i++) {
+                            try {
+                                JSONObject jsonObject = response.getJSONObject(i);
+                                String titleCard = jsonObject.getString("jenis_semai");
+                                String subtitleCard = jsonObject.getString("deskripsi");
+                                String timeCard = jsonObject.getString("waktu");
+                                String dateCard = jsonObject.getString("tanggal");
 
-        if (tabNumber == 1) {
-            selectedTextView = tabItem1;
-            nonSelectedTextView = tabItem2;
-            newFragment = new FragmentOverviewSemai();
-        } else {
-            selectedTextView = tabItem2;
-            nonSelectedTextView = tabItem1;
-            newFragment = new FragmentCatatanSemai();
-        }
+                                // Create a new ModelCardSemai object
+                                ModelCardSemai dataItem = new ModelCardSemai(titleCard, subtitleCard, timeCard, dateCard);
+                                dataItemList.add(dataItem);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
 
-        getSupportFragmentManager().beginTransaction()
-                .setReorderingAllowed(true)
-                .replace(R.id.fragmentContainerView, newFragment, null)
-                .commit();
+                        adapter.notifyDataSetChanged();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(SemaiMainActivity.this, "Error loading data", Toast.LENGTH_SHORT).show();
+                    }
+                }
+        );
 
-        float slideTo = (tabNumber - selectedTabNumber) * selectedTextView.getWidth();
-        TranslateAnimation translateAnimation = new TranslateAnimation(0, slideTo, 0, 0);
-        translateAnimation.setDuration(100);
-
-        translateAnimation.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-                // Change the background of the selected Tab
-                selectedTextView.setBackgroundResource(R.drawable.bg_white_radius);
-                selectedTextView.setTextColor(Color.BLACK);
-
-                // Change the background of the previously selected tab
-                nonSelectedTextView.setBackgroundResource(R.drawable.bg_green_radius);
-                nonSelectedTextView.setTextColor(Color.BLACK);
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                // Change the background of the selected Tab
-                selectedTextView.setBackgroundResource(R.drawable.bg_green_radius);
-                selectedTextView.setTextColor(Color.BLACK);
-
-                // Change the background of the previously selected tab
-                nonSelectedTextView.setBackgroundResource(R.drawable.bg_white_radius);
-                nonSelectedTextView.setTextColor(Color.BLACK);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-            }
-        });
-
-        if (selectedTabNumber == 1) {
-            tabItem1.startAnimation(translateAnimation);
-        } else if (selectedTabNumber == 2) {
-            tabItem2.startAnimation(translateAnimation);
-        }
-
-        selectedTabNumber = tabNumber;
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(request);
     }
-
-
 }
