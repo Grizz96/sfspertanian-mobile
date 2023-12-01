@@ -90,7 +90,7 @@ public class PilihPupukActivity extends AppCompatActivity {
     }
 
     private void makeVolleyRequest() {
-        String url = "http://192.168.0.106/sfs_pertanian/get_data_pupuk.php";
+        String url = "https://jejakpadi-develop.000webhostapp.com/mobileController/get_data_pupuk.php";
 
         JsonArrayRequest request = new JsonArrayRequest(
                 Request.Method.GET,
