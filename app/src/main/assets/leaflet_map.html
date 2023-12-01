@@ -2,58 +2,108 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
     <style>
-        #map {
-            height: 80vh;
+        body {
+            padding: 0;
+            margin: 0;
         }
-
-        #search-container {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            z-index: 1000;
-            background-color: white;
-            padding: 5px;
-            border-radius: 5px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        html, body, #map {
+            height: 100%;
+            width: 100vw;
         }
     </style>
 </head>
 <body>
-<div id="search-container">
-    <input type="text" id="search-input" placeholder="Enter location">
-    <button onclick="searchLocation()">Search</button>
-</div>
+<input class="form-control" type="hidden" name="lokasi_sawah" id="lokasi_sawah" rows="3" required/>
 
 <div id="map"></div>
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.umd.js"></script>
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
 <script>
-        var map = L.map('map').setView([0, 0], 2);
+    var map = L.map('map').setView([-8.168577, -246.296838], 10);
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
 
-        map.on('contextmenu', function (e) {
-            // Handle long press event
-            var latitude = e.latlng.lat;
-            var longitude = e.latlng.lng;
+    map.on('contextmenu', function (e) {
+        // Handle long press event
+        var latitude = e.latlng.lat;
+        var longitude = e.latlng.lng;
 
-            // Open the form in Android activity with coordinates
-            Android.openForm(latitude, longitude);
-        });
+        // Open the form in Android activity with coordinates
+        Android.openForm(latitude, longitude);
+    });
+    map.locate({setView: true, maxZoom: 16});
 
-        function searchLocation() {
-            var searchText = document.getElementById('search-input').value;
+    //search map
+        L.Control.geocoder().addTo(map);
 
-            // Perform a search and update the map based on the search text
-            // You can use a geocoding service, like OpenCage, to convert the search text to coordinates
-            // For simplicity, this example just logs the search text to the console
-            console.log('Search Text:', searchText);
+        var popup = L.popup();
+        const lokasiSawahInput = document.querySelector('input[name="lokasi_sawah"]');
+        function onMapClick(e) {
+            lokasiSawahInput.value = e.latlng.toString(); // Mengatur nilai input HTML
+            popup
+                .setLatLng(e.latlng)
+                .setContent("Anda menekan lokasi pada koordinat " + e.latlng.toString())
+                .openOn(map);
         }
-    </script>
+
+        map.on('click', onMapClick);
+
+</script>
+<script>
+    function getCurrentLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                // Tanggapan sukses
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Pastikan bahwa Android.openForm sesuai dengan implementasi yang benar
+                if (typeof Android !== 'undefined' && Android.openForm) {
+                    Android.openForm(latitude, longitude);
+                } else {
+                    console.error("Android.openForm is not defined or implemented.");
+                }
+            },
+            function(error) {
+                // Tanggapan kesalahan
+                var errorMessage = "Unknown error";
+
+                switch(error.code) {
+                    case error.PERMISSION_DENIED:
+                        errorMessage = "Maaf, kami membutuhkan izin lokasi untuk memberikan layanan terbaik. Silakan aktifkan izin lokasi pada perangkat Anda.";
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        errorMessage = "Informasi lokasi tidak tersedia.";
+                        break;
+                    case error.TIMEOUT:
+                        errorMessage = "Permintaan untuk mendapatkan lokasi pengguna telah habis waktu.";
+                        break;
+                    case error.UNKNOWN_ERROR:
+                        errorMessage = "Terjadi kesalahan yang tidak diketahui.";
+                        break;
+                }
+
+                // Menampilkan pesan kesalahan kepada pengguna
+                alert(errorMessage);
+
+                console.error("Error getting location:", errorMessage);
+            }
+        );
+    } else {
+        console.error("Geolocation is not supported by this browser.");
+    }
+}
+
+</script>
+
 </body>
 </html>
