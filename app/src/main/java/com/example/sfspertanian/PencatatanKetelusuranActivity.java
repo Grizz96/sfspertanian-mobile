@@ -2,6 +2,7 @@ package com.example.sfspertanian;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
 import android.transition.Fade;
@@ -10,12 +11,16 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
+import com.shuhart.stepview.StepView;
+
+import java.util.Arrays;
 
 public class PencatatanKetelusuranActivity extends AppCompatActivity {
 
     ImageButton btnBack;
     TabLayout tabLayout;
     ViewPager2 viewPager2;
+    private StepView stepView;
     PencatatanKetelusuranViewPagerAdapter viewPagerAdapter;
 
     @Override
@@ -23,12 +28,25 @@ public class PencatatanKetelusuranActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pencatatan_ketelusuran);
 
+        Resources res = getResources();
+
+        stepView = findViewById(R.id.step_view);
+        String[] stepsArray = res.getStringArray(R.array.steps);
+        stepView.setSteps(Arrays.asList(stepsArray));
+
         btnBack = findViewById(R.id.btnBack);
         tabLayout = findViewById(R.id.tab_layout);
         viewPager2 = findViewById(R.id.view_pager);
 
         viewPagerAdapter = new PencatatanKetelusuranViewPagerAdapter(this);
         viewPager2.setAdapter(viewPagerAdapter);
+
+        stepView.setOnStepClickListener(new StepView.OnStepClickListener() {
+            @Override
+            public void onStepClick(int step) {
+                stepView.go(stepView.getCurrentStep()+1,true);
+            }
+        });
 
         btnBack.setOnClickListener(v->{
             getWindow().setExitTransition(new Fade());

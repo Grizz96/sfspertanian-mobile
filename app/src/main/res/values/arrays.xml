@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="steps">
+        <item>Bunting\n19 Okt</item>
+        <item>Anakan\n20 Nov</item>
+        <item>Pemasakan\n11 Jan</item>
+        <item>Panen\n12 Mar</item>
+    </array>
+</resources>
