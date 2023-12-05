@@ -16,16 +16,6 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="26dp"/>
 
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/logo_ringtone_foreground"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="32dp"
-            android:layout_marginRight="15dp"
-            />
-
     </RelativeLayout>
     <pl.droidsonroids.gif.GifImageView
         android:layout_marginHorizontal="30dp"
