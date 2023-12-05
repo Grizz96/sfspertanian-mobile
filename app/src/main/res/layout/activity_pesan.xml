@@ -75,16 +75,17 @@
             android:layout_height="wrap_content">
             <RelativeLayout
                 android:layout_width="151dp"
-                android:layout_height="34dp"
-                android:background="@drawable/green_radius_button">
+                android:layout_height="34dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <Button
+                    android:id="@+id/btnwaadmin"
+                    android:layout_width="151dp"
+                    android:layout_height="34dp"
                     android:layout_centerInParent="true"
                     android:fontFamily="@font/poppins_medium"
                     android:text="CHAT ADMIN"
-                    android:textColor="@color/white"
+                    android:background="@drawable/green_radius_button"
+                    android:textColor="#FFFFFF"
                     android:textSize="13sp" />
             </RelativeLayout>
             <RelativeLayout
@@ -95,11 +96,12 @@
                 android:layout_height="34dp">
 
                 <TextView
+                    android:id="@+id/btnwagrup"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:fontFamily="@font/poppins_medium"
-                    android:text="CHAT ADMIN"
+                    android:text="CHAT GRUP"
                     android:textColor="@color/black"
                     android:textSize="13sp" />
             </RelativeLayout>
