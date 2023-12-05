@@ -132,6 +132,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/btnPesann"
                         android:layout_width="410dp"
                         android:layout_height="79dp"
                         android:layout_marginTop="20dp">

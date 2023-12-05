@@ -13,7 +13,7 @@ import android.widget.RelativeLayout;
 import androidx.fragment.app.Fragment;
 
 public class ProfileFragment extends Fragment {
-    ImageButton btnPesan;
+    RelativeLayout btnPesan;
     RelativeLayout btnSignOut;
 
     Button btnEditProfile;
@@ -28,7 +28,7 @@ public class ProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
         // Perbaikan: Menginisialisasi btnPesan dengan ID dari layout
-        btnPesan = view.findViewById(R.id.btnPesan);
+        btnPesan = view.findViewById(R.id.btnPesann);
         btnEditProfile = view.findViewById(R.id.btnEditProfil);
         btnSignOut = view.findViewById(R.id.btnKeluar);
 
