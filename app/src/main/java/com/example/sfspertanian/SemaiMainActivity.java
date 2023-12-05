@@ -68,12 +68,17 @@ public class SemaiMainActivity extends AppCompatActivity {
     }
 
     private void showBottomSheet() {
-        // Membuat instance dari BottomSheetLayout
         BottomSheetLayout bottomSheet = new BottomSheetLayout();
-
-        // Menampilkan bottom sheet
+        bottomSheet.setOnDataAddedListener(new BottomSheetLayout.OnDataAddedListener() {
+            @Override
+            public void onDataAdded() {
+                // Update your data in SemaiMainActivity
+                makeVolleyRequest();
+            }
+        });
         bottomSheet.show(getSupportFragmentManager(), bottomSheet.getTag());
     }
+
     private void makeVolleyRequest() {
         int idSawah = getIntent().getIntExtra("id_sawah", 39);
         // Modify the URL to include id_sawah as a parameter

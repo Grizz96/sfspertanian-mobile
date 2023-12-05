@@ -52,8 +52,8 @@ public class BottomSheetLayout extends BottomSheetDialogFragment {
     public interface OnDataAddedListener {
         void onDataAdded();
     }
-    private OnDataAddedListener onDataAddedListener;
 
+    private OnDataAddedListener onDataAddedListener;
     public void setOnDataAddedListener(OnDataAddedListener listener) {
         this.onDataAddedListener = listener;
     }
@@ -112,7 +112,6 @@ public class BottomSheetLayout extends BottomSheetDialogFragment {
                     protected Map<String, String> getParams() {
                         Map<String, String> params = new HashMap<>();
                         params.put("tanggal", dateTimeString);
-
                         params.put("jenis_semai", jenisSemai);
                         params.put("deskripsi", catatan);
                         params.put("id_user", idUser);
