@@ -1,0 +1,88 @@
+<!-- item_location.xml -->
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="18dp"
+    app:cardElevation="10dp">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:background="@drawable/bg_list_lokasi">
+
+        <RelativeLayout
+            android:id="@+id/lokasi_sawah"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:background="@drawable/bg_lokasi_white" />
+
+        <TextView
+            android:id="@+id/locationName"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="145dp"
+            android:width="150dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Sawah Cendekia"
+            android:textColor="@color/title_fragment"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tanggal_mulai"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="145dp"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/poppins"
+            android:text="Tanggal Mulai: 20 September 2023"
+            android:textColor="@color/title_fragment"
+            android:textSize="8sp" />
+
+        <TextView
+            android:id="@+id/deskripsimapTextView"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="145dp"
+            android:layout_marginTop="38dp"
+            android:fontFamily="@font/poppins"
+            android:text="Lokasi: Jl. Kenanga 24"
+            android:textColor="@color/title_fragment"
+            android:textSize="8sp" />
+        <TextView
+            android:id="@+id/luasTV"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="145dp"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/poppins"
+            android:text="Luas: 2 hektar"
+            android:textColor="@color/title_fragment"
+            android:textSize="8sp" />
+
+
+        <ImageButton
+            android:id="@+id/detailLokasi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="147dp"
+            android:layout_marginTop="65dp"
+            android:background="@drawable/logo_detail" />
+
+        <ImageButton
+            android:id="@+id/hapussawah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="240dp"
+            android:layout_marginTop="65dp"
+            android:background="@drawable/logo_delete" />
+</RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+

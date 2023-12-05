@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="20dp"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".PencatatanKetelusuranActivity">
     <RelativeLayout
@@ -254,7 +255,8 @@
         android:layout_below="@+id/card_penanggulanahan_hama"
         android:fontFamily="@font/poppins"/>
     <RelativeLayout
-        android:id="@+id/penanggulangan_hama"
+        android:id="@+id/qc_tanam"
+        android:layout_marginBottom="20dp"
         android:layout_below="@+id/title_quality_control"
         android:layout_width="match_parent"
         android:layout_height="125dp"

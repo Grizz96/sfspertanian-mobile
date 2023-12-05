@@ -25,7 +25,9 @@ public class PencatatanPraTanamFragment extends Fragment {
             startActivity(intent);
         });
         cardPersemaian.setOnClickListener(v -> {
-            Intent intent = new Intent(requireActivity(), SemaiMainActivity.class); // Perbaikan: Nama kelas diawali huruf kapitalmed
+            Intent intent = new Intent(requireActivity(), SemaiMainActivity.class);
+            // Perbaikan: Nama kelas diawali huruf kapitalmed
+            
             startActivity(intent);
         });
         return view;

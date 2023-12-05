@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="20dp"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".PencatatanKetelusuranActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <RelativeLayout
         android:layout_marginTop="20dp"
         android:id="@+id/card_masa_panen"
@@ -183,3 +189,4 @@
     </RelativeLayout>
 
 </RelativeLayout>
+</ScrollView>

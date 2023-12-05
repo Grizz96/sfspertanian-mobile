@@ -49,24 +49,10 @@
         android:layout_below="@+id/header"
         android:layout_marginTop="10dp">
 
-        <ScrollView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclesemai"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclesemai"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-
-
-            </RelativeLayout>
-
-
-        </ScrollView>
+            android:layout_height="match_parent" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/add"
@@ -79,8 +65,6 @@
             android:contentDescription="@string/submit"
             android:focusable="true"
             android:src="@drawable/logo_add_white_foreground" />
-
-
     </RelativeLayout>
 
 </RelativeLayout>

@@ -86,6 +86,7 @@
         app:sv_animationType="Line"
         app:steps="@array/steps"
         app:sv_typeface="@font/inter_regular"/>
+
     </RelativeLayout>
     <RelativeLayout
         android:layout_below="@+id/rl_step_view"
@@ -110,6 +111,7 @@
                     android:textColor="@color/title_fragment"
                     android:text="PENCATATAN" />
                 <TextView
+                    android:id="@+id/tes"
                     android:fontFamily="@font/poppins"
                     android:textSize="13dp"
                     android:layout_alignParentBottom="true"
@@ -117,7 +119,6 @@
                     android:layout_height="wrap_content"
                     android:text="Detail"
                     android:layout_alignParentRight="true"/>
-
             </RelativeLayout>
 
             <RelativeLayout
@@ -145,8 +146,11 @@
                         android:text="Pasca Tanam"/>
                 </com.google.android.material.tabs.TabLayout>
 
+
+
             </RelativeLayout>
             <androidx.viewpager2.widget.ViewPager2
+                android:layout_marginBottom="20dp"
                 android:id="@+id/view_pager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

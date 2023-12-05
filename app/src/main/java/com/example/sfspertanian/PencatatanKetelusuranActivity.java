@@ -6,14 +6,31 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
 import android.transition.Fade;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.tabs.TabLayout;
 import com.shuhart.stepview.StepView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.Locale;
 
 public class PencatatanKetelusuranActivity extends AppCompatActivity {
 
@@ -21,12 +38,20 @@ public class PencatatanKetelusuranActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager2 viewPager2;
     private StepView stepView;
+    TextView tesTextView;
     PencatatanKetelusuranViewPagerAdapter viewPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pencatatan_ketelusuran);
+
+        tesTextView = findViewById(R.id.tes);
+
+
+
+        // Panggil fungsi untuk melakukan permintaan Volley
+        fetchDataFromApi();
 
         Resources res = getResources();
 
@@ -50,9 +75,10 @@ public class PencatatanKetelusuranActivity extends AppCompatActivity {
 
         btnBack.setOnClickListener(v->{
             getWindow().setExitTransition(new Fade());
-            Intent intent = new Intent(this, MainActivity.class);
+            // Kembali ke PencatatanFragment
+            Intent backIntent = new Intent(this, MainActivity.class);
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, v, "smart_animate");
-            startActivity(intent, options.toBundle());
+            startActivity(backIntent, options.toBundle());
 
             //Tunggu selama 2 detik sebelum menutup
             new Handler().postDelayed(new Runnable() {
@@ -86,4 +112,92 @@ public class PencatatanKetelusuranActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void fetchDataFromApi() {
+        int idSawah = getIntent().getIntExtra("id_sawah", -1);
+        Log.d("PencatatanKetelusuranActivity", "Received id_sawah: " + idSawah);
+
+        String apiUrl = "http://192.168.0.106/sfs_pertanian/get_detail_sawah.php?id_sawah=" + idSawah;
+
+        StringRequest stringRequest = new StringRequest(
+                Request.Method.GET,
+                apiUrl,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d("PencatatanKetelusuranActivity", "API Response: " + response);
+                        try {
+                            // Parsing JSON response
+                            JSONObject jsonResponse = new JSONObject(response);
+                            String tanggalTanam = jsonResponse.getString("tanggal_tanam");
+
+                            // Assume stepsArray contains steps for planting, cultivation, and harvest
+                            String[] stepsArray = getResources().getStringArray(R.array.steps);
+
+                            // Identify the current step based on the date
+                            int currentStep = getCurrentStepBasedOnDate(tanggalTanam, stepsArray);
+
+                            // Update the StepView with the new steps
+                            stepView.setSteps(Arrays.asList(stepsArray));
+
+                            // Go to the identified step
+                            stepView.go(currentStep, true);
+
+                            // ... (other code)
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(PencatatanKetelusuranActivity.this, "Error fetching data", Toast.LENGTH_SHORT).show();
+                    }
+                }
+        );
+
+        Volley.newRequestQueue(this).add(stringRequest);
+    }
+
+    private int getCurrentStepBasedOnDate(String tanggalTanam, String[] stepsArray) {
+        if (tanggalTanam != null && !tanggalTanam.isEmpty()) {
+            // Placeholder logic for date comparison
+            // You need to replace this with your actual date comparison logic
+
+            // Placeholder: Assume planting is before April 1, cultivation is before July 1
+            int plantingStepIndex = 0;
+            int cultivationStepIndex = 1;
+            int harvestStepIndex = 2;
+
+            if (isBeforeDate(tanggalTanam, "2023-04-01")) {
+                return plantingStepIndex;
+            } else if (isBeforeDate(tanggalTanam, "2023-07-01")) {
+                return cultivationStepIndex;
+            } else {
+                return harvestStepIndex;
+            }
+        }
+
+        // Default to the first step if the date is not available
+        return 0;
+    }
+
+    private boolean isBeforeDate(String currentDate, String targetDate) {
+        // Placeholder: Compare dates as strings (yyyy-MM-dd)
+        // Replace this with your actual date comparison logic
+
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+            Date current = sdf.parse(currentDate);
+            Date target = sdf.parse(targetDate);
+
+            return current.before(target);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    // ... existing code ...
 }

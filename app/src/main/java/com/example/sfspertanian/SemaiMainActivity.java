@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.transition.Fade;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -17,6 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,30 +34,50 @@ public class SemaiMainActivity extends AppCompatActivity {
     private adapter_card_semai adapter;
     private List<ModelCardSemai> dataItemList;
 
+    private int idSawah; // Declare a variable to store the id_sawah
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        getWindow().setEnterTransition(new Fade());
-        getWindow().setExitTransition(new Fade());
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_semai_main);
 
-        btnBack = findViewById(R.id.backToHalamanBefore); // Assuming you have an ImageButton with this ID
+        // Get the id_sawah from the Intent
+
+        btnBack = findViewById(R.id.backToHalamanBefore);
         recyclerView = findViewById(R.id.recyclesemai);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         dataItemList = new ArrayList<>();
-        adapter = new adapter_card_semai(this,dataItemList);
+        adapter = new adapter_card_semai(this, dataItemList);
         recyclerView.setAdapter(adapter);
 
         btnBack.setOnClickListener(v -> {
             finish();
         });
 
+        FloatingActionButton addButton = findViewById(R.id.add);
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Panggil bottom sheet saat tombol "Add" ditekan
+                showBottomSheet();
+            }
+        });
+
         makeVolleyRequest();
     }
 
+    private void showBottomSheet() {
+        // Membuat instance dari BottomSheetLayout
+        BottomSheetLayout bottomSheet = new BottomSheetLayout();
+
+        // Menampilkan bottom sheet
+        bottomSheet.show(getSupportFragmentManager(), bottomSheet.getTag());
+    }
     private void makeVolleyRequest() {
-        String url = "https://jejakpadi-develop.000webhostapp.com/mobileController/get_data_semai.php";
+        int idSawah = getIntent().getIntExtra("id_sawah", -1);
+        // Modify the URL to include id_sawah as a parameter
+        String url = "https://jejakpadi-develop.000webhostapp.com/mobileController/get_data_semai.php?id_sawah=" + idSawah;
 
         JsonArrayRequest request = new JsonArrayRequest(
                 Request.Method.GET,

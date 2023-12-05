@@ -70,45 +70,29 @@
 
         <LinearLayout
             android:layout_marginTop="15dp"
-            xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_below="@+id/menulisCatatan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="2">
+
             <Button
+                android:id="@+id/timePickerButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/inputbox_background"
                 android:drawableRight="@drawable/logo_time"
                 android:fontFamily="@font/inter_regular"
-                android:textColor="#616161"
                 android:gravity="left"
                 android:paddingLeft="10dp"
                 android:paddingTop="13dp"
-                android:background="@drawable/inputbox_background"
-                android:id="@+id/timePickerButton"
-                android:layout_marginRight="10dp"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:text="Pilih Waktu"
                 android:textAllCaps="false"
-                android:text="Pilih Waktu"/>
+                android:textColor="#616161" />
 
             <!-- Button untuk memilih tanggal -->
-            <Button
-                android:paddingLeft="10dp"
-                android:fontFamily="@font/inter_regular"
-                android:paddingRight="2dp"
-                android:drawableEnd="@drawable/logo_date"
-                android:textAllCaps="false"
-                android:textColor="#616161"
-                android:gravity="left"
-                android:paddingTop="13dp"
-                android:layout_marginRight="5dp"
-                android:background="@drawable/inputbox_background"
-                android:id="@+id/datePickerButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Pilih Tanggal"/>
         </LinearLayout>
 
     </RelativeLayout>
