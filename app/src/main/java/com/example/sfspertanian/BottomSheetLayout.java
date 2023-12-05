@@ -49,7 +49,14 @@ public class BottomSheetLayout extends BottomSheetDialogFragment {
         initializeViews(view);
         return view;
     }
+    public interface OnDataAddedListener {
+        void onDataAdded();
+    }
+    private OnDataAddedListener onDataAddedListener;
 
+    public void setOnDataAddedListener(OnDataAddedListener listener) {
+        this.onDataAddedListener = listener;
+    }
     private void initializeViews(View view) {
         dropPencatatanSemai = view.findViewById(R.id.drop_pencatatan_semai);
         editTextCatatan = view.findViewById(R.id.menulisCatatan);
@@ -81,6 +88,12 @@ public class BottomSheetLayout extends BottomSheetDialogFragment {
                             public void onResponse(String response) {
                                 if (response.equals("Data berhasil ditambahkan")) {
                                     showToast("Data berhasil ditambahkan");
+
+                                    if (onDataAddedListener != null) {
+                                        onDataAddedListener.onDataAdded();
+                                    }
+
+                                    // Dismiss the bottom sheet
                                     dismiss();
                                 } else {
                                     showToast("Data insertion failed. Response: " + response);
@@ -98,8 +111,8 @@ public class BottomSheetLayout extends BottomSheetDialogFragment {
                     @Override
                     protected Map<String, String> getParams() {
                         Map<String, String> params = new HashMap<>();
-                        params.put("tanggal_waktu", dateTimeString);
-                        params.put("id_catatan_semai", jenisSemai);
+                        params.put("tanggal", dateTimeString);
+
                         params.put("jenis_semai", jenisSemai);
                         params.put("deskripsi", catatan);
                         params.put("id_user", idUser);
@@ -159,4 +172,6 @@ public class BottomSheetLayout extends BottomSheetDialogFragment {
         String buttonText = dateTimeFormat.format(calendar.getTime());
         timePickerButton.setText(buttonText);
     }
+
+
 }
