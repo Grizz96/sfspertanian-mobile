@@ -20,116 +20,151 @@
             android:id="@+id/lokasi_sawah"
             android:layout_width="130dp"
             android:layout_height="match_parent"
-            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/bg_lokasi_white" />
 
         <TextView
             android:id="@+id/locationName"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="145dp"
+            android:layout_marginLeft="150dp"
             android:width="150dp"
             android:fontFamily="@font/poppins_semibold"
             android:text="Sawah Cendekia"
             android:textColor="@color/title_fragment"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:textSize="15sp" />
 
-        <TextView
-            android:id="@+id/tanggalmulai"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="145dp"
-            android:layout_marginTop="45dp"
-            android:fontFamily="@font/poppins"
-            android:text="Tanggal Mulai:"
-            android:textColor="@color/title_fragment"
-            android:textSize="10sp" />
+            android:layout_marginLeft="5dp">
 
-        <TextView
-            android:id="@+id/tanggal_mulai"
+                <TextView
+                    android:id="@+id/tanggalmulai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="145dp"
+                    android:layout_marginTop="45dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Tanggal Mulai:"
+                    android:textColor="@color/title_fragment"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/tanggal_mulai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="45dp"
+                    android:layout_toEndOf="@+id/tanggalmulai"
+                    android:fontFamily="@font/poppins"
+                    android:text="Tanggal Mulai:"
+                    android:textColor="@color/title_fragment"
+                    android:textSize="10sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativelokasi"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="45dp"
-            android:layout_toEndOf="@+id/tanggalmulai"
-            android:fontFamily="@font/poppins"
-            android:text="Tanggal Mulai:"
-            android:textColor="@color/title_fragment"
-            android:textSize="10sp" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/namalokasi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="145dp"
-            android:layout_marginTop="60dp"
-            android:fontFamily="@font/poppins"
-            android:text="Lokasi: "
-            android:textColor="@color/title_fragment"
-            android:textSize="10sp" />
+                <TextView
+                    android:id="@+id/namalokasi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="145dp"
+                    android:layout_marginTop="60dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Lokasi: "
+                    android:textColor="@color/title_fragment"
+                    android:textSize="10sp" />
 
-        <TextView
-            android:id="@+id/deskripsimapTextView"
+                <TextView
+                    android:id="@+id/deskripsimapTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="60dp"
+                    android:fontFamily="@font/poppins"
+                    android:layout_toEndOf="@+id/namalokasi"
+                    android:text="Lokasi: "
+                    android:textColor="@color/title_fragment"
+                    android:textSize="10sp" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/relativeluas"
+            android:layout_below="@+id/relativelokasi"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="60dp"
-            android:fontFamily="@font/poppins"
-            android:layout_toEndOf="@+id/namalokasi"
-            android:text="Lokasi: "
-            android:textColor="@color/title_fragment"
-            android:textSize="10sp" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/namaluas"
+                <TextView
+                    android:id="@+id/namaluas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="145dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Luas: "
+                    android:textColor="@color/title_fragment"
+                    android:textSize="10sp" />
+                <TextView
+                    android:id="@+id/luasTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/namaluas"
+                    android:layout_marginLeft="5dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="2"
+                    android:textColor="@color/title_fragment"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/namahektar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/luasTV"
+                    android:layout_marginLeft="5dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Hektar"
+                    android:textColor="@color/title_fragment"
+                    android:textSize="10sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativebutton"
+            android:layout_below="@+id/relativeluas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="145dp"
-            android:layout_marginTop="75dp"
-            android:fontFamily="@font/poppins"
-            android:text="Luas: "
-            android:textColor="@color/title_fragment"
-            android:textSize="10sp" />
-        <TextView
-            android:id="@+id/luasTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/namaluas"
-            android:layout_marginTop="75dp"
+            android:layout_marginTop="17dp"
             android:layout_marginLeft="5dp"
-            android:fontFamily="@font/poppins"
-            android:text="2"
-            android:textColor="@color/title_fragment"
-            android:textSize="10sp" />
+            android:layout_toEndOf="@+id/lokasi_sawah">
 
-        <TextView
-            android:id="@+id/namahektar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/luasTV"
-            android:layout_marginTop="75dp"
-            android:layout_marginLeft="5dp"
-            android:fontFamily="@font/poppins"
-            android:text="Hektar"
-            android:textColor="@color/title_fragment"
-            android:textSize="10sp" />
+                <ImageButton
+                    android:id="@+id/detailLokasi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/logo_detail" />
 
-        <ImageButton
-            android:id="@+id/detailLokasi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="145dp"
-            android:layout_marginTop="110dp"
-            android:background="@drawable/logo_detail" />
+                <ImageButton
+                    android:id="@+id/hapussawah"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:background="@drawable/logo_delete" />
 
-        <ImageButton
-            android:id="@+id/hapussawah"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="240dp"
-            android:layout_marginTop="110dp"
-            android:background="@drawable/logo_delete" />
+        </RelativeLayout>
+
 </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
