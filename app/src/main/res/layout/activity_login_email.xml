@@ -95,23 +95,13 @@
             android:id="@+id/txtlupa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="2dp"
+            android:layout_marginLeft="200dp"
             android:text="Lupa Password?"
             android:textSize="10dp"
             android:textColor="@color/text_grey"
             android:textStyle="bold"
             tools:ignore="TextSizeCheck" />
 
-        <TextView
-            android:id="@+id/txtnohp"
-            android:fontFamily="@font/inter_bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:text="Login dengan no handphone"
-            android:textSize="10dp"
-            android:textColor="@color/text_grey"
-            android:textStyle="bold" />
     </RelativeLayout>
     <Button
         android:id="@+id/btnLogin"
@@ -127,116 +117,74 @@
         android:onClick="startGetStartedTransition"/>
 
     <RelativeLayout
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="521dp"
-        android:layout_width="292dp"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="490dp">
+
         <RelativeLayout
-            android:layout_centerHorizontal="true"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_marginTop="7dp"
-                android:id="@+id/garis1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true">
 
-                app:srcCompat="@drawable/line" />
-            <TextView
-                android:id="@+id/atau"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:fontFamily="@font/inter_bold"
-                android:text="ATAU"
-                android:textSize="12dp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:layout_marginTop="7dp"
-                android:id="@+id/garis2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/line" />
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="20dp">
 
             <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-                <ImageButton
-                    android:id="@+id/facebook_sign_in_button"
-                    android:layout_alignParentLeft="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/loginfb"
-                    android:background="@android:color/transparent"
-                    />
-
-                <ImageButton
-                    android:id="@+id/google_sign_in_button"
-                    android:layout_alignParentRight="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/loginggl"
-                    android:background="@android:color/transparent"/>
-
-            </RelativeLayout>
             <LinearLayout
-                android:layout_marginTop="70dp"
-                android:layout_centerHorizontal="true"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Belum Punya Akun?"
-                    android:textSize="13dp"
-                    android:textStyle="bold"
                     android:fontFamily="@font/inter_regular"
+                    android:text="Belum Punya Akun?"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
                     tools:ignore="TextSizeCheck" />
+
                 <TextView
                     android:id="@+id/txtRegister"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Daftar"
-                    android:textSize="13dp"
-                    android:fontFamily="@font/inter_regular"
                     android:layout_marginLeft="4dp"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="Daftar"
                     android:textColor="#0D986A"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
                     tools:ignore="TextSizeCheck" />
             </LinearLayout>
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="100dp"
             android:orientation="horizontal">
 
             <TextView
-                android:fontFamily="@font/inter_regular"
-                android:layout_width="wrap_content"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="13dp"
+                android:fontFamily="@font/inter_regular"
+                android:gravity="center"
                 android:text="Dengan ini saya setuju dengan Kebijakan
     Privasi dan Syarat dan Ketentuan yang berlaku"
                 android:textSize="13dp"
-                android:gravity="center"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="13dp"
                 android:textStyle="bold"
                 tools:ignore="TextSizeCheck" />
         </RelativeLayout>
     </RelativeLayout>
-
 
 
 </RelativeLayout>
