@@ -38,6 +38,8 @@
             android:exported="true" />
         <activity android:name=".DetailBibitActivity" /> <!-- Other activities -->
         <activity android:name=".GetStartedMainActivity"></activity>
+        <activity android:name=".pemupukan"></activity>
+        <activity android:name=".penyemprotan"></activity>
         <activity android:name=".GetStarted2Activity" />
         <activity android:name=".MapsFragment" />
         <activity android:name=".GetStarted3Activity" />

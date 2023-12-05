@@ -71,7 +71,7 @@ public class pemupukan extends AppCompatActivity {
         }
 
         // Replace YOUR_PHP_SCRIPT_URL with the actual URL of your PHP script
-        String url = "http://192.168.0.106/sfs_pertanian/insert_pupuk.php";
+        String url = "https://jejakpadi-develop.000webhostapp.com/mobileController/insert_pupuk.php";
 
         // Send a POST request using Volley
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, postData,

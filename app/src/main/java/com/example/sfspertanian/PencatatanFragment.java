@@ -75,7 +75,7 @@ public class PencatatanFragment extends Fragment {
     }
 
     private void fetchDataFromApi() {
-        String apiUrl = "http://192.168.0.106/sfs_pertanian/get_data_map.php"; // replace with your actual API URL
+        String apiUrl = "https://jejakpadi-develop.000webhostapp.com/mobileController/get_data_map.php"; // replace with your actual API URL
 
         RequestQueue requestQueue = Volley.newRequestQueue(requireContext());
 

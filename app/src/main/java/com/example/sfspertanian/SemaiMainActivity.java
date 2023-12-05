@@ -75,7 +75,7 @@ public class SemaiMainActivity extends AppCompatActivity {
         bottomSheet.show(getSupportFragmentManager(), bottomSheet.getTag());
     }
     private void makeVolleyRequest() {
-        int idSawah = getIntent().getIntExtra("id_sawah", -1);
+        int idSawah = getIntent().getIntExtra("id_sawah", 39);
         // Modify the URL to include id_sawah as a parameter
         String url = "https://jejakpadi-develop.000webhostapp.com/mobileController/get_data_semai.php?id_sawah=" + idSawah;
 

@@ -79,7 +79,7 @@ public class penyemprotan extends AppCompatActivity {
         }
 
         // Replace YOUR_PHP_SCRIPT_URL with the actual URL of your PHP script
-        String url = "YOUR_PHP_SCRIPT_URL";
+        String url = "https://jejakpadi-develop.000webhostapp.com/mobileController/insert_semprot.php";
 
         // Send a POST request using Volley
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, postData,
