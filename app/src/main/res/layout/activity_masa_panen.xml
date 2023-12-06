@@ -51,7 +51,7 @@
                     android:id="@+id/subTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Warna dan Kematangan Bulir Padi:"
+                    android:text="Tanggal Panen:"
                     android:fontFamily="@font/poppins_bold"
                     android:textColor="#12121D"
                     android:textSize="10sp"/>
@@ -59,68 +59,26 @@
                     android:layout_below="@+id/subTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                    <CheckBox
-                        android:layout_marginBottom="5dp"
-                        android:id="@+id/checkBox1"
-                        android:layout_width="wrap_content"
+                    <Button
+                        android:id="@+id/timePickerButton"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins"
-                        android:onClick="onCheckBoxClicked"
-                        android:textSize="11sp"
-                        android:text="Bulir padi telah berubah warna menjadi kuning keemasan." />
-                    <CheckBox
-                        android:id="@+id/checkBox2"
-                        android:layout_below="@+id/checkBox1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins"
-                        android:onClick="onCheckBoxClicked"
-                        android:textSize="11sp"
-                        android:text="Bulir padi terasa keras ketika dipencet, bukan lembek." />
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/inputbox_background"
+                        android:drawableRight="@drawable/logo_time"
+                        android:fontFamily="@font/inter_regular"
+                        android:gravity="left"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="13dp"
+                        android:text="Pilih Waktu"
+                        android:textAllCaps="false"
+                        android:textColor="#616161" />
 
                 </RelativeLayout>
 
             </RelativeLayout>
-            <RelativeLayout
-                android:id="@+id/bgnQuest2"
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/bgnQuest1">
-                <TextView
-                    android:id="@+id/subTitle2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Kondisi Tanaman Padi:"
-                    android:fontFamily="@font/poppins_bold"
-                    android:textColor="#12121D"
-                    android:textSize="10sp"/>
-                <RelativeLayout
-                    android:layout_below="@+id/subTitle2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <CheckBox
-                        android:layout_marginBottom="5dp"
-                        android:id="@+id/checkBox3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins"
-                        android:onClick="onCheckBoxClicked"
-                        android:textSize="11sp"
-                        android:text="Bagian atas tanaman padi (malai) telah mulai menguning dan mengering." />
-                    <CheckBox
-                        android:id="@+id/checkBox4"
-                        android:layout_below="@+id/checkBox3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins"
-                        android:onClick="onCheckBoxClicked"
-                        android:textSize="11sp"
-                        android:text="Bulir padi telah berubah warna menjadi kuning keemasan." />
 
-                </RelativeLayout>
-
-            </RelativeLayout>
 
         </RelativeLayout>
     </ScrollView>
