@@ -15,19 +15,17 @@
             android:background="@drawable/arrow_left_back_foreground" />
 
         <RelativeLayout
-            android:id="@+id/headerLayout"
             android:layout_width="255dp"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true">
 
             <ImageView
-                android:id="@+id/logoImageView"
                 android:layout_width="88dp"
                 android:layout_height="46dp"
                 android:background="@drawable/logo_ud_tani_rejo" />
 
             <TextView
-                android:id="@+id/udTaniRejoTextView"
+                android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="75dp"
@@ -40,20 +38,20 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/mainLayout"
         android:layout_marginTop="100dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation ="vertical">
+
 
         <RelativeLayout
-            android:id="@+id/contentLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+
             <TextView
-                android:id="@+id/titleTextView"
+                android:id="@+id/textView2"
                 android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -61,66 +59,95 @@
                 android:fontFamily="@font/poppins_bold"
                 android:text="PENYEMPROTAN"
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="20sp">
+            </TextView>
+            <TextView
+                android:id="@+id/id_pupuk"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/poppins_bold"
+                android:text="tes_id"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/white"
+                android:layout_toEndOf="@id/textView2"
+                android:textSize="20sp">
+            </TextView>
+
 
             <RelativeLayout
-                android:id="@+id/penyemprotanLayout"
+                android:id="@+id/pemupukan"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="80dp">
 
-                <EditText
-                    android:id="@+id/jenisPenyemprotanEditText"
+                <Spinner
+                    android:id="@+id/JenisPemupukan"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:background="@drawable/inputbox_background"
-                    android:hint="Jenis Penyemprotan"
+                    android:hint="Jenis Pemupukan"
                     android:drawablePadding="100dp"
-                    android:paddingLeft="10dp" />
+                    android:paddingLeft="10dp"/>
+                <Spinner
+                    android:id="@+id/PilihPupuk"
+                    android:layout_below="@id/JenisPemupukan"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="@drawable/inputbox_background"
+                    android:hint="Jenis Pemupukan"
+                    android:layout_marginTop="10dp"
+                    android:drawablePadding="100dp"
+                    android:paddingLeft="10dp"/>
 
                 <EditText
-                    android:id="@+id/deskripsiPenyemprotanEditText"
+                    android:id="@+id/DeskripsiPemupukan"
+                    android:layout_below="@id/PilihPupuk"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:paddingLeft="10dp"
                     android:background="@drawable/bg_txt_pesan"
                     android:drawablePadding="100dp"
-                    android:layout_marginTop="85dp"
+                    android:layout_marginTop="10dp"
                     android:hint="Deskripsi"
-                    android:orientation="horizontal" />
+                    android:orientation="horizontal"/>
 
-                <EditText
-                    android:id="@+id/tanggalSemprotEditText"
-                    android:layout_width="140dp"
+                <Button
+                    android:id="@+id/TanggalSemai"
+                    android:layout_below="@+id/DeskripsiPemupukan"
+                    android:layout_width="170dp"
                     android:layout_height="40dp"
                     android:paddingLeft="15dp"
                     android:background="@drawable/inputbox_background"
                     android:layout_alignParentLeft="true"
                     android:hint="Tanggal"
                     android:textSize="15sp"
-                    android:layout_marginTop="210dp"
+                    android:layout_marginTop="10dp"
                     android:fontFamily="@font/poppins_medium"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"/>
 
                 <EditText
-                    android:id="@+id/jumlahSemprotEditText"
+                    android:id="@+id/JumlahPemupukan"
+                    android:layout_below="@+id/DeskripsiPemupukan"
                     android:layout_width="140dp"
                     android:layout_height="40dp"
+                    android:layout_toEndOf="@+id/TanggalSemai"
                     android:layout_alignParentRight="true"
-                    android:layout_marginLeft="140dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginBottom="100dp"
                     android:background="@drawable/inputbox_background"
                     android:drawablePadding="120dp"
                     android:fontFamily="@font/poppins_medium"
-                    android:hint="Jumlah"
-                    android:paddingLeft="15dp"
-                    android:layout_marginTop="210dp"
+                    android:hint="Jumlah /liter"
+                    android:paddingLeft="10dp"
+                    android:layout_marginTop="10dp"
                     android:textSize="15sp"
                     android:textColor="#000000" />
 
                 <Button
-                    android:id="@+id/btnSimpan"
+                    android:id="@+id/btnsimpan"
                     android:layout_width="200dp"
                     android:layout_height="50dp"
                     android:layout_centerHorizontal="true"
@@ -128,10 +155,9 @@
                     android:fontFamily="@font/poppins_bold"
                     android:textColor="#FFFFFF"
                     android:background="@drawable/corner_button_shadow"
-                    android:layout_marginTop="300dp" />
-
+                    android:layout_marginTop="300dp"/>
                 <Button
-                    android:id="@+id/btnBatal"
+                    android:id="@+id/btnbatal"
                     android:layout_width="200dp"
                     android:layout_height="50dp"
                     android:layout_centerHorizontal="true"
@@ -139,7 +165,7 @@
                     android:fontFamily="@font/poppins_bold"
                     android:textColor="#FFFFFF"
                     android:background="@drawable/bg_grey_shadow_radius"
-                    android:layout_marginTop="370dp" />
+                    android:layout_marginTop="370dp"/>
             </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>

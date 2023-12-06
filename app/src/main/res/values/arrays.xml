@@ -6,4 +6,16 @@
         <item>Pemasakan\n11 Jan</item>
         <item>Panen\n12 Mar</item>
     </array>
+    <string-array name="jenis_pemupukan_array">
+        <item>Pemupukan Pertama</item>
+        <item>Pemupukan Kedua</item>
+        <item>Pemupukan Ketiga</item>
+    </string-array>
+    <string-array name="jenis_penyemprotan_array">
+        <item>Pestisida</item>
+        <item>Herbisida</item>
+        <item>Insektisida</item>
+        <item>Fungisida</item>
+
+    </string-array>
 </resources>
