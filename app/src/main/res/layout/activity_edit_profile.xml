@@ -102,18 +102,9 @@
                     android:layout_marginTop="250dp"
                     android:orientation="horizontal">
 
-                    <EditText
-                        android:id="@+id/TextNik"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:paddingLeft="5dp"
-                        android:background="@drawable/inputbox_background"
-                        android:drawablePadding="100dp"
-                        android:hint="NIK"/>
                     <RelativeLayout
                         android:id="@+id/nama"
                         android:layout_marginTop="15dp"
-                        android:layout_below="@+id/TextNik"
                         android:layout_width="match_parent"
                         android:layout_height="40dp">
                         <EditText
