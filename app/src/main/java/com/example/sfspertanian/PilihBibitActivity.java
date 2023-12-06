@@ -72,7 +72,7 @@ public class PilihBibitActivity extends AppCompatActivity {
     }
 
     private void makeVolleyRequest() {
-        String url = "https://jejakpadi-develop.000webhostapp.com/mobileController/get_data_bibit.php";
+        String url = "https://jejakpadi.com/app/Http/mobileController/get_data_bibit.php";
 
         JsonArrayRequest request = new JsonArrayRequest(
                 Request.Method.GET,

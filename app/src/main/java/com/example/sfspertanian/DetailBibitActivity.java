@@ -53,7 +53,7 @@ public class DetailBibitActivity extends AppCompatActivity {
         String namaBibit = getIntent().getStringExtra("nama_bibit");
 
         // Continue with the existing code to fetch data using Volley
-        String url = "https://jejakpadi-develop.000webhostapp.com/mobileController/get_detail_bibit.php?nama_bibit=" + namaBibit;
+        String url = "https://jejakpadi.com/app/Http/mobileController/get_detail_bibit.php?nama_bibit=" + namaBibit;
 
         RequestQueue queue = Volley.newRequestQueue(this);
 

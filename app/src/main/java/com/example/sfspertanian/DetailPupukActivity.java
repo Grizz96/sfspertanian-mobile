@@ -63,7 +63,7 @@ public class DetailPupukActivity extends AppCompatActivity {
         String namaPupuk = getIntent().getStringExtra("nama_pupuk");
 
         // Continue with the existing code to fetch data using Volley
-        String url = "https://jejakpadi-develop.000webhostapp.com/mobileController/get_detail_pupuk.php?nama_pupuk=" + namaPupuk;
+        String url = "https://jejakpadi.com/app/Http/mobileController/get_detail_pupuk.php?nama_pupuk=" + namaPupuk;
 
         RequestQueue queue = Volley.newRequestQueue(this);
 

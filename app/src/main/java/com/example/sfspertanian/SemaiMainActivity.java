@@ -82,7 +82,7 @@ public class SemaiMainActivity extends AppCompatActivity {
     private void makeVolleyRequest() {
         int idSawah = getIntent().getIntExtra("id_sawah", 39);
         // Modify the URL to include id_sawah as a parameter
-        String url = "https://jejakpadi-develop.000webhostapp.com/mobileController/get_data_semai.php?id_sawah=" + idSawah;
+        String url = "https://jejakpadi.com/app/Http/mobileController/get_data_semai.php?id_sawah=" + idSawah;
 
         JsonArrayRequest request = new JsonArrayRequest(
                 Request.Method.GET,

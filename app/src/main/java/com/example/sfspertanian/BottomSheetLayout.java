@@ -37,7 +37,7 @@ public class BottomSheetLayout extends BottomSheetDialogFragment {
     private Context context;
     private Calendar calendar = Calendar.getInstance();
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
-    private String url = "https://jejakpadi-develop.000webhostapp.com/mobileController/insert_semai.php";
+    private String url = "https://jejakpadi.com/app/Http/mobileController/insert_semai.php";
     private Spinner dropPencatatanSemai;
     private EditText editTextCatatan;
     private Button timePickerButton;

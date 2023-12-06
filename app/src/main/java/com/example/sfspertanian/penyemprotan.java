@@ -155,7 +155,7 @@ public class penyemprotan extends AppCompatActivity {
         timePickerDialog.show();
     }
     private void fetchPupukData() {
-        String url = "https://jejakpadi-develop.000webhostapp.com/mobileController/spinnersemprot.php"; // Replace with your API endpoint
+        String url = "https://jejakpadi.com/app/Http/mobileController/spinnersemprot.php"; // Replace with your API endpoint
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
                 Request.Method.GET,
@@ -201,7 +201,7 @@ public class penyemprotan extends AppCompatActivity {
         String jumlahPenggunaan = jumlahPemupukanEditText.getText().toString();
         String idpupuk = selectedIdPupukTextView.getText().toString();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://jejakpadi-develop.000webhostapp.com/mobileController/insert_semprot.php",
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://jejakpadi.com/app/Http/mobileController/insert_semprot.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
