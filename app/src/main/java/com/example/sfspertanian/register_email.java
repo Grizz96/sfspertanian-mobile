@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.text.InputType;
+import android.widget.ToggleButton;
+import android.widget.CompoundButton;
+
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -17,11 +21,14 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class register_email extends AppCompatActivity {
 
-    private EditText etEmail, etPassword;
+    private EditText etEmail, etPassword, etPasswordVerifikasi;
     private Button btnRegister;
+    private ToggleButton toggleShowPassword, toggleShowPasswordVerifikasi;
+
 
 
     @Override
@@ -31,8 +38,30 @@ public class register_email extends AppCompatActivity {
 
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
+        etPasswordVerifikasi = findViewById(R.id.etPasswordVerifikasi);
 
         btnRegister = findViewById(R.id.btnDaftar);
+        toggleShowPassword = findViewById(R.id.toggleShowPassword);
+        toggleShowPasswordVerifikasi = findViewById(R.id.toggleShowPasswordVerifikasi);
+
+
+
+        toggleShowPassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // Toggle the password visibility based on the ToggleButton state
+                if (isChecked) {
+                    // Show password
+                    etPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                } else {
+                    // Hide password
+                    etPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                }
+
+                // Move the cursor to the end of the password field
+                etPassword.setSelection(etPassword.length());
+            }
+        });
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +69,7 @@ public class register_email extends AppCompatActivity {
 
                 String email = etEmail.getText().toString();
                 String password = etPassword.getText().toString();
+                String passwordVerifikasi = etPasswordVerifikasi.getText().toString();
 
 
                 if (!(email.isEmpty() || password.isEmpty())){

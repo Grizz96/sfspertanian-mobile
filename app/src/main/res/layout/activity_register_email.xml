@@ -68,7 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
-            android:text="Password"
+            android:text="Kata Sandi"
             android:fontFamily="@font/inter_regular"
             android:textSize="13dp"
             android:textStyle="bold" />
@@ -89,14 +89,28 @@
             android:fontFamily="@font/inter_regular"
             android:gravity="center_vertical|start"
             android:hint="Masukkan Password"
+            android:longClickable="false"
             android:textSize="13dp" />
+
+        <ToggleButton
+            android:id="@+id/toggleShowPassword"
+            android:layout_width="45dp"
+            android:layout_height="40dp"
+            android:layout_alignEnd="@id/etPassword"
+            android:layout_marginTop="106dp"
+            android:textOff=""
+            android:textOn=""
+            android:textSize="12sp"
+            android:background="?android:attr/selectableItemBackground"
+            android:padding="5dp"/>
+
 
         <TextView
             android:id="@+id/txtpasswordVerifikasi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="160dp"
-            android:text="Verifikasi Password"
+            android:text="Verifikasi Kata Sandi"
             android:fontFamily="@font/inter_regular"
             android:textSize="13dp"
             android:textStyle="bold" />
@@ -114,11 +128,23 @@
             android:paddingEnd="15sp"
             android:drawablePadding="30dp"
             android:inputType="textPassword"
+            android:longClickable="false"
             android:fontFamily="@font/inter_regular"
-
             android:gravity="center_vertical|start"
-            android:hint="Masukkan Password Kembali"
+            android:hint="Masukkan Kata Sandi Kembali"
             android:textSize="13dp" />
+
+        <ToggleButton
+            android:id="@+id/toggleShowPasswordVerifikasi"
+            android:layout_width="45dp"
+            android:layout_height="40dp"
+            android:layout_alignEnd="@id/etPassword"
+            android:layout_marginTop="185dp"
+            android:textOff=""
+            android:textOn=""
+            android:textSize="12sp"
+            android:background="?android:attr/selectableItemBackground"
+            android:padding="5dp"/>
 
         <Button
             android:id="@+id/btnDaftar"
@@ -143,7 +169,8 @@
         <RelativeLayout
             android:layout_centerHorizontal="true"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp">
             <ImageView
                 android:layout_marginTop="7dp"
                 android:id="@+id/garis1"
@@ -177,28 +204,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageButton
-                    android:id="@+id/facebook_sign_in_button"
-                    android:layout_alignParentLeft="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/loginfb"
-                    android:background="@android:color/transparent"
-                    />
-
-                <ImageButton
-                    android:id="@+id/google_sign_in_button"
-                    android:layout_alignParentRight="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/loginggl"
-                    android:background="@android:color/transparent"/>
-
-            </RelativeLayout>
             <LinearLayout
                 android:layout_marginTop="70dp"
                 android:layout_centerHorizontal="true"
