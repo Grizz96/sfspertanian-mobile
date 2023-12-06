@@ -2,11 +2,18 @@ package com.example.sfspertanian;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.CompoundButton;
+import android.widget.ToggleButton;
+
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,6 +31,8 @@ public class login_email extends AppCompatActivity {
     private TextView txtRegister;
     private EditText etEmail, etPassword;
     private Button btnLogin;
+    private ToggleButton toggleShowPassword;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +42,27 @@ public class login_email extends AppCompatActivity {
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
+        toggleShowPassword = findViewById(R.id.toggleShowPassword);
+
 
         TextView txtRegister = findViewById(R.id.txtRegister);
+
+        toggleShowPassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // Toggle the password visibility based on the ToggleButton state
+                if (isChecked) {
+                    // Show password
+                    etPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                } else {
+                    // Hide password
+                    etPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                }
+
+                // Move the cursor to the end of the password field
+                etPassword.setSelection(etPassword.length());
+            }
+        });
 
         txtRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +93,7 @@ public class login_email extends AppCompatActivity {
                                 Toast.makeText(login_email.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(login_email.this, MainActivity.class));
                             } else {
-                                Toast.makeText(login_email.this, "Password atau Email anda tidak sesuai", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(login_email.this, "Email atau Kata Sandi anda tidak sesuai", Toast.LENGTH_SHORT).show();
                             }
                         }
                     }, new Response.ErrorListener() {
@@ -88,7 +116,7 @@ public class login_email extends AppCompatActivity {
                     // Add the request to the RequestQueue
                     requestQueue.add(stringRequest);
                 } else {
-                    Toast.makeText(login_email.this, "Email dan password harus diisi", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(login_email.this, "Email dan Kata Sandi harus diisi", Toast.LENGTH_SHORT).show();
                 }
             }
         });

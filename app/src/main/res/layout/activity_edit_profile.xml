@@ -9,12 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="100dp">
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="35dp"
-            android:background="@drawable/logo_pesan_foreground" />
 
         <RelativeLayout
             android:layout_width="255dp"
@@ -73,18 +67,8 @@
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="65dp">
+                        android:layout_marginTop="80dp">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Ubah Foto Profil"
-                            android:layout_centerHorizontal="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginBottom="250sp"
-                            android:fontFamily="@font/inter_bold"
-                            android:textColor="#000000"
-                            android:textSize="20sp"/>
 
 
                         <ImageView
@@ -102,18 +86,9 @@
                     android:layout_marginTop="250dp"
                     android:orientation="horizontal">
 
-                    <EditText
-                        android:id="@+id/TextNik"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:paddingLeft="5dp"
-                        android:background="@drawable/inputbox_background"
-                        android:drawablePadding="100dp"
-                        android:hint="NIK"/>
                     <RelativeLayout
                         android:id="@+id/nama"
                         android:layout_marginTop="15dp"
-                        android:layout_below="@+id/TextNik"
                         android:layout_width="match_parent"
                         android:layout_height="40dp">
                         <EditText
