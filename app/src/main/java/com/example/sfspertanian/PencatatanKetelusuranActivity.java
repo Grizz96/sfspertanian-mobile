@@ -51,7 +51,7 @@ public class PencatatanKetelusuranActivity extends AppCompatActivity {
 
 
         // Panggil fungsi untuk melakukan permintaan Volley
-        fetchDataFromApi();
+
 
         Resources res = getResources();
 
@@ -113,52 +113,6 @@ public class PencatatanKetelusuranActivity extends AppCompatActivity {
         });
     }
 
-    private void fetchDataFromApi() {
-        int idSawah = getIntent().getIntExtra("id_sawah", -1);
-        Log.d("PencatatanKetelusuranActivity", "Received id_sawah: " + idSawah);
-
-        String apiUrl = "http://192.168.0.106/sfs_pertanian/get_detail_sawah.php?id_sawah=" + idSawah;
-
-        StringRequest stringRequest = new StringRequest(
-                Request.Method.GET,
-                apiUrl,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        Log.d("PencatatanKetelusuranActivity", "API Response: " + response);
-                        try {
-                            // Parsing JSON response
-                            JSONObject jsonResponse = new JSONObject(response);
-                            String tanggalTanam = jsonResponse.getString("tanggal_tanam");
-
-                            // Assume stepsArray contains steps for planting, cultivation, and harvest
-                            String[] stepsArray = getResources().getStringArray(R.array.steps);
-
-                            // Identify the current step based on the date
-                            int currentStep = getCurrentStepBasedOnDate(tanggalTanam, stepsArray);
-
-                            // Update the StepView with the new steps
-                            stepView.setSteps(Arrays.asList(stepsArray));
-
-                            // Go to the identified step
-                            stepView.go(currentStep, true);
-
-                            // ... (other code)
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(PencatatanKetelusuranActivity.this, "Error fetching data", Toast.LENGTH_SHORT).show();
-                    }
-                }
-        );
-
-        Volley.newRequestQueue(this).add(stringRequest);
-    }
 
     private int getCurrentStepBasedOnDate(String tanggalTanam, String[] stepsArray) {
         if (tanggalTanam != null && !tanggalTanam.isEmpty()) {

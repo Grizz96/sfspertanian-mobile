@@ -60,7 +60,8 @@
         <activity android:name=".pesanActivity" />
         <activity android:name=".EditProfilActivity" />
         <activity
-            android:name=".MainActivity">
+            android:name=".MainActivity"
+            android:exported="true">
 
         </activity>
         <activity android:name=".MasaPanen" />
