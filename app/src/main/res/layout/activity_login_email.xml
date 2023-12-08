@@ -104,6 +104,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="397dp"
         android:orientation="horizontal">
+        
+        <TextView
+            android:id="@+id/btnlupakatasandi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="200dp"
+            android:text="Lupa Kata Sandi?"
+            android:textSize="10dp"
+            android:textColor="@color/text_grey"
+            android:textStyle="bold"/>
 
     </RelativeLayout>
     <Button

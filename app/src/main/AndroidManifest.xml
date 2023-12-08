@@ -72,6 +72,8 @@
         <activity android:name=".RegisterIsiData1Activity" />
         <activity android:name=".RatingActivity" />
         <activity android:name=".PencatatanKetelusuranActivity"></activity>
+        <activity android:name=".LupaPasswordActivity" />
+
 
         <meta-data
             android:name="preloaded_fonts"
