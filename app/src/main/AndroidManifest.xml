@@ -37,7 +37,14 @@
         <activity android:name=".PilihBibitActivity"
             android:exported="true" />
         <activity android:name=".DetailBibitActivity" /> <!-- Other activities -->
-        <activity android:name=".GetStartedMainActivity"></activity>
+        <activity android:name=".GetStartedMainActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".pemupukan"></activity>
         <activity android:name=".penyemprotan"></activity>
         <activity android:name=".GetStarted2Activity" />
@@ -46,21 +53,15 @@
         <activity android:name=".SemaiMainActivity" />
         <activity android:name=".GetStarted4Activity" />
         <activity
-            android:name=".register_email"
-            android:exported="true" />
+            android:name=".register_email"/>
         <activity
             android:name=".login_email"
             android:exported="true" />
         <activity android:name=".pesanActivity" />
         <activity android:name=".EditProfilActivity" />
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:name=".MainActivity">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".MasaPanen" />
         <activity android:name=".MasaPanenActivity" />
@@ -70,8 +71,6 @@
         <activity android:name=".RegisterIsiData1Activity" />
         <activity android:name=".RatingActivity" />
         <activity android:name=".PencatatanKetelusuranActivity"></activity>
-        <activity android:name=".VerifyPasswordActivity"></activity>
-        <activity android:name=".ResetPasswordActivity"></activity>
 
         <meta-data
             android:name="preloaded_fonts"

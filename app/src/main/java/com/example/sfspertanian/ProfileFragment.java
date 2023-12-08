@@ -28,6 +28,9 @@ public class ProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
+        // Inisialisasi sessionManager
+        sessionManager = new SessionManager(requireContext());
+
         // Perbaikan: Menginisialisasi btnPesan dengan ID dari layout
         btnPesan = view.findViewById(R.id.btnPesann);
         btnEditProfile = view.findViewById(R.id.btnEditProfil);
@@ -49,8 +52,6 @@ public class ProfileFragment extends Fragment {
             startActivity(intent, options.toBundle());
             sessionManager.clearSession();
         });
-
-
 
         return view;
     }

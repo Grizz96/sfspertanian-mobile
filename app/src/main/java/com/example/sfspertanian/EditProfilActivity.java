@@ -38,6 +38,8 @@ public class EditProfilActivity extends AppCompatActivity {
     private EditText etNamaDepan, etNamaBelakang, etEmail, etNoHp, etTtl, etAlamat;
     private Button btnSubmit, btnCancel;
     private RequestQueue requestQueue;
+    // Untuk mengambil kembali ID pengguna nanti (misalnya, di activity lain)
+    SessionManager sessionManager;
     String idUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +48,9 @@ public class EditProfilActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
-        readProfil();
+
+
+
         etNamaDepan=findViewById(R.id.TextNama1);
         etNamaBelakang=findViewById(R.id.TextNama2);
         etEmail=findViewById(R.id.TextEmail);
@@ -56,6 +60,9 @@ public class EditProfilActivity extends AppCompatActivity {
         btnSubmit=findViewById(R.id.btnsimpan);
         btnCancel=findViewById(R.id.btnbatal);
 
+        sessionManager = new SessionManager(getApplicationContext());
+        idUser = sessionManager.getUserId();
+        readProfil();
 
         btnSubmit.setOnClickListener(v->{
             updateProfile();
@@ -93,13 +100,13 @@ public class EditProfilActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
+                params.put("id_user", idUser);
                 params.put("nama_depan", namaDepan);
                 params.put("nama_belakang", namaBelakang);
                 params.put("email", email);
                 params.put("no_handphone", noHp);
                 params.put("tanggal_lahir", ttl);
                 params.put("alamat", alamat);
-                params.put("id_user", idUser);
                 return params;
             }
         };
@@ -110,7 +117,7 @@ public class EditProfilActivity extends AppCompatActivity {
 
 
     private void readProfil() {
-        String url = Db_Contract.urlGetUserData;
+        String url = Db_Contract.urlGetUserData+ "?id_user=" + idUser;
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -145,7 +152,7 @@ public class EditProfilActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         // Handle error
-                        Toast.makeText(EditProfilActivity.this, "Error fetching data", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EditProfilActivity.this, "Error fetching data"+idUser, Toast.LENGTH_SHORT).show();
                     }
                 });
 
