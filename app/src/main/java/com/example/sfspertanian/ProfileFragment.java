@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 public class ProfileFragment extends Fragment {
     RelativeLayout btnPesan;
     RelativeLayout btnSignOut;
+    SessionManager sessionManager;
 
     Button btnEditProfile;
     public ProfileFragment(){
@@ -46,7 +47,7 @@ public class ProfileFragment extends Fragment {
             Intent intent = new Intent(requireActivity(), GetStartedMainActivity.class); // Perbaikan: Nama kelas diawali huruf kapital
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(requireActivity(), v, "smart_animate");
             startActivity(intent, options.toBundle());
-
+            sessionManager.clearSession();
         });
 
 

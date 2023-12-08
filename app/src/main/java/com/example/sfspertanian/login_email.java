@@ -21,8 +21,12 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,6 +36,7 @@ public class login_email extends AppCompatActivity {
     private EditText etEmail, etPassword;
     private Button btnLogin;
     private ToggleButton toggleShowPassword;
+    private String idUser;
 
 
     @Override
@@ -44,8 +49,7 @@ public class login_email extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         toggleShowPassword = findViewById(R.id.toggleShowPassword);
 
-
-        TextView txtRegister = findViewById(R.id.txtRegister);
+        txtRegister = findViewById(R.id.txtRegister);
 
         toggleShowPassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -89,18 +93,36 @@ public class login_email extends AppCompatActivity {
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, loginUrl, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
-                            if (response.equals("Selamat Datang")) {
-                                Toast.makeText(login_email.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(login_email.this, MainActivity.class));
-                            } else {
-                                Toast.makeText(login_email.this, "Email atau Kata Sandi anda tidak sesuai", Toast.LENGTH_SHORT).show();
+                            try {
+                                JSONObject jsonResponse = new JSONObject(response);
+                                String status = jsonResponse.getString("status");
+
+                                if (status.equals("success")) {
+                                    Toast.makeText(login_email.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
+
+                                    // Mengambil id_user dari respons JSON
+                                    String idUser = jsonResponse.getString("id_user");
+
+                                    // Simpan idUser ke dalam sesi
+                                    SessionManager sessionManager = new SessionManager(getApplicationContext());
+                                    sessionManager.setUserId(idUser);
+
+                                    // Panggil fungsi readProfil
+                                    readProfil(email);
+
+                                    startActivity(new Intent(login_email.this, MainActivity.class));
+                                } else {
+                                    Toast.makeText(login_email.this, "Email atau Kata Sandi Anda tidak sesuai", Toast.LENGTH_SHORT).show();
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                                Toast.makeText(login_email.this, "Error parsing JSON", Toast.LENGTH_SHORT).show();
                             }
                         }
                     }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             Toast.makeText(login_email.this, "Login Gagal", Toast.LENGTH_SHORT).show();
-                            // Log the error for debugging
                             error.printStackTrace();
                         }
                     }) {
@@ -120,5 +142,34 @@ public class login_email extends AppCompatActivity {
                 }
             }
         });
+    }
+    private void readProfil(String gmail) {
+        String url = Db_Contract.urlGetUserData;
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            idUser = response.getString("id_user");
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(login_email.this, "Error parsing JSON", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // Handle error
+                        Toast.makeText(login_email.this, "Error fetching data", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        // Add the request to the RequestQueue
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(jsonObjectRequest);
     }
 }

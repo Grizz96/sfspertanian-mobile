@@ -74,7 +74,7 @@ public class EditProfilActivity extends AppCompatActivity {
         String ttl = etTtl.getText().toString();
         String alamat = etAlamat.getText().toString();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://jejakpadi-develop.000webhostapp.com/mobileController/update_user.php",
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Db_Contract.urlUpdateUserData,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -110,7 +110,7 @@ public class EditProfilActivity extends AppCompatActivity {
 
 
     private void readProfil() {
-        String url = "https://jejakpadi-develop.000webhostapp.com/mobileController/get_data_user.php";
+        String url = Db_Contract.urlGetUserData;
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
