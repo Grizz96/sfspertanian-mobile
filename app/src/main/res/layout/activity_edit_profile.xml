@@ -175,16 +175,16 @@
                                 android:id="@+id/alamat"
                                 android:layout_width="match_parent"
                                 android:layout_height="80dp"
-                                android:background="@drawable/inputbox_background"
-                                android:paddingLeft="10dp"
-                                android:drawablePadding="10dp"
-                                android:layout_centerVertical="true"
-                                android:fontFamily="@font/poppins_medium"
-                                android:textSize="15sp"
                                 android:layout_alignParentTop="true"
-                                android:layout_marginTop="80dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginTop="82dp"
+                                android:background="@drawable/inputbox_background"
+                                android:drawablePadding="10dp"
+                                android:fontFamily="@font/poppins_medium"
                                 android:hint="Alamat Lengkap"
-                                android:orientation="horizontal"/>
+                                android:orientation="horizontal"
+                                android:paddingLeft="10dp"
+                                android:textSize="15sp" />
 
                             <Button
                                 android:id="@+id/btnsimpan"
