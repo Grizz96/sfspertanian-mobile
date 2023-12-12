@@ -37,7 +37,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
-                    android:text="Pilih Pupuk"
+                    android:text="Informasi Pupuk"
                     android:textColor="#002140"
                     android:textSize="12sp" />
 
@@ -71,7 +71,7 @@
         android:id="@+id/title_persemaian"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pemupukan &amp; Literasi"
+        android:text="Pemupukan"
         android:layout_below="@+id/card_pilih_pupuk"
         android:fontFamily="@font/poppins"/>
     <RelativeLayout
@@ -103,7 +103,7 @@
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
-                    android:text="Informasi Pemupukan"
+                    android:text="Pilih Pupuk"
                     android:textColor="#002140"
                     android:textSize="12sp" />
 
@@ -163,7 +163,7 @@
                         android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins"
-                        android:text="Pilih Penyemprotan"
+                        android:text="Informasi Semprotan"
                         android:textColor="#002140"
                         android:textSize="12sp" />
 
@@ -191,7 +191,6 @@
         android:id="@+id/title_penanggulangan_hama"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Penyemprotan &amp; Literasi"
         android:layout_below="@+id/card_penyemprotan"
         android:fontFamily="@font/poppins"/>
     <RelativeLayout
@@ -223,7 +222,7 @@
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
-                    android:text="Informasi Penyemprotan"
+                    android:text="Pilih Semprotan"
                     android:textColor="#002140"
                     android:textSize="12sp" />
 
