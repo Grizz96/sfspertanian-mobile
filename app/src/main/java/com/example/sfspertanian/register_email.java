@@ -63,6 +63,23 @@ public class register_email extends AppCompatActivity {
             }
         });
 
+        toggleShowPasswordVerifikasi.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // Toggle the password visibility based on the ToggleButton state
+                if (isChecked) {
+                    // Show password
+                    etPasswordVerifikasi.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                } else {
+                    // Hide password
+                    etPasswordVerifikasi.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                }
+
+                // Move the cursor to the end of the password field
+                etPasswordVerifikasi.setSelection(etPassword.length());
+            }
+        });
+
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

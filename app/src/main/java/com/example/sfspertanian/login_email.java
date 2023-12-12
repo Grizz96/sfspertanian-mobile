@@ -48,8 +48,19 @@ public class login_email extends AppCompatActivity {
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
         toggleShowPassword = findViewById(R.id.toggleShowPassword);
-
         txtRegister = findViewById(R.id.txtRegister);
+        TextView txtLupaKataSandi = findViewById(R.id.btnlupakatasandi);
+
+        txtLupaKataSandi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Intent untuk membuka halaman activity_lupapassword.xml
+                Intent intent = new Intent(login_email.this, LupaPasswordActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
 
         toggleShowPassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
