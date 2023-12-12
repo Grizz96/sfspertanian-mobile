@@ -33,6 +33,8 @@ public class SemaiMainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private adapter_card_semai adapter;
     private List<ModelCardSemai> dataItemList;
+    SessionManager sessionManager;
+
 
     private int idSawah; // Declare a variable to store the id_sawah
 
@@ -53,7 +55,8 @@ public class SemaiMainActivity extends AppCompatActivity {
         btnBack.setOnClickListener(v -> {
             finish();
         });
-
+        sessionManager = new SessionManager(getApplicationContext());
+        idSawah = Integer.parseInt(sessionManager.getSawahId());
         FloatingActionButton addButton = findViewById(R.id.add);
 
         addButton.setOnClickListener(new View.OnClickListener() {
@@ -79,8 +82,9 @@ public class SemaiMainActivity extends AppCompatActivity {
         bottomSheet.show(getSupportFragmentManager(), bottomSheet.getTag());
     }
 
+
     private void makeVolleyRequest() {
-        int idSawah = getIntent().getIntExtra("id_sawah", 39);
+
         // Modify the URL to include id_sawah as a parameter
         String url = "https://jejakpadi.com/app/Http/mobileController/get_data_semai.php?id_sawah=" + idSawah;
 

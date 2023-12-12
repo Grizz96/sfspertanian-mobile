@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_marginBottom="20dp"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".PencatatanKetelusuranActivity">
+    tools:context=".Pencatatan">
 
     <RelativeLayout
         android:layout_width="match_parent"

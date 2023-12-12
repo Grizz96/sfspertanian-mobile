@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:layout_marginBottom="20dp"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".PencatatanKetelusuranActivity">
+    tools:context=".Pencatatan">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -18,7 +18,7 @@
         android:text="Pemupukan"
         android:fontFamily="@font/poppins"/>
     <RelativeLayout
-        android:layout_marginTop="20dp"
+        android:layout_below="@+id/title_persemaian"
         android:id="@+id/card_pilih_pupuk"
         android:layout_width="match_parent"
         android:layout_height="125dp"
@@ -186,18 +186,11 @@
                 </RelativeLayout>
             </RelativeLayout>
         </RelativeLayout>
-        <TextView
-        android:layout_marginLeft="10dp"
-        android:layout_marginVertical="5dp"
-        android:id="@+id/title_penanggulangan_hama"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/card_penyemprotan"
-        android:fontFamily="@font/poppins"/>
     <RelativeLayout
         android:id="@+id/card_penanggulanahan_hama"
-        android:layout_below="@+id/title_penanggulangan_hama"
+        android:layout_below="@+id/card_penyemprotan"
         android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
         android:layout_height="125dp"
         android:background="@drawable/bg_list_catatan">
 
@@ -245,42 +238,6 @@
             </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>
-    <TextView
-        android:layout_marginLeft="10dp"
-        android:layout_marginVertical="5dp"
-        android:id="@+id/title_quality_control"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/card_penanggulanahan_hama"
-        android:fontFamily="@font/poppins"/>
-            <RelativeLayout
-                android:layout_marginLeft="80dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:textColor="#002140"
-                    android:textSize="12sp"
-                    android:text="Quality Control Padi"/>
-                <RelativeLayout
-                    android:layout_marginTop="45dp"
-                    android:layout_width="119dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_tambahkan">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Lihat Informasi"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="#136047"/>
-
-                </RelativeLayout>
-            </RelativeLayout>
         </RelativeLayout>
-    </RelativeLayout>
 
-    </RelativeLayout>
 </ScrollView>
