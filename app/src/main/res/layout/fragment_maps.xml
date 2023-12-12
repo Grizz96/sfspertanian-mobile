@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
     <Button
-        android:id="@+id/btnPilihBibit"
+        android:id="@+id/btnPilihSawah"
         android:layout_marginBottom="20dp"
         android:layout_marginHorizontal="20dp"
         android:layout_alignParentBottom="true"

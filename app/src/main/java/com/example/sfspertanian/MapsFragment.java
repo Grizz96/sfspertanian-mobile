@@ -12,12 +12,20 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -25,24 +33,34 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MapsFragment extends AppCompatActivity {
 
+    private RequestQueue requestQueue;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
     private WebView webView;
+    private Button pilihSawah;
     private FusedLocationProviderClient fusedLocationClient;
     private LocationCallback locationCallback;
+    public static String lokasiSawah;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_maps);
 
+        requestQueue = Volley.newRequestQueue(this);
         webView = findViewById(R.id.webview);
+
+        pilihSawah = findViewById(R.id.btnPilihSawah);
 
         // Set up WebView settings
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+        webSettings.setGeolocationEnabled(true);
 
         // Enable zoom controls if needed
         webSettings.setBuiltInZoomControls(true);
@@ -57,11 +75,11 @@ public class MapsFragment extends AppCompatActivity {
         // Set up WebChromeClient to handle JavaScript alerts, etc.
         webView.setWebChromeClient(new WebChromeClient());
 
-        // Add JavaScript interface for communication between WebView and Android
-        webView.addJavascriptInterface(new WebAppInterface(this), "Android");
-
         // Initialize FusedLocationProviderClient
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+
+        // Add JavascriptInterface to communicate between WebView and Android
+        webView.addJavascriptInterface(new WebAppInterface(this), "Android");
 
         // Load the Leaflet map HTML
         webView.loadUrl("file:///android_asset/leaflet_map.html");
@@ -69,89 +87,32 @@ public class MapsFragment extends AppCompatActivity {
         // Set up action when the FAB is clicked
         FloatingActionButton fabGetLocation = findViewById(R.id.btnGetLocation);
         fabGetLocation.setOnClickListener(v -> {
-            // Check location permission
-            checkLocationPermission();
+            webView.loadUrl("javascript:getCurrentLocation()");
         });
 
-        // Initialize the location callback
-        locationCallback = new LocationCallback() {
-            @Override
-            public void onLocationResult(LocationResult locationResult) {
-                if (locationResult == null) {
-                    return;
-                }
-                Location location = locationResult.getLastLocation();
-                if (location != null) {
-                    double latitude = location.getLatitude();
-                    double longitude = location.getLongitude();
+        pilihSawah.setOnClickListener(v->{
+            showBottomSheet();
+        });
 
-                    // Call the JavaScript function from WebView
-                    webView.loadUrl("javascript:getCurrentLocation(" + latitude + "," + longitude + ")");
-                }
-            }
-        };
+
+
     }
-
-    private void checkLocationPermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED) {
-            // If permission is already granted, request location
-            requestLocationUpdates();
-        } else {
-            // If permission is not granted, request it from the user
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                    LOCATION_PERMISSION_REQUEST_CODE);
-        }
+    private void showBottomSheet() {
+        CreateSawahBottomSheetLayout createSawahBottomSheet = new CreateSawahBottomSheetLayout();
+        createSawahBottomSheet.show(getSupportFragmentManager(), createSawahBottomSheet.getTag());
     }
-
-    private void requestLocationUpdates() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED) {
-            // Permission is granted, request location updates
-            LocationRequest locationRequest = LocationRequest.create();
-            locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-
-            fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, null);
-        } else {
-            // Permission is not granted, request it from the user
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                    LOCATION_PERMISSION_REQUEST_CODE);
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
-                                           @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permission granted, request location updates
-                requestLocationUpdates();
-            } else {
-                // Permission denied, inform the user or handle accordingly
-                Log.e("Location Permission", "Permission denied");
-            }
-        }
-    }
-
-    // Interface to handle JavaScript calls from WebView
+    // Create a JavascriptInterface class
     public class WebAppInterface {
         Context mContext;
 
-        WebAppInterface(Context context) {
-            mContext = context;
+        WebAppInterface(Context c) {
+            mContext = c;
         }
 
-        // Method to be called from JavaScript to open the form activity
         @JavascriptInterface
-        public void openForm(double latitude, double longitude) {
-            // Create an Intent to open the form activity with coordinates
-            Intent intent = new Intent(mContext, login_email.class);
-            intent.putExtra("latitude", latitude);
-            intent.putExtra("longitude", longitude);
-            startActivity(intent);
+        public void openForm(String latitude, String longitude) {
+            lokasiSawah = "Latitude: " + latitude + ", Longitude: " + longitude;
+            Toast.makeText(mContext, lokasiSawah, Toast.LENGTH_SHORT).show();
         }
     }
 }

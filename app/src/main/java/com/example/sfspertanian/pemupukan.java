@@ -89,7 +89,7 @@ public class pemupukan extends AppCompatActivity {
             }
         });
 
-// Fetch data for the second spinner
+        // Fetch data for the second spinner
         fetchPupukData();
 
 

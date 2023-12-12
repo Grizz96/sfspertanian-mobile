@@ -39,14 +39,7 @@
         attribution: '© OpenStreetMap contributors'
     }).addTo(map);
 
-    map.on('contextmenu', function (e) {
-        // Handle long press event
-        var latitude = e.latlng.lat;
-        var longitude = e.latlng.lng;
 
-        // Open the form in Android activity with coordinates
-        Android.openForm(latitude, longitude);
-    });
     map.locate({setView: true, maxZoom: 16});
 
     //search map
@@ -60,57 +53,30 @@
                 .setLatLng(e.latlng)
                 .setContent("Anda menekan lokasi pada koordinat " + e.latlng.toString())
                 .openOn(map);
+            // Handle long press event
+            var latitude = e.latlng.lat;
+            var longitude = e.latlng.lng;
+
+            // Open the form in Android activity with coordinates
+            WebAppInterface.openForm(latitude, longitude);
         }
 
         map.on('click', onMapClick);
 
+
 </script>
 <script>
-    function getCurrentLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            function(position) {
-                // Tanggapan sukses
-                var latitude = position.coords.latitude;
-                var longitude = position.coords.longitude;
-
-                // Pastikan bahwa Android.openForm sesuai dengan implementasi yang benar
-                if (typeof Android !== 'undefined' && Android.openForm) {
-                    Android.openForm(latitude, longitude);
-                } else {
-                    console.error("Android.openForm is not defined or implemented.");
-                }
-            },
-            function(error) {
-                // Tanggapan kesalahan
-                var errorMessage = "Unknown error";
-
-                switch(error.code) {
-                    case error.PERMISSION_DENIED:
-                        errorMessage = "Maaf, kami membutuhkan izin lokasi untuk memberikan layanan terbaik. Silakan aktifkan izin lokasi pada perangkat Anda.";
-                        break;
-                    case error.POSITION_UNAVAILABLE:
-                        errorMessage = "Informasi lokasi tidak tersedia.";
-                        break;
-                    case error.TIMEOUT:
-                        errorMessage = "Permintaan untuk mendapatkan lokasi pengguna telah habis waktu.";
-                        break;
-                    case error.UNKNOWN_ERROR:
-                        errorMessage = "Terjadi kesalahan yang tidak diketahui.";
-                        break;
-                }
-
-                // Menampilkan pesan kesalahan kepada pengguna
-                alert(errorMessage);
-
-                console.error("Error getting location:", errorMessage);
-            }
+    function getCurrentLocation(){
+         this.map.locate(
+          {
+            setView : true,
+            maxZoom: 17
+          }
         );
-    } else {
-        console.error("Geolocation is not supported by this browser.");
+        this.map.on('locationfound', function(e) {
+            $('.jsLeafLoc').removeClass('hidden')
+        });
     }
-}
-
 </script>
 
 </body>
