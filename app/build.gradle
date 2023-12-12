@@ -1,6 +1,6 @@
 plugins {
     id 'com.android.application'
-    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+  id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 
     // Add the Google services Gradle plugin
 }
