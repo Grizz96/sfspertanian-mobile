@@ -1,40 +1,22 @@
 package com.example.sfspertanian;
 
-import android.app.ActivityOptions;
-import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.os.Handler;
-import android.transition.Fade;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.google.android.material.tabs.TabLayout;
 import com.shuhart.stepview.StepView;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
-import java.util.Date;
-import java.util.Locale;
 
-public class RiwayatFragment extends Fragment {
+public class Pencatatan extends Fragment {
 
     private ImageButton btnBack;
     private TabLayout tabLayout;
@@ -43,7 +25,7 @@ public class RiwayatFragment extends Fragment {
     private TextView tesTextView;
     private PencatatanKetelusuranViewPagerAdapter viewPagerAdapter;
 
-    public RiwayatFragment() {
+    public Pencatatan() {
         // Required empty public constructor
     }
 
@@ -52,7 +34,7 @@ public class RiwayatFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.activity_pencatatan_ketelusuran, container, false);
 
-        tesTextView = view.findViewById(R.id.tes);
+        tesTextView = view.findViewById(R.id.detail);
 
         // Panggil fungsi untuk melakukan permintaan Volley
 

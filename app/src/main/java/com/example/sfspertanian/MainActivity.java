@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     BerandaFragment berandaFragment = new BerandaFragment();
-    RiwayatFragment riwayatFragment = new RiwayatFragment();
+        Pencatatan riwayatFragment = new Pencatatan();
     PencatatanFragment pencatatanFragment = new PencatatanFragment();
     ProfileFragment profileFragment = new ProfileFragment();
 
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity
             case R.id.history:
                 getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.flFragment, riwayatFragment)
+                        .replace(R.id.flFragment,riwayatFragment )
                         .commit();
                 return true;
 
