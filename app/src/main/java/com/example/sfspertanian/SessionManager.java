@@ -20,6 +20,10 @@ public class SessionManager {
         editor.putString(KEY_USER_ID, userId);
         editor.apply();
     }
+    public void setSawahId(String sawahId) {
+        editor.putString(KEY_SAWAH_ID, sawahId);
+        editor.apply();
+    }
 
     public String getUserId() {
         return sharedPreferences.getString(KEY_USER_ID, null);

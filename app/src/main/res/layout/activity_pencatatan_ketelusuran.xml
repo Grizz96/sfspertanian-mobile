@@ -50,6 +50,7 @@
         android:layout_margin="15dp"
         >
         <Spinner
+            android:id="@+id/spinnerselect"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:autofillHints="Pilih Sawah"

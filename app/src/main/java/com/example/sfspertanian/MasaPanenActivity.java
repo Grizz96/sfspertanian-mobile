@@ -62,7 +62,7 @@ public class MasaPanenActivity extends AppCompatActivity {
 
     private void startNextActivity(View v) {
         getWindow().setExitTransition(new Fade());
-        Intent intent = new Intent(this, PencatatanKetelusuranActivity.class);
+        Intent intent = new Intent(this, Pencatatan.class);
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, v, "smart_animate");
         startActivity(intent, options.toBundle());
 
