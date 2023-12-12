@@ -25,14 +25,14 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PencatatanFragment extends Fragment {
+public class DataSawahFragment extends Fragment {
     ImageButton btnPesan,btnDetail;
     FloatingActionButton btnTambah;
     private RecyclerView recyclerView;
     private adapter_card_location locationAdapter;
     private List<LocationItem> locationList;
 
-    public PencatatanFragment() {
+    public DataSawahFragment() {
         // Required empty public constructor
     }
 

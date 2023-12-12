@@ -48,12 +48,13 @@ public class adapter_card_location extends RecyclerView.Adapter<adapter_card_loc
 
         holder.detailButton.setOnClickListener(new View.OnClickListener() {
             @Override
+            public void onClick(View view) {
+                // Contoh: Buka QCActivity dan kirim data "id_sawah" yang diklik
+                int id_sawah = location.getIdSawah();
+                String id_sawahString = String.valueOf(id_sawah);
 
-                public void onClick(View view) {
-                    // Handle item click
-                    // Contoh: Buka PencatatanKetelusuranActivity dan kirim data "sawah" yang diklik
-                Intent intent = new Intent(context, PencatatanKetelusuranActivity.class);
-                intent.putExtra("id_sawah", location.getIdSawah());
+                Intent intent = new Intent(context, QCActivity.class);
+                intent.putExtra("id_sawah", id_sawahString);
                 context.startActivity(intent);
             }
         });

@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity
 
     BerandaFragment berandaFragment = new BerandaFragment();
         Pencatatan riwayatFragment = new Pencatatan();
-    PencatatanFragment pencatatanFragment = new PencatatanFragment();
+    DataSawahFragment pencatatanFragment = new DataSawahFragment();
     ProfileFragment profileFragment = new ProfileFragment();
 
     @Override
