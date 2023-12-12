@@ -46,7 +46,7 @@ public class PencatatanKetelusuranActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pencatatan_ketelusuran);
 
-        tesTextView = findViewById(R.id.tes);
+        tesTextView = findViewById(R.id.detail);
 
 
 

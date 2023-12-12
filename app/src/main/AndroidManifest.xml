@@ -36,12 +36,13 @@
         <activity android:name=".SplashActivity"></activity>
         <activity android:name=".PilihBibitActivity"
             android:exported="true" />
-        <activity android:name=".DetailBibitActivity" /> <!-- Other activities -->
-        <activity android:name=".GetStartedMainActivity"
-            android:exported="true" >
+        <activity android:name=".DetailBibitActivity" />
+        <activity android:name=".QCActivity">
+
+        </activity>
+        <activity android:name=".GetStartedMainActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

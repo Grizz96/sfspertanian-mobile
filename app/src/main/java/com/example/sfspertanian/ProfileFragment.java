@@ -52,7 +52,6 @@ public class ProfileFragment extends Fragment {
             startActivity(intent, options.toBundle());
             sessionManager.clearSession();
         });
-
         return view;
     }
 }
