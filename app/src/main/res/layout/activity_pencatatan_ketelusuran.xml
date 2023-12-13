@@ -37,7 +37,6 @@
                 android:fontFamily="@font/quicksand_bold"
                 android:text="UD. Tani Rejo"
                 android:textColor="@color/button_green"
-
                 android:textSize="24dp" />
         </RelativeLayout>
 
