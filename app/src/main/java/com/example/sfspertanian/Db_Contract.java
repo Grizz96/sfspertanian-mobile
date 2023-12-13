@@ -2,7 +2,7 @@ package com.example.sfspertanian;
 
 public class Db_Contract {
 
-
+        public static final String urlKalender = "https://jejakpadi.com/app/Http/mobileController/api_kalender.php";
         public static final String urlRegister = "https://jejakpadi.com/app/Http/mobileController/api_register.php";
         public static final String urlLogin = "https://jejakpadi-develop.000webhostapp.com/mobileController/api_login.php";
         public static final String urlGetUserData = "https://jejakpadi-develop.000webhostapp.com/mobileController/get_data_user.php";
