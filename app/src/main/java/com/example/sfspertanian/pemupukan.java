@@ -1,4 +1,5 @@
 package com.example.sfspertanian;
+
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
@@ -14,7 +15,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -40,6 +43,9 @@ public class pemupukan extends AppCompatActivity {
     private TextView selectedIdPupukTextView;
     private Spinner jenisPemupukanSpinner, pilihPupukSpinner;
     private EditText deskripsiEditText, jumlahPemupukanEditText;
+    SessionManager sessionManager;
+    String idUser;
+    String idSawah;
 
     private Button btnSimpan, btnBatal, tanggalpupuk;
     private List<String> idPupukList = new ArrayList<>();
@@ -48,7 +54,9 @@ public class pemupukan extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pemupukan);
-
+        sessionManager = new SessionManager(this);
+        idUser = sessionManager.getUserId();
+        idSawah = sessionManager.getSawahId();
         requestQueue = Volley.newRequestQueue(this);
 
         jenisPemupukanSpinner = findViewById(R.id.JenisPemupukan);
@@ -68,16 +76,13 @@ public class pemupukan extends AppCompatActivity {
         jenisPemupukanAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         jenisPemupukanSpinner.setAdapter(jenisPemupukanAdapter);
 
-
         ArrayAdapter<Integer> pupukIdAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item);
         pupukIdAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         pilihPupukSpinner.setAdapter(pupukIdAdapter);
-        // Inside the onCreate method, after setting up the adapters
 
         pilihPupukSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                // Update the selectedIdPupukTextView when an item is selected
                 String selectedPupukName = pilihPupukSpinner.getSelectedItem().toString();
                 String selectedIdPupuk = getIdPupukByName(selectedPupukName);
                 selectedIdPupukTextView.setText(selectedIdPupuk);
@@ -89,16 +94,8 @@ public class pemupukan extends AppCompatActivity {
             }
         });
 
-        // Fetch data for the second spinner
         fetchPupukData();
 
-
-        tanggalpupuk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDateTimePicker();
-            }
-        });
         tanggalpupuk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -154,8 +151,12 @@ public class pemupukan extends AppCompatActivity {
 
         timePickerDialog.show();
     }
+
     private void fetchPupukData() {
-        String url = "https://jejakpadi.com/app/Http/mobileController/spinnerpupuk.php"; // Replace with your API endpoint
+        String url = "https://jejakpadi.com/app/Http/mobileController/spinnerpupuk.php";
+        ArrayAdapter<String> pupukIdAdapter = new ArrayAdapter<>(pemupukan.this, android.R.layout.simple_spinner_item);
+        pupukIdAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        pilihPupukSpinner.setAdapter(pupukIdAdapter);
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
                 Request.Method.GET,
@@ -166,17 +167,13 @@ public class pemupukan extends AppCompatActivity {
                     public void onResponse(JSONArray response) {
                         Log.d(TAG, "Response: " + response.toString());
                         try {
-                            // Process the JSON array to get pupuk data
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject pupukObject = response.getJSONObject(i);
                                 String idPupuk = pupukObject.getString("id_pupuk");
                                 String namaPupuk = pupukObject.getString("nama_pupuk");
 
-                                // Add the id_pupuk to the list
                                 idPupukList.add(idPupuk);
-
-                                // Add the nama_pupuk to the second spinner adapter
-                                ((ArrayAdapter) pilihPupukSpinner.getAdapter()).add(namaPupuk);
+                                pupukIdAdapter.add(namaPupuk);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -191,9 +188,9 @@ public class pemupukan extends AppCompatActivity {
                     }
                 });
 
-        // Add the request to the RequestQueue
         requestQueue.add(jsonArrayRequest);
     }
+
     private void sendDataToServer() {
         String jenisPemupukan = jenisPemupukanSpinner.getSelectedItem().toString();
         String deskripsi = deskripsiEditText.getText().toString();
@@ -223,17 +220,17 @@ public class pemupukan extends AppCompatActivity {
                 params.put("deskripsi", deskripsi);
                 params.put("tanggal", tanggal);
                 params.put("jumlah_penggunaan", jumlahPenggunaan);
-                params.put("id_user", String.valueOf(14));
+                params.put("id_user", idUser);
                 params.put("id_pupuk", idpupuk);
-                params.put("id_sawah", String.valueOf(39));
+                params.put("id_sawah", idSawah);
                 return params;
             }
         };
 
         requestQueue.add(stringRequest);
     }
+
     private String getIdPupukByName(String pupukName) {
-        // Find the id_pupuk based on the pupuk name
         for (int i = 0; i < idPupukList.size(); i++) {
             if (pupukName.equals(pilihPupukSpinner.getItemAtPosition(i))) {
                 return idPupukList.get(i);
@@ -241,6 +238,4 @@ public class pemupukan extends AppCompatActivity {
         }
         return "";
     }
-
-
 }

@@ -37,26 +37,38 @@ public class BottomSheetLayout extends BottomSheetDialogFragment {
     private Context context;
     private Calendar calendar = Calendar.getInstance();
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
-    private String url = "https://jejakpadi.com/app/Http/mobileController/insert_semai.php";
+    private String url = Db_Contract.urlInsertSemai;
     private Spinner dropPencatatanSemai;
     private EditText editTextCatatan;
     private Button timePickerButton;
+    SessionManager sessionManager;
+    String idUser;
+    String idSawah;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.bottom_sheet_layout, container, false);
         initializeViews(view);
+
+        // Move the following lines inside onCreateView
+        sessionManager = new SessionManager(requireContext()); // Assuming SessionManager requires a context
+        idUser = sessionManager.getUserId();
+        idSawah = sessionManager.getSawahId();
+
         return view;
     }
+
     public interface OnDataAddedListener {
         void onDataAdded();
     }
 
     private OnDataAddedListener onDataAddedListener;
+
     public void setOnDataAddedListener(OnDataAddedListener listener) {
         this.onDataAddedListener = listener;
     }
+
     private void initializeViews(View view) {
         dropPencatatanSemai = view.findViewById(R.id.drop_pencatatan_semai);
         editTextCatatan = view.findViewById(R.id.menulisCatatan);
@@ -76,8 +88,6 @@ public class BottomSheetLayout extends BottomSheetDialogFragment {
             public void onClick(View v) {
                 String jenisSemai = dropPencatatanSemai.getSelectedItem().toString();
                 String catatan = editTextCatatan.getText().toString();
-                String idUser = "14";
-                String idSawah = "39";
                 String dateTimeString = dateFormat.format(calendar.getTime());
 
                 RequestQueue queue = Volley.newRequestQueue(requireContext());
@@ -171,6 +181,4 @@ public class BottomSheetLayout extends BottomSheetDialogFragment {
         String buttonText = dateTimeFormat.format(calendar.getTime());
         timePickerButton.setText(buttonText);
     }
-
-
 }

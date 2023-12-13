@@ -1,4 +1,5 @@
 package com.example.sfspertanian;
+
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -35,15 +37,17 @@ import java.util.Map;
 
 public class penyemprotan extends AppCompatActivity {
 
-    private static final String TAG = pemupukan.class.getSimpleName();
+    private static final String TAG = penyemprotan.class.getSimpleName();
     private RequestQueue requestQueue;
     private TextView selectedIdPupukTextView;
     private Spinner jenisPemupukanSpinner, pilihPupukSpinner;
     private EditText deskripsiEditText, jumlahPemupukanEditText;
-
+    SessionManager sessionManager;
+    String idUser;
+    String idSawah;
     private Button btnSimpan, btnBatal, tanggalpupuk;
     private List<String> idPupukList = new ArrayList<>();
-
+    private ArrayAdapter<String> pupukIdAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +55,9 @@ public class penyemprotan extends AppCompatActivity {
 
         requestQueue = Volley.newRequestQueue(this);
 
+        sessionManager = new SessionManager(penyemprotan.this); // Assuming SessionManager requires a context
+        idUser = sessionManager.getUserId();
+        idSawah = sessionManager.getSawahId();
         jenisPemupukanSpinner = findViewById(R.id.JenisPemupukan);
         pilihPupukSpinner = findViewById(R.id.PilihPupuk);
         deskripsiEditText = findViewById(R.id.DeskripsiPemupukan);
@@ -68,16 +75,14 @@ public class penyemprotan extends AppCompatActivity {
         jenisPemupukanAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         jenisPemupukanSpinner.setAdapter(jenisPemupukanAdapter);
 
-
-        ArrayAdapter<Integer> pupukIdAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item);
+        pupukIdAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item);
         pupukIdAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         pilihPupukSpinner.setAdapter(pupukIdAdapter);
-        // Inside the onCreate method, after setting up the adapters
+
 
         pilihPupukSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                // Update the selectedIdPupukTextView when an item is selected
                 String selectedPupukName = pilihPupukSpinner.getSelectedItem().toString();
                 String selectedIdPupuk = getIdPupukByName(selectedPupukName);
                 selectedIdPupukTextView.setText(selectedIdPupuk);
@@ -89,16 +94,8 @@ public class penyemprotan extends AppCompatActivity {
             }
         });
 
-// Fetch data for the second spinner
-        fetchPupukData();
+        fetchSemprotanData();
 
-
-        tanggalpupuk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDateTimePicker();
-            }
-        });
         tanggalpupuk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -154,32 +151,32 @@ public class penyemprotan extends AppCompatActivity {
 
         timePickerDialog.show();
     }
-    private void fetchPupukData() {
-        String url = "https://jejakpadi.com/app/Http/mobileController/spinnersemprot.php"; // Replace with your API endpoint
 
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
+    private void fetchSemprotanData() {
+        String url = Db_Contract.urlSpinnerSemprot;
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.GET,
                 url,
                 null,
-                new Response.Listener<JSONArray>() {
+                new Response.Listener<JSONObject>() {
                     @Override
-                    public void onResponse(JSONArray response) {
+                    public void onResponse(JSONObject response) {
                         Log.d(TAG, "Response: " + response.toString());
                         try {
-                            // Process the JSON array to get pupuk data
-                            for (int i = 0; i < response.length(); i++) {
-                                JSONObject pupukObject = response.getJSONObject(i);
-                                String idPupuk = pupukObject.getString("id_semprotan");
-                                String namaPupuk = pupukObject.getString("nama_semprotan");
+                            JSONArray dataArray = response.getJSONArray("data");
 
-                                // Add the id_pupuk to the list
-                                idPupukList.add(idPupuk);
+                            for (int i = 0; i < dataArray.length(); i++) {
+                                JSONObject semprotanObject = dataArray.getJSONObject(i);
+                                String idSemprotan = semprotanObject.getString("id_semprotan");
+                                String namaSemprotan = semprotanObject.getString("nama_semprotan");
 
-                                // Add the nama_pupuk to the second spinner adapter
-                                ((ArrayAdapter) pilihPupukSpinner.getAdapter()).add(namaPupuk);
+                                idPupukList.add(idSemprotan);
+                                pupukIdAdapter.add(namaSemprotan);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
+                            Toast.makeText(penyemprotan.this, "Error parsing semprotan data", Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
@@ -191,9 +188,9 @@ public class penyemprotan extends AppCompatActivity {
                     }
                 });
 
-        // Add the request to the RequestQueue
-        requestQueue.add(jsonArrayRequest);
+        requestQueue.add(jsonObjectRequest);
     }
+
     private void sendDataToServer() {
         String jenisPemupukan = jenisPemupukanSpinner.getSelectedItem().toString();
         String deskripsi = deskripsiEditText.getText().toString();
@@ -223,24 +220,22 @@ public class penyemprotan extends AppCompatActivity {
                 params.put("deskripsi", deskripsi);
                 params.put("tanggal", tanggal);
                 params.put("jumlah_penggunaan", jumlahPenggunaan);
-                params.put("id_user", String.valueOf(14));
+                params.put("id_user", idUser);
                 params.put("id_semprotan", idpupuk);
-                params.put("id_sawah", String.valueOf(39));
+                params.put("id_sawah", idSawah);
                 return params;
             }
         };
 
         requestQueue.add(stringRequest);
     }
+
     private String getIdPupukByName(String pupukName) {
-        // Find the id_pupuk based on the pupuk name
         for (int i = 0; i < idPupukList.size(); i++) {
-            if (pupukName.equals(pilihPupukSpinner.getItemAtPosition(i))) {
+            if (pupukName.equals(idPupukList.get(i))) {
                 return idPupukList.get(i);
             }
         }
         return "";
     }
-
-
 }
