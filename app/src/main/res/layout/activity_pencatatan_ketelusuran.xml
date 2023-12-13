@@ -58,7 +58,7 @@
 
     </RelativeLayout>
     <RelativeLayout
-        android:layout_margin="12dp"
+        android:layout_margin="8dp"
         android:layout_marginTop="10dp"
         android:layout_width="180dp"
         android:layout_height="29dp"
@@ -102,7 +102,8 @@
         android:id="@+id/step_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
+        android:paddingVertical="16dp"
+        android:paddingHorizontal="8dp"
         app:sv_selectedCircleColor="@color/white"
         app:sv_selectedTextColor="@color/white"
         app:sv_stepLineWidth="1dp"
@@ -116,7 +117,8 @@
         app:sv_selectedStepNumberColor="@color/text_grey"
         app:sv_stepViewStyle="@style/StepView"
         app:sv_doneStepMarkColor="@color/text_grey"
-        app:sv_stepNumberTextSize="6sp"
+        app:sv_stepNumberTextSize="7sp"
+        app:sv_textSize="10sp"
         app:sv_animationType="Line"
         app:steps="@array/steps"
         app:sv_typeface="@font/inter_regular"/>
@@ -125,8 +127,7 @@
     <RelativeLayout
         android:layout_below="@+id/rl_step_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_height="wrap_content">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

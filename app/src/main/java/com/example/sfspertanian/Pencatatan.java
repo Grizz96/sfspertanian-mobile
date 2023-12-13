@@ -3,6 +3,7 @@ package com.example.sfspertanian;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.os.Handler;
 import android.transition.Fade;
@@ -20,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.tabs.TabLayout;
 import com.shuhart.stepview.StepView;
@@ -39,6 +41,7 @@ public class Pencatatan extends Fragment {
     private TabLayout tabLayout;
     private ViewPager2 viewPager2;
     private Spinner spinnerselect;
+    private String[] steps;
     private StepView stepView;
     private TextView tesTextView;
     private PencatatanKetelusuranViewPagerAdapter viewPagerAdapter;
@@ -49,37 +52,14 @@ public class Pencatatan extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_pencatatan_ketelusuran, container, false);
+        sessionManager = new SessionManager(requireContext()); // Make sure your SessionManager accepts Context
+        idSawah = sessionManager.getSawahId();
 
         spinnerselect = view.findViewById(R.id.spinnerselect);
         tesTextView = view.findViewById(R.id.detail);
 
         Resources res = getResources();
 
-        stepView = view.findViewById(R.id.step_view);
-        String[] stepsArray = res.getStringArray(R.array.steps);
-        stepView.setSteps(Arrays.asList(stepsArray));
-
-        btnBack = view.findViewById(R.id.btnBack);
-        tabLayout = view.findViewById(R.id.tab_layout);
-        viewPager2 = view.findViewById(R.id.view_pager);
-
-        viewPagerAdapter = new PencatatanKetelusuranViewPagerAdapter(requireActivity());
-        viewPager2.setAdapter(viewPagerAdapter);
-
-        stepView.setOnStepClickListener(step -> stepView.go(stepView.getCurrentStep() + 1, true));
-
-        btnBack.setOnClickListener(v -> {
-            requireActivity().getWindow().setExitTransition(new Fade());
-            // Kembali ke PencatatanFragment
-            Intent backIntent = new Intent(requireActivity(), MainActivity.class);
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(requireActivity(), v, "smart_animate");
-            startActivity(backIntent, options.toBundle());
-
-            // Tunggu selama 2 detik sebelum menutup
-            new Handler().postDelayed(() -> requireActivity().finish(), 2000);
-        });
-        sessionManager = new SessionManager(requireContext()); // Make sure your SessionManager accepts Context
-        idSawah = sessionManager.getSawahId();
         spinnerselect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
@@ -91,9 +71,7 @@ public class Pencatatan extends Fragment {
                 // You can do something with the selected item, for example, display it in a TextView
                 sessionManager.setSawahId(selectedSawahId);
                 String storedSawahId = sessionManager.getSawahId();
-
-// Display the stored Sawah ID in the TextView
-
+                fetchDurationDataFromApi(sessionManager.getSawahId());
 
             }
 
@@ -101,6 +79,34 @@ public class Pencatatan extends Fragment {
             public void onNothingSelected(AdapterView<?> parentView) {
                 // Do nothing here if no item is selected
             }
+        });
+        // Panggil fungsi untuk melakukan permintaan Volley
+        fetchDataFromApi();
+
+
+        stepView = view.findViewById(R.id.step_view);
+        // Initialize the steps array
+        steps = new String[5];
+        fetchDurationDataFromApi(idSawah);
+
+
+
+        btnBack = view.findViewById(R.id.btnBack);
+        tabLayout = view.findViewById(R.id.tab_layout);
+        viewPager2 = view.findViewById(R.id.view_pager);
+
+        viewPagerAdapter = new PencatatanKetelusuranViewPagerAdapter(requireActivity());
+        viewPager2.setAdapter(viewPagerAdapter);
+
+        btnBack.setOnClickListener(v -> {
+            requireActivity().getWindow().setExitTransition(new Fade());
+            // Kembali ke PencatatanFragment
+            Intent backIntent = new Intent(requireActivity(), MainActivity.class);
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(requireActivity(), v, "smart_animate");
+            startActivity(backIntent, options.toBundle());
+
+            // Tunggu selama 2 detik sebelum menutup
+            new Handler().postDelayed(() -> requireActivity().finish(), 2000);
         });
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -125,9 +131,6 @@ public class Pencatatan extends Fragment {
                 tabLayout.getTabAt(position).select();
             }
         });
-
-        // Panggil fungsi untuk melakukan permintaan Volley
-        fetchDataFromApi();
 
         return view;
     }
@@ -166,6 +169,51 @@ public class Pencatatan extends Fragment {
 
         Volley.newRequestQueue(requireActivity()).add(jsonArrayRequest);
     }
+    private void fetchDurationDataFromApi(String id) {
+        String durationUrl = "https://jejakpadi-develop.000webhostapp.com/mobileController/get_data_kalender.php?id=" + id;
+
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, durationUrl, null,
+                response -> {
+                    try {
+                        // Retrieve the duration data from the API response
+                        String durasiPenanaman = response.getString("durasiPenanaman");
+                        String durasiAnakan = response.getString("durasiAnakan");
+                        String durasiBunting = response.getString("durasiBunting");
+                        String durasiPemasakan = response.getString("durasiPemasakan");
+                        String durasiPanen = response.getString("durasiPanen");
+
+
+                        // Add duration data to the list
+                        String fixDurasiPenanaman = "Penanaman\n" + durasiPenanaman;
+                        String fixDurasiAnakan = "Penanaman\n" + durasiAnakan;
+                        String fixDurasiBunting = "Penanaman\n" + durasiBunting;
+                        String fixDurasiPemasakan = "Penanaman\n" + durasiPemasakan;
+                        String fixDurasiPanen = "Penanaman\n" + durasiPanen;
+
+                        steps = new String[5];
+
+                        steps[0] = fixDurasiPenanaman;
+                        steps[1] = fixDurasiAnakan;
+                        steps[2] = fixDurasiBunting;
+                        steps[3] = fixDurasiPemasakan;
+                        steps[4] = fixDurasiPanen;
+
+                        // Set the steps in StepView
+                        stepView.setSteps(Arrays.asList(steps));
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                },
+                error -> {
+                    // Handle error
+                    error.printStackTrace();
+                });
+
+        Volley.newRequestQueue(requireActivity()).add(jsonObjectRequest);
+    }
+
 
     private int getCurrentStepBasedOnDate(String tanggalTanam, String[] stepsArray) {
         if (tanggalTanam != null && !tanggalTanam.isEmpty()) {
