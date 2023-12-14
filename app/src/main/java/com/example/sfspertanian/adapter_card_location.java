@@ -1,17 +1,37 @@
 package com.example.sfspertanian;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class adapter_card_location extends RecyclerView.Adapter<adapter_card_location.LocationViewHolder> {
+    private adapter_card_location locationAdapter;
+
 
     private Context context;
     private List<LocationItem> locationList;
@@ -62,9 +82,61 @@ public class adapter_card_location extends RecyclerView.Adapter<adapter_card_loc
         holder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Handle delete button click
+                // Create an AlertDialog
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Konfirmasi");
+                builder.setMessage("Apakah Anda yakin ingin menghapus ini?");
+
+                // Add buttons to the AlertDialog
+                builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        int id_sawah = location.getIdSawah();
+                        String id_sawahString = String.valueOf(id_sawah);
+                        deleteSawah(id_sawahString);
+                    }
+                });
+
+                builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss(); // Close the dialog
+                    }
+                });
+
+                // Show the AlertDialog
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
             }
         });
+    }
+
+
+    private void deleteSawah(String id) {
+        // You should perform the HTTP request to delete the item here
+        String url = Db_Contract.urlDeleteSawah + "?id_sawah=" + id;
+
+        // You can use Volley or any other HTTP library to make the request
+        // Example using Volley
+        StringRequest request = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Toast.makeText(context, "Data berhasil dihapus", Toast.LENGTH_SHORT).show();
+                        DataSawahFragment dataSawahFragment = new DataSawahFragment();
+                        dataSawahFragment.fetchDataFromApi();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // Handle error
+                        Toast.makeText(context, "Error deleting item: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        // Add the request to the RequestQueue
+        Volley.newRequestQueue(context).add(request);
     }
 
     public void setData(List<LocationItem> locationList) {

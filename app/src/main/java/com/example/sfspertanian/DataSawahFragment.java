@@ -72,7 +72,7 @@ public class DataSawahFragment extends Fragment {
         return view;
     }
 
-    private void fetchDataFromApi() {
+    public void fetchDataFromApi() {
         String apiUrl = "https://jejakpadi.com/app/Http/mobileController/get_data_map.php"; // replace with your actual API URL
 
         RequestQueue requestQueue = Volley.newRequestQueue(requireContext());
@@ -84,10 +84,14 @@ public class DataSawahFragment extends Fragment {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
+                        if(!locationList.isEmpty()){
+                            locationList.clear();
+                        }else{
                         locationList = parseJsonArray(response);
 
                         // Update the adapter with the new data
                         locationAdapter.setData(locationList);
+                        }
                     }
                 },
                 new Response.ErrorListener() {

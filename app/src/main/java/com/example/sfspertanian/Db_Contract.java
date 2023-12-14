@@ -8,7 +8,7 @@ public class Db_Contract {
                 public static final String urlGetUserData = "https://jejakpadi-develop.000webhostapp.com/mobileController/get_data_user.php";
                 public static final String urlUpdateUserData = "https://jejakpadi-develop.000webhostapp.com/mobileController/update_user.php";
                 public static final String urlCreateSawah = "https://jejakpadi-develop.000webhostapp.com/mobileController/insert_sawah.php";
-
+                public static final String urlDeleteSawah = "https://jejakpadi-develop.000webhostapp.com/mobileController/delete_sawah.php";
                 public static final String urlInsertSemai = "https://jejakpadi-develop.000webhostapp.com/mobileController/insert_semai.php";
 
         public static final String urlSpinnerSemprot =  "https://jejakpadi-develop.000webhostapp.com/mobileController/spinnersemprot.php";
