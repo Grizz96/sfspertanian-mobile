@@ -37,7 +37,7 @@ import java.util.Locale;
 
 public class Pencatatan extends Fragment {
 
-    private ImageButton btnBack;
+    private ImageButton btnPesan;
     private TabLayout tabLayout;
     private ViewPager2 viewPager2;
     private Spinner spinnerselect;
@@ -60,6 +60,16 @@ public class Pencatatan extends Fragment {
         tesTextView = view.findViewById(R.id.detail);
 
         Resources res = getResources();
+
+        // Perbaikan: Menginisialisasi btnPesan dengan ID dari layout
+        btnPesan = view.findViewById(R.id.btnPesan);
+
+        // Perbaikan: Menggunakan requireActivity() untuk mendapatkan konteks activity
+        btnPesan.setOnClickListener(v -> {
+            Intent intent = new Intent(requireActivity(), pesanActivity.class); // Perbaikan: Nama kelas diawali huruf kapital
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(requireActivity(), v, "smart_animate");
+            startActivity(intent, options.toBundle());
+        });
 
         spinnerselect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -89,24 +99,12 @@ public class Pencatatan extends Fragment {
         fetchDurationDataFromApi(idSawah);
 
 
-
-        btnBack = view.findViewById(R.id.btnBack);
         tabLayout = view.findViewById(R.id.tab_layout);
         viewPager2 = view.findViewById(R.id.view_pager);
 
         viewPagerAdapter = new PencatatanKetelusuranViewPagerAdapter(requireActivity());
         viewPager2.setAdapter(viewPagerAdapter);
 
-        btnBack.setOnClickListener(v -> {
-            requireActivity().getWindow().setExitTransition(new Fade());
-            // Kembali ke PencatatanFragment
-            Intent backIntent = new Intent(requireActivity(), MainActivity.class);
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(requireActivity(), v, "smart_animate");
-            startActivity(backIntent, options.toBundle());
-
-            // Tunggu selama 2 detik sebelum menutup
-            new Handler().postDelayed(() -> requireActivity().finish(), 2000);
-        });
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

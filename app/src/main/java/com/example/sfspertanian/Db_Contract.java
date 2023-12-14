@@ -20,8 +20,8 @@ public class Db_Contract {
                 public static final String urlGetBibit= "https://jejakpadi-develop.000webhostapp.com/mobileController/get_data_bibit.php";
                 public static final String urlGetPupuk= "";
                 public static final String urlGetSemprot= "https://jejakpadi-develop.000webhostapp.com/mobileController/get_data_semprotan.php";
-                public static final String urldetailBibit= "";
-                public static final String urlGetDetailPupuk= "";
+                public static final String urlGetDetailBibit= "https://jejakpadi-develop.000webhostapp.com/mobileController/get_detail_bibit.php?nama_bibit=";
+                public static final String urlGetDetailPupuk= "https://jejakpadi-develop.000webhostapp.com/mobileController/get_detail_pupuk.php?nama_pupuk=";
                 public static final String urlGetDetailSemprot= "";
                 public static final String urlGetDataMap= "https://jejakpadi-develop.000webhostapp.com/mobileController/get_data_map.php?id_user=";
 }

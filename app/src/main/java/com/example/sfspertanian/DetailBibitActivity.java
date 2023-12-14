@@ -23,7 +23,7 @@ import org.json.JSONObject;
 public class DetailBibitActivity extends AppCompatActivity {
     ImageButton btnBack;
     Button btnPilih;
-    TextView bibitNameTextView, hargaTextView, deskripsiTextView, jenistanahtv, estimasipanentv, cuacatv;
+    TextView bibitNameTextView, hargaTextView, deskripsiTextView, jenistanahtv, estimasipanentv, cuacatv, tvKelebihan, tvKekurangan;
     ImageView gambarPathMain;
 
     @Override
@@ -43,6 +43,9 @@ public class DetailBibitActivity extends AppCompatActivity {
 
         btnPilih = findViewById(R.id.btnPilihBibit);
 
+        tvKelebihan = findViewById(R.id.kelebihan);
+        tvKekurangan = findViewById(R.id.kekurangan);
+
 
         // Fetch data from PHP script
         handleDataFromSQL();
@@ -53,7 +56,7 @@ public class DetailBibitActivity extends AppCompatActivity {
         String namaBibit = getIntent().getStringExtra("nama_bibit");
 
         // Continue with the existing code to fetch data using Volley
-        String url = "https://jejakpadi.com/app/Http/mobileController/get_detail_bibit.php?nama_bibit=" + namaBibit;
+        String url = Db_Contract.urlGetDetailBibit + namaBibit;
 
         RequestQueue queue = Volley.newRequestQueue(this);
 
@@ -71,11 +74,13 @@ public class DetailBibitActivity extends AppCompatActivity {
                             String bibitName = bibitData.getString("nama_bibit");
                             String harga = bibitData.getString("harga");
                             String deskripsi = bibitData.getString("deskripsi");
+                            String kelebihan = bibitData.getString("kelebihan");
+                            String kekurangan = bibitData.getString("kekurangan");
                             String tanah = bibitData.getString("jenis_tanah");
                             String cuaca = bibitData.getString("cuaca");
                             String estimasi = bibitData.getString("estimasi_panen");
 
-                                    ;
+
 
                             // Update UI components with the retrieved data
                             Glide.with(DetailBibitActivity.this)
@@ -84,6 +89,8 @@ public class DetailBibitActivity extends AppCompatActivity {
                             bibitNameTextView.setText(bibitName);
                             hargaTextView.setText(harga);
                             deskripsiTextView.setText(deskripsi);
+                            tvKelebihan.setText("Kelebihan: "+kelebihan);
+                            tvKekurangan.setText("Kekurangan: "+kekurangan);
                             cuacatv.setText(cuaca);
                             jenistanahtv.setText(tanah);
                             estimasipanentv.setText(estimasi + " bulan") ;

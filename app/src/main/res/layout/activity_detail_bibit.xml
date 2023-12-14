@@ -42,7 +42,6 @@
 
     </RelativeLayout>
     <RelativeLayout
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/header">
@@ -262,6 +261,22 @@
                 android:textSize="10sp"
                 android:fontFamily="@font/inter_regular"
                 android:text=""/>
+            <TextView
+                android:id="@+id/kelebihan"
+                android:layout_below="@+id/deskripsiTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:fontFamily="@font/inter_regular"
+                android:text=""/>
+            <TextView
+                android:id="@+id/kekurangan"
+                android:layout_below="@+id/kelebihan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:fontFamily="@font/inter_regular"
+                android:text=""/>
 
         </RelativeLayout>
         <RelativeLayout
@@ -361,18 +376,47 @@
         </RelativeLayout>
 
     </RelativeLayout>
-    <Button
-        android:id="@+id/btnPilihBibit"
-        android:layout_marginBottom="20dp"
+    <RelativeLayout
         android:layout_marginHorizontal="20dp"
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/green_radius_button"
-        android:text="PILIH BIBIT PADI"
-        android:textColor="@color/white"
-        android:fontFamily="@font/inter_regular"
-        android:textSize="11sp"/>
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content">
+            <LinearLayout
+                android:id="@+id/llJumlahBibit"
+                android:weightSum="4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/jumlahpanen"
+                android:layout_marginHorizontal="5dp"
+                android:layout_weight="3"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/inputbox_background"
+                android:drawablePadding="30dp"
+                android:drawableStart="@drawable/logo_padi"
+                android:hint="Jumlah Bibit"
+                android:textSize="13dp"/>
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="/Kg"/>
+        </LinearLayout>
+        <Button
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/llJumlahBibit"
+            android:id="@+id/btnPilihBibit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/green_radius_button"
+            android:text="PILIH BIBIT PADI"
+            android:textColor="@color/white"
+            android:fontFamily="@font/inter_regular"
+            android:textSize="11sp"/>
+    </RelativeLayout>
 
 
 </RelativeLayout>
