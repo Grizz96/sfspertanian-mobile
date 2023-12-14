@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -37,10 +36,10 @@ public class PenanamanBottomSheetLayout extends BottomSheetDialogFragment {
     private Context context;
     private Calendar calendar = Calendar.getInstance();
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
-    private String url = Db_Contract.urlInsertSemai;
+    private String url = "https://jejakpadi-develop.000webhostapp.com/mobileController/update_tanggal_tanam.php";
     private Button timePickerButton;
     SessionManager sessionManager;
-    String idUser;
+
     String idSawah;
 
     @Nullable
@@ -51,7 +50,6 @@ public class PenanamanBottomSheetLayout extends BottomSheetDialogFragment {
 
         // Move the following lines inside onCreateView
         sessionManager = new SessionManager(requireContext()); // Assuming SessionManager requires a context
-        idUser = sessionManager.getUserId();
         idSawah = sessionManager.getSawahId();
 
         return view;
@@ -114,8 +112,7 @@ public class PenanamanBottomSheetLayout extends BottomSheetDialogFragment {
                     protected Map<String, String> getParams() {
                         Map<String, String> params = new HashMap<>();
                         params.put("tanggal", dateTimeString);
-                        params.put("id_user", idUser);
-                        params.put("id_sawah", idSawah);
+                        params.put("idSawah", idSawah);
 
                         return params;
                     }
@@ -164,5 +161,4 @@ public class PenanamanBottomSheetLayout extends BottomSheetDialogFragment {
         String buttonText = dateTimeFormat.format(calendar.getTime());
         timePickerButton.setText(buttonText);
     }
-
 }

@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -52,6 +51,7 @@ public class MasaPanenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_masa_panen);
 
+        // Initialize views and variables
         jumlah = findViewById(R.id.jumlahpanen);
         sessionManager = new SessionManager(MasaPanenActivity.this);
         idUser = sessionManager.getUserId();
@@ -62,8 +62,8 @@ public class MasaPanenActivity extends AppCompatActivity {
         timePickerButton = findViewById(R.id.timePickerButton);
         requestQueue = Volley.newRequestQueue(this);
 
+        // Set click listeners
         btnPanen.setOnClickListener(v -> {
-            // Call the method to send data to the server
             sendPanenDataToServer();
         });
 
@@ -102,8 +102,6 @@ public class MasaPanenActivity extends AppCompatActivity {
                 calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
     }
 
-
-
     private void updateButtonText() {
         SimpleDateFormat dateTimeFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         String buttonText = dateTimeFormat.format(calendar.getTime());
@@ -114,7 +112,6 @@ public class MasaPanenActivity extends AppCompatActivity {
         // Replace the URL with the actual URL of your PHP script
         String url = Db_Contract.urlInsertPanen;
 
-        // Replace the parameter names with the actual parameter names used in your PHP script
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 response -> {
                     // Handle the server response here
@@ -122,11 +119,10 @@ public class MasaPanenActivity extends AppCompatActivity {
                 },
                 error -> {
                     // Handle the error here
-                    showToast("Error sending data to server");
+                    showToast("Error sending data to server: " + error.getMessage());
                 }) {
             @Override
             protected Map<String, String> getParams() {
-                // Add your POST parameters here
                 Map<String, String> params = new HashMap<>();
                 params.put("jumlah_panen", jumlah.getText().toString());
                 params.put("tanggal_panen", getFormattedDateTime());

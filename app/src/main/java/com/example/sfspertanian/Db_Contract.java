@@ -12,9 +12,9 @@ public class Db_Contract {
                 public static final String urlSpinnerPupuk = "https://jejakpadi-develop.000webhostapp.com/mobileController/spinnerpupuk.php";
                 public static final String urlInsertSemai = "https://jejakpadi-develop.000webhostapp.com/mobileController/insert_semai.php";
                 public static final String urlSpinnerSemprot =  "https://jejakpadi-develop.000webhostapp.com/mobileController/spinnersemprot.php";
-                public static final String urlInsertPupuk= "https://jejakpadi.com/app/Http/mobileController/insert_pupuk.php";
+                public static final String urlInsertPupuk= "https://jejakpadi-develop.000webhostapp.com/mobileController/insert_pupuk.php";
                 public static final String urlInsertBibit= "";
-                public static final String urlInsertSemprot= "";
+                public static final String urlInsertSemprot= "https://jejakpadi-develop.000webhostapp.com/mobileController/insert_semprot.php";
                 public static final String urlInsertPanen= "https://jejakpadi-develop.000webhostapp.com/mobileController/insert_masa_panen.php";
                 public static final String urlGetSemai= "";
                 public static final String urlGetBibit= "https://jejakpadi-develop.000webhostapp.com/mobileController/get_data_bibit.php";

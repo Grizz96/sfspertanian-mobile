@@ -1,9 +1,6 @@
 package com.example.sfspertanian;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.transition.Transition;
-import android.transition.TransitionInflater;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -20,21 +17,11 @@ import com.bumptech.glide.Glide;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import android.app.ActivityOptions;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.transition.Transition;
-import android.transition.TransitionInflater;
-import android.widget.Button;
-import android.widget.ImageButton;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 public class DetailPupukActivity extends AppCompatActivity {
     ImageButton btnBack;
     Button btnPilih;
-    TextView pupukNameTextView, hargaTextView, deskripsitv, kegunaantv;
+    TextView pupukNameTextView, hargaTextView, deskripsiTextView, kegunaanTextView;
     ImageView gambarPathMain;
 
     @Override
@@ -44,26 +31,24 @@ public class DetailPupukActivity extends AppCompatActivity {
         gambarPathMain = findViewById(R.id.gambar_mainpupuk);
         pupukNameTextView = findViewById(R.id.pupukNameTextView);
         hargaTextView = findViewById(R.id.hargapupukTextView);
-        deskripsitv = findViewById(R.id.deskripsitv);
-        kegunaantv = findViewById(R.id.kegunaantv);
-
+        deskripsiTextView = findViewById(R.id.deskripsitv);
+        kegunaanTextView = findViewById(R.id.kegunaantv);
 
         btnBack = findViewById(R.id.backToHalamanBefore);
         btnBack.setOnClickListener(v -> finish());
 
         btnPilih = findViewById(R.id.btnPilihPupuk);
 
-
         // Fetch data from PHP script
         handleDataFromSQL();
     }
 
     private void handleDataFromSQL() {
-        // Retrieve bibit name from intent
+        // Retrieve pupuk name from intent
         String namaPupuk = getIntent().getStringExtra("nama_pupuk");
 
         // Continue with the existing code to fetch data using Volley
-        String url = "https://jejakpadi.com/app/Http/mobileController/get_detail_pupuk.php?nama_pupuk=" + namaPupuk;
+        String url = "https://jejakpadi-develop.000webhostapp.com/mobileController/get_detail_pupuk.php?nama_pupuk=" + namaPupuk;
 
         RequestQueue queue = Volley.newRequestQueue(this);
 
@@ -75,25 +60,23 @@ public class DetailPupukActivity extends AppCompatActivity {
                         try {
                             JSONArray jsonArray = response.getJSONArray("data");
 
-                            // Assuming only one result for the given bibit name
-                            JSONObject bibitData = jsonArray.getJSONObject(0);
-                            String gambarPath = bibitData.getString("gambar_path_main");
-                            String pupukName = bibitData.getString("nama_pupuk");
-                            String harga = bibitData.getString("harga");
-                            String deskripsi = bibitData.getString("detail_pupuk");
-                            String kegunaan = bibitData.getString("kegunaan");
-
-
-                            ;
+                            // Assuming only one result for the given pupuk name
+                            JSONObject pupukData = jsonArray.getJSONObject(0);
+                            String gambarPath = pupukData.getString("gambar_path_main");
+                            String imagePath = "https://jejakpadi-develop.000webhostapp.com/img/pupuk/" + gambarPath;
+                            String pupukName = pupukData.getString("nama_pupuk");
+                            String harga = pupukData.getString("harga");
+                            String deskripsi = pupukData.getString("detail_pupuk");
+                            String kegunaan = pupukData.getString("kegunaan");
 
                             // Update UI components with the retrieved data
                             Glide.with(DetailPupukActivity.this)
-                                    .load(gambarPath)
+                                    .load(imagePath)
                                     .into(gambarPathMain);
                             pupukNameTextView.setText(pupukName);
-                            hargaTextView.setText(harga+"/kg");
-                            deskripsitv.setText(deskripsi);
-                            kegunaantv.setText(kegunaan) ;
+                            hargaTextView.setText(harga + "/kg");
+                            deskripsiTextView.setText(deskripsi);
+                            kegunaanTextView.setText(kegunaan);
 
                         } catch (JSONException e) {
                             e.printStackTrace();

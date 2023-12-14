@@ -20,7 +20,6 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
@@ -46,8 +45,9 @@ public class penyemprotan extends AppCompatActivity {
     String idUser;
     String idSawah;
     private Button btnSimpan, btnBatal, tanggalpupuk;
-    private List<String> idPupukList = new ArrayList<>();
-    private ArrayAdapter<String> pupukIdAdapter;
+    private List<SemprotanItem> semprotanList = new ArrayList<>();
+    private ArrayAdapter<SemprotanItem> semprotanAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,17 +75,16 @@ public class penyemprotan extends AppCompatActivity {
         jenisPemupukanAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         jenisPemupukanSpinner.setAdapter(jenisPemupukanAdapter);
 
-        pupukIdAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item);
-        pupukIdAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        pilihPupukSpinner.setAdapter(pupukIdAdapter);
-
+        semprotanAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item);
+        semprotanAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        pilihPupukSpinner.setAdapter(semprotanAdapter);
 
         pilihPupukSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                String selectedPupukName = pilihPupukSpinner.getSelectedItem().toString();
-                String selectedIdPupuk = getIdPupukByName(selectedPupukName);
-                selectedIdPupukTextView.setText(selectedIdPupuk);
+                SemprotanItem selectedSemprotan = semprotanAdapter.getItem(position);
+                String selectedSemprotanId = selectedSemprotan.getIdSemprotan();
+                selectedIdPupukTextView.setText(selectedSemprotanId);
             }
 
             @Override
@@ -171,8 +170,9 @@ public class penyemprotan extends AppCompatActivity {
                                 String idSemprotan = semprotanObject.getString("id_semprotan");
                                 String namaSemprotan = semprotanObject.getString("nama_semprotan");
 
-                                idPupukList.add(idSemprotan);
-                                pupukIdAdapter.add(namaSemprotan);
+                                SemprotanItem semprotanItem = new SemprotanItem(idSemprotan, namaSemprotan);
+                                semprotanList.add(semprotanItem);
+                                semprotanAdapter.add(semprotanItem);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -198,7 +198,7 @@ public class penyemprotan extends AppCompatActivity {
         String jumlahPenggunaan = jumlahPemupukanEditText.getText().toString();
         String idpupuk = selectedIdPupukTextView.getText().toString();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://jejakpadi.com/app/Http/mobileController/insert_semprot.php",
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Db_Contract.urlInsertSemprot,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -231,9 +231,9 @@ public class penyemprotan extends AppCompatActivity {
     }
 
     private String getIdPupukByName(String pupukName) {
-        for (int i = 0; i < idPupukList.size(); i++) {
-            if (pupukName.equals(idPupukList.get(i))) {
-                return idPupukList.get(i);
+        for (int i = 0; i < semprotanList.size(); i++) {
+            if (pupukName.equals(semprotanList.get(i).getNamaSemprotan())) {
+                return semprotanList.get(i).getIdSemprotan();
             }
         }
         return "";
