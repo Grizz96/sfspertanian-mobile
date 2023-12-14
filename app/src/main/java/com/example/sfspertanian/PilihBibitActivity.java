@@ -46,6 +46,7 @@ public class PilihBibitActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private adapter_card_bibit adapter;
     private List<DataItem> dataItemList;
+    private ImageButton btnBack;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -56,6 +57,10 @@ public class PilihBibitActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pilih_bibit);
 
         recyclerView = findViewById(R.id.recyclerView);
+        btnBack = findViewById(R.id.btnBackBefore);
+        btnBack.setOnClickListener(v->{
+            finish();
+        });
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         dataItemList = new ArrayList<>();
         adapter = new adapter_card_bibit(dataItemList, new adapter_card_bibit.OnItemClickListener() {
