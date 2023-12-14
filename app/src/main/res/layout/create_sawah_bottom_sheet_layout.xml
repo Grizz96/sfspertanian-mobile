@@ -66,7 +66,7 @@
             android:textSize="15sp"
             android:fontFamily="@font/poppins_medium"
             android:gravity="top"
-            android:hint="Deskripsi"
+            android:hint="Detail Lokasi"
             android:layout_below="@id/etNamaSawah"
             android:layout_width="match_parent"
             android:layout_height="159dp"
@@ -108,7 +108,7 @@
             android:textSize="15sp"
             android:fontFamily="@font/poppins_medium"
             android:gravity="top"
-            android:hint="Luas Sawah"
+            android:hint="Luas Sawah (hektar)"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@drawable/inputbox_background"/>

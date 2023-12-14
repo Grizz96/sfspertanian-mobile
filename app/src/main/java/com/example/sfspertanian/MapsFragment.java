@@ -1,50 +1,52 @@
 package com.example.sfspertanian;
 
-import android.Manifest;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
-import android.util.Log;
-import android.webkit.JavascriptInterface;
-import android.webkit.WebChromeClient;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
-import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.util.HashMap;
-import java.util.Map;
-
-public class MapsFragment extends AppCompatActivity {
-
+public class MapsFragment extends AppCompatActivity implements OnMapReadyCallback {
+    private LocationManager locationManager;
+    private static final int LOCATION_PERMISSION_REQUEST_CODE = 300;
     private RequestQueue requestQueue;
-    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
-    private WebView webView;
+    private GoogleMap mMap;
+    private String latitude;
+    private String longitude;
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
     private Button pilihSawah;
     private FusedLocationProviderClient fusedLocationClient;
     private LocationCallback locationCallback;
     public static String lokasiSawah;
+    private boolean oke = false;
+    private FloatingActionButton floatingActionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,67 +54,101 @@ public class MapsFragment extends AppCompatActivity {
         setContentView(R.layout.fragment_maps);
 
         requestQueue = Volley.newRequestQueue(this);
-        webView = findViewById(R.id.webview);
 
+        floatingActionButton = findViewById(R.id.btnGetLocation);
         pilihSawah = findViewById(R.id.btnPilihSawah);
 
-        // Set up WebView settings
-        WebSettings webSettings = webView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-        webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
-        webSettings.setGeolocationEnabled(true);
-
-        // Enable zoom controls if needed
-        webSettings.setBuiltInZoomControls(true);
-        webSettings.setDisplayZoomControls(false);
-
-        // Enable WebView debugging
-        WebView.setWebContentsDebuggingEnabled(true);
-
-        // Set up WebViewClient to handle page navigation
-        webView.setWebViewClient(new WebViewClient());
-
-        // Set up WebChromeClient to handle JavaScript alerts, etc.
-        webView.setWebChromeClient(new WebChromeClient());
-
-        // Initialize FusedLocationProviderClient
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-
-        // Add JavascriptInterface to communicate between WebView and Android
-        webView.addJavascriptInterface(new WebAppInterface(this), "Android");
-
-        // Load the Leaflet map HTML
-        webView.loadUrl("file:///android_asset/leaflet_map.html");
-
-        // Set up action when the FAB is clicked
-        FloatingActionButton fabGetLocation = findViewById(R.id.btnGetLocation);
-        fabGetLocation.setOnClickListener(v -> {
-            webView.loadUrl("javascript:getCurrentLocation()");
+        floatingActionButton.setOnClickListener(v -> {
+            oke = true;
+            if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) ==
+                    PackageManager.PERMISSION_GRANTED) {
+                // Initialize location manager
+                locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+                Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                if (location != null) {
+                    mMap.clear();
+                    LatLng lokasiSekarang = new LatLng(location.getLatitude(), location.getLongitude());
+                    mMap.addMarker(new MarkerOptions().position(lokasiSekarang).title("Lokasi Sekarang"));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lokasiSekarang,20));
+                    latitude = String.valueOf(location.getLatitude());
+                    longitude = String.valueOf(location.getLongitude());
+                }
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{
+                        android.Manifest.permission.ACCESS_FINE_LOCATION
+                }, LOCATION_PERMISSION_REQUEST_CODE);
+            }
         });
 
-        pilihSawah.setOnClickListener(v->{
+        pilihSawah.setOnClickListener(v -> {
             showBottomSheet();
         });
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        if (mapFragment != null) {
+            mapFragment.getMapAsync(this);
+        }
 
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) !=
+                PackageManager.PERMISSION_DENIED) {
+            ActivityCompat.requestPermissions(this, new String[]{
+                    android.Manifest.permission.ACCESS_FINE_LOCATION
+            }, 300);
+        }
 
+    }
 
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+        oke = true;
+
+        // Add a marker at a specific location (latitude and longitude)
+        LatLng jenggawah = new LatLng(-8.168577, -246.296838);
+        mMap.addMarker(new MarkerOptions().position(jenggawah).title("Marker in jenggawah"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(jenggawah, 13));
+        // Set latitude and longitude
+        latitude = String.valueOf(-8.168577);
+        longitude = String.valueOf(-246.296838);
+
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng latLng) {
+                // Clear the map
+                mMap.clear();
+
+                // Add a marker at the clicked location
+                mMap.addMarker(new MarkerOptions().position(latLng).title("Lokasi Anda Pilih"));
+
+                // Move the camera to the clicked location
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
+
+                // Set latitude and longitude
+                latitude = String.valueOf(latLng.latitude);
+                longitude = String.valueOf(latLng.longitude);
+            }
+        });
     }
     private void showBottomSheet() {
         CreateSawahBottomSheetLayout createSawahBottomSheet = new CreateSawahBottomSheetLayout();
         createSawahBottomSheet.show(getSupportFragmentManager(), createSawahBottomSheet.getTag());
     }
-    // Create a JavascriptInterface class
-    public class WebAppInterface {
-        Context mContext;
-
-        WebAppInterface(Context c) {
-            mContext = c;
-        }
-
-        @JavascriptInterface
-        public void openForm(String latitude, String longitude) {
-            lokasiSawah = "Latitude: " + latitude + ", Longitude: " + longitude;
-            Toast.makeText(mContext, lokasiSawah, Toast.LENGTH_SHORT).show();
-        }
+    public void finish() {
+        finish();
     }
+
+
 }

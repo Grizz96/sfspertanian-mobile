@@ -186,10 +186,10 @@ public class Pencatatan extends Fragment {
 
                         // Add duration data to the list
                         String fixDurasiPenanaman = "Penanaman\n" + durasiPenanaman;
-                        String fixDurasiAnakan = "Penanaman\n" + durasiAnakan;
-                        String fixDurasiBunting = "Penanaman\n" + durasiBunting;
-                        String fixDurasiPemasakan = "Penanaman\n" + durasiPemasakan;
-                        String fixDurasiPanen = "Penanaman\n" + durasiPanen;
+                        String fixDurasiAnakan = "Anakan\n" + durasiAnakan;
+                        String fixDurasiBunting = "Bunting\n" + durasiBunting;
+                        String fixDurasiPemasakan = "Pemasakan\n" + durasiPemasakan;
+                        String fixDurasiPanen = "Panen\n" + durasiPanen;
 
                         steps = new String[5];
 
