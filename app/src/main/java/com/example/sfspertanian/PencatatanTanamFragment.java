@@ -8,19 +8,26 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+
 
 public class PencatatanTanamFragment extends Fragment {
-    RelativeLayout cardPilihPupuk, cardInfoPemupukan, cardPersemaian, cardPenanggulanganHama;
+    RelativeLayout cardPenanaman, cardPilihPupuk, cardInfoPemupukan, cardPersemaian, cardPenanggulanganHama;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_pencatatan_tanam, container, false);
 
+        cardPenanaman = view.findViewById(R.id.card_tanam);
         cardPilihPupuk = view.findViewById(R.id.card_pilih_pupuk);
         cardPersemaian = view.findViewById(R.id.card_persemaian);
         cardInfoPemupukan = view.findViewById(R.id.card_penyemprotan);
         cardPenanggulanganHama = view.findViewById(R.id.card_penanggulanahan_hama);
+
+        cardPenanaman.setOnClickListener(v->{
+            showBottomSheet();
+        });
 
         cardPilihPupuk.setOnClickListener(v -> {
             Intent intent = new Intent(requireActivity(), PilihPupukActivity.class);
@@ -40,5 +47,9 @@ public class PencatatanTanamFragment extends Fragment {
         });
 
         return view;
+    }
+    private void showBottomSheet() {
+        PenanamanBottomSheetLayout penanamanBottomSheetLayout = new PenanamanBottomSheetLayout();
+        penanamanBottomSheetLayout.show(requireActivity().getSupportFragmentManager(), penanamanBottomSheetLayout.getTag());
     }
 }

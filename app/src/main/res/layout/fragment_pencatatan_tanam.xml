@@ -8,17 +8,68 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_marginTop="35dp"
+            android:id="@+id/card_tanam"
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            android:background="@drawable/bg_list_catatan">
 
+            <RelativeLayout
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginHorizontal="30dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/ic_time_foreground" />
+
+                <RelativeLayout
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:text="Tanggal Penanaman"
+                        android:textColor="#002140"
+                        android:textSize="12sp" />
+
+                    <RelativeLayout
+                        android:layout_width="119dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="45dp"
+                        android:background="@drawable/bg_tambahkan">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:text="Lihat Informasi"
+                            android:textColor="#136047" />
+
+                    </RelativeLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
     <TextView
         android:layout_marginLeft="10dp"
+        android:layout_below="@id/card_tanam"
         android:layout_marginVertical="5dp"
-        android:id="@+id/title_persemaian"
+        android:id="@+id/title_pemupukan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pemupukan"
         android:fontFamily="@font/poppins"/>
     <RelativeLayout
-        android:layout_marginTop="35dp"
+        android:layout_below="@id/title_pemupukan"
         android:id="@+id/card_pilih_pupuk"
         android:layout_width="match_parent"
         android:layout_height="125dp"
@@ -52,7 +103,7 @@
                 <RelativeLayout
                     android:layout_width="119dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="45dp"
                     android:background="@drawable/bg_tambahkan">
 
                     <TextView
@@ -60,15 +111,9 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="10dp"
-                        android:text="Tambahkan"
+                        android:text="Lihat Informasi"
                         android:textColor="#136047" />
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/logo_add_foreground" />
                 </RelativeLayout>
             </RelativeLayout>
         </RelativeLayout>
@@ -104,14 +149,13 @@
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
-                    android:text="Pilih Pupuk"
+                    android:text="Menambahkan Data Pempupukan"
                     android:textColor="#002140"
                     android:textSize="12sp" />
-
                 <RelativeLayout
                     android:layout_width="119dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="45dp"
+                    android:layout_marginTop="40dp"
                     android:background="@drawable/bg_tambahkan">
 
                     <TextView
@@ -119,10 +163,17 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="10dp"
-                        android:text="Lihat Informasi"
+                        android:text="Tambahkan"
                         android:textColor="#136047" />
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/logo_add_foreground" />
                 </RelativeLayout>
+
             </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>
@@ -225,14 +276,14 @@
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
-                    android:text="Pilih Semprotan"
+                    android:text="Menambahkan Data Penyemprotan"
                     android:textColor="#002140"
                     android:textSize="12sp" />
 
                 <RelativeLayout
                     android:layout_width="119dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="45dp"
+                    android:layout_marginTop="40dp"
                     android:background="@drawable/bg_tambahkan">
 
                     <TextView
@@ -240,9 +291,15 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="10dp"
-                        android:text="Lihat Informasi"
+                        android:text="Tambahkan"
                         android:textColor="#136047" />
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/logo_add_foreground" />
                 </RelativeLayout>
             </RelativeLayout>
         </RelativeLayout>

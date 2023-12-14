@@ -1,6 +1,7 @@
 package com.example.sfspertanian;
 
 import android.app.ActivityOptions;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -31,14 +32,24 @@ public class DataSawahFragment extends Fragment {
     private RecyclerView recyclerView;
     private adapter_card_location locationAdapter;
     private List<LocationItem> locationList;
+    private SessionManager sessionManager;
+    private String userId;
+
 
     public DataSawahFragment() {
-        // Required empty public constructor
     }
+    private Context context;
+    private DataSawahFragment dataSawahFragment;
+
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragmen_data_sawah, container, false);
+        sessionManager=new SessionManager(requireContext());
+        userId = sessionManager.getUserId();
+
 
         // Perbaikan: Menginisialisasi btnPesan dengan ID dari layout
         btnPesan = view.findViewById(R.id.btnPesan);
@@ -67,15 +78,15 @@ public class DataSawahFragment extends Fragment {
         locationAdapter = new adapter_card_location(requireContext(), locationList);
         recyclerView.setAdapter(locationAdapter);
 
-        fetchDataFromApi();
+        fetchDataFromApi(requireContext());
 
         return view;
     }
 
-    public void fetchDataFromApi() {
-        String apiUrl = "https://jejakpadi.com/app/Http/mobileController/get_data_map.php"; // replace with your actual API URL
+    public void fetchDataFromApi(Context context) {
+        String apiUrl = Db_Contract.urlGetDataMap+userId;
 
-        RequestQueue requestQueue = Volley.newRequestQueue(requireContext());
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
                 Request.Method.GET,
@@ -84,13 +95,21 @@ public class DataSawahFragment extends Fragment {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        if(!locationList.isEmpty()){
-                            locationList.clear();
-                        }else{
-                        locationList = parseJsonArray(response);
+                        // Inisialisasi locationList jika null
+                        if (locationList == null) {
+                            locationList = new ArrayList<>();
+                        }
 
-                        // Update the adapter with the new data
-                        locationAdapter.setData(locationList);
+                        if (!locationList.isEmpty()) {
+                            locationList.clear();
+                        }
+
+                        locationList.addAll(parseJsonArray(response));
+
+                        // Pastikan bahwa locationAdapter telah diinisialisasi sebelum digunakan
+                        if (locationAdapter != null) {
+                            // Update the adapter with the new data
+                            locationAdapter.setData(locationList);
                         }
                     }
                 },

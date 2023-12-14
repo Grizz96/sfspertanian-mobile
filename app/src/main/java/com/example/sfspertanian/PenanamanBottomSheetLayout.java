@@ -1,15 +1,9 @@
 package com.example.sfspertanian;
 
-import static android.content.ContentValues.TAG;
-import static android.content.Intent.getIntent;
-
-import android.app.ActivityOptions;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,41 +23,36 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-public class CreateSawahBottomSheetLayout extends BottomSheetDialogFragment {
+public class PenanamanBottomSheetLayout extends BottomSheetDialogFragment {
     private Context context;
     private Calendar calendar = Calendar.getInstance();
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
-    private EditText namaSawah, deskripsi, luasSawah;
-    private String url = Db_Contract.urlCreateSawah, idUser;
-    private Button timePickerButton, btnSimpan, btnBatal;
-
-    private List<ModelCardSemai> dataItemList;
-    MapsFragment mapsFragment;
+    private String url = Db_Contract.urlInsertSemai;
+    private Button timePickerButton;
     SessionManager sessionManager;
-    String latitude, longitude;
-
+    String idUser;
+    String idSawah;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.create_sawah_bottom_sheet_layout, container, false);
+        View view = inflater.inflate(R.layout.penanaman_bottom_sheet_layout, container, false);
         initializeViews(view);
+
+        // Move the following lines inside onCreateView
+        sessionManager = new SessionManager(requireContext()); // Assuming SessionManager requires a context
+        idUser = sessionManager.getUserId();
+        idSawah = sessionManager.getSawahId();
 
         return view;
     }
@@ -72,23 +61,14 @@ public class CreateSawahBottomSheetLayout extends BottomSheetDialogFragment {
         void onDataAdded();
     }
 
-    private BottomSheetLayout.OnDataAddedListener onDataAddedListener;
+    private OnDataAddedListener onDataAddedListener;
+
+    public void setOnDataAddedListener(OnDataAddedListener listener) {
+        this.onDataAddedListener = listener;
+    }
 
     private void initializeViews(View view) {
-        namaSawah = view.findViewById(R.id.etNamaSawah);
-        deskripsi = view.findViewById(R.id.etDeskripsi);
-        luasSawah = view.findViewById(R.id.etLuasSawah);
         timePickerButton = view.findViewById(R.id.timePickerButton);
-        sessionManager = new SessionManager(requireContext());
-        idUser = sessionManager.getUserId();
-        btnSimpan = view.findViewById(R.id.btnSimpan);
-        btnBatal = view.findViewById(R.id.btnBatal);
-
-        mapsFragment = new MapsFragment();
-        latitude = mapsFragment.getLatitude();
-        longitude = mapsFragment.getLongitude();
-        String lokasiSawahString = "LatLng("+latitude+","+longitude+")";
-
 
         timePickerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,20 +76,11 @@ public class CreateSawahBottomSheetLayout extends BottomSheetDialogFragment {
                 showDatePicker();
             }
         });
-        btnBatal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dismiss();
-            }
-        });
+
         view.findViewById(R.id.btnSimpan).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String namaSawahString=namaSawah.getText().toString();
-                String deskripsiString=deskripsi.getText().toString();
-                String luasSawahString=luasSawah.getText().toString();
                 String dateTimeString = dateFormat.format(calendar.getTime());
-
 
                 RequestQueue queue = Volley.newRequestQueue(requireContext());
 
@@ -124,16 +95,8 @@ public class CreateSawahBottomSheetLayout extends BottomSheetDialogFragment {
                                         onDataAddedListener.onDataAdded();
                                     }
 
-                                    // Close the bottom sheet
+                                    // Dismiss the bottom sheet
                                     dismiss();
-
-                                    // If you have a reference to the MapsFragment, you can close it as well
-                                    // For example, assuming you have a reference to the MapsFragment named 'mapsFragment'
-                                    if (mapsFragment != null) {
-                                        mapsFragment.finishLayout();
-                                    }
-
-
                                 } else {
                                     showToast("Data insertion failed. Response: " + response);
                                     Log.e("DataInsertion", "Error response from server: " + response);
@@ -150,12 +113,9 @@ public class CreateSawahBottomSheetLayout extends BottomSheetDialogFragment {
                     @Override
                     protected Map<String, String> getParams() {
                         Map<String, String> params = new HashMap<>();
-                        params.put("created_at", dateTimeString);
-                        params.put("nama_sawah", namaSawahString);
-                        params.put("luas_sawah", luasSawahString);
-                        params.put("deskripsi", deskripsiString);
-                        params.put("lokasi_sawah", lokasiSawahString);
+                        params.put("tanggal", dateTimeString);
                         params.put("id_user", idUser);
+                        params.put("id_sawah", idSawah);
 
                         return params;
                     }
@@ -164,10 +124,7 @@ public class CreateSawahBottomSheetLayout extends BottomSheetDialogFragment {
                 queue.add(stringRequest);
             }
         });
-
-
     }
-
 
     private void showToast(String message) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show();
@@ -207,7 +164,5 @@ public class CreateSawahBottomSheetLayout extends BottomSheetDialogFragment {
         String buttonText = dateTimeFormat.format(calendar.getTime());
         timePickerButton.setText(buttonText);
     }
-
-
 
 }

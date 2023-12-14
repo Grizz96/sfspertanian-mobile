@@ -146,7 +146,7 @@ public class MapsFragment extends AppCompatActivity implements OnMapReadyCallbac
         CreateSawahBottomSheetLayout createSawahBottomSheet = new CreateSawahBottomSheetLayout();
         createSawahBottomSheet.show(getSupportFragmentManager(), createSawahBottomSheet.getTag());
     }
-    public void finish() {
+    public void finishLayout() {
         finish();
     }
 

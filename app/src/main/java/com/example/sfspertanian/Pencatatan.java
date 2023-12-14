@@ -46,7 +46,7 @@ public class Pencatatan extends Fragment {
     private TextView tesTextView;
     private PencatatanKetelusuranViewPagerAdapter viewPagerAdapter;
     SessionManager sessionManager;
-    String idSawah;
+    String idSawah,idUser;
 
     @Nullable
     @Override
@@ -54,6 +54,7 @@ public class Pencatatan extends Fragment {
         View view = inflater.inflate(R.layout.activity_pencatatan_ketelusuran, container, false);
         sessionManager = new SessionManager(requireContext()); // Make sure your SessionManager accepts Context
         idSawah = sessionManager.getSawahId();
+        idUser = sessionManager.getUserId();
 
         spinnerselect = view.findViewById(R.id.spinnerselect);
         tesTextView = view.findViewById(R.id.detail);
@@ -66,11 +67,9 @@ public class Pencatatan extends Fragment {
                 // Handle the selected item here
                 Sawah selectedSawah = (Sawah) parentView.getItemAtPosition(position);
                 String selectedSawahId = selectedSawah.getIdSawah();
-                String selectedSawahName = selectedSawah.getNamaSawah();
 
                 // You can do something with the selected item, for example, display it in a TextView
                 sessionManager.setSawahId(selectedSawahId);
-                String storedSawahId = sessionManager.getSawahId();
                 fetchDurationDataFromApi(sessionManager.getSawahId());
 
             }
@@ -136,8 +135,8 @@ public class Pencatatan extends Fragment {
     }
 
     private void fetchDataFromApi() {
-        String url = "https://jejakpadi.com/app/Http/mobileController/get_data_map.php";
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
+        String apiUrl = Db_Contract.urlGetDataMap+idUser;
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, apiUrl, null,
                 response -> {
                     List<Sawah> sawahList = new ArrayList<>();
 

@@ -23,5 +23,5 @@ public class Db_Contract {
                 public static final String urldetailBibit= "";
                 public static final String urlGetDetailPupuk= "";
                 public static final String urlGetDetailSemprot= "";
-
+                public static final String urlGetDataMap= "https://jejakpadi-develop.000webhostapp.com/mobileController/get_data_map.php?id_user=";
 }

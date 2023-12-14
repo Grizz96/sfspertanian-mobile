@@ -13,24 +13,14 @@
     app:cardElevation="10dp">
 <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="160dp"
+    android:layout_height="150dp"
     android:background="@drawable/bg_list_lokasi">
-
-        <RelativeLayout
-            android:id="@+id/lokasi_sawah"
-            android:layout_width="130dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/bg_lokasi_white" />
 
         <TextView
             android:id="@+id/locationName"
-            android:layout_width="170dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="150dp"
+            android:layout_marginLeft="35dp"
             android:width="150dp"
             android:fontFamily="@font/poppins_semibold"
             android:text="Sawah Cendekia"
@@ -47,7 +37,7 @@
                     android:id="@+id/tanggalmulai"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="145dp"
+                    android:layout_marginLeft="30dp"
                     android:layout_marginTop="45dp"
                     android:fontFamily="@font/poppins"
                     android:text="Tanggal Mulai:"
@@ -78,7 +68,7 @@
                     android:id="@+id/namalokasi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="145dp"
+                    android:layout_marginLeft="30dp"
                     android:layout_marginTop="60dp"
                     android:fontFamily="@font/poppins"
                     android:text="Lokasi: "
@@ -112,7 +102,7 @@
                     android:id="@+id/namaluas"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="145dp"
+                    android:layout_marginLeft="30dp"
                     android:fontFamily="@font/poppins"
                     android:text="Luas: "
                     android:textColor="@color/title_fragment"
@@ -146,9 +136,8 @@
             android:layout_below="@+id/relativeluas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="17dp"
-            android:layout_marginLeft="5dp"
-            android:layout_toEndOf="@+id/lokasi_sawah">
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="35dp">
 
                 <ImageButton
                     android:id="@+id/detailLokasi"

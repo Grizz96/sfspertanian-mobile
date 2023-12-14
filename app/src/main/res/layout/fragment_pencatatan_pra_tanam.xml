@@ -103,7 +103,7 @@
                     android:fontFamily="@font/poppins"
                     android:textColor="#002140"
                     android:textSize="12sp"
-                    android:text="Anda Belum Menambahkan Informasi Persemaian"/>
+                    android:text="Menambahkan Informasi Persemaian"/>
                 <RelativeLayout
                     android:layout_marginTop="45dp"
                     android:layout_width="119dp"

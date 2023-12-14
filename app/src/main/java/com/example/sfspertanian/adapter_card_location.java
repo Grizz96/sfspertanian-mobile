@@ -124,7 +124,7 @@ public class adapter_card_location extends RecyclerView.Adapter<adapter_card_loc
                     public void onResponse(String response) {
                         Toast.makeText(context, "Data berhasil dihapus", Toast.LENGTH_SHORT).show();
                         DataSawahFragment dataSawahFragment = new DataSawahFragment();
-                        dataSawahFragment.fetchDataFromApi();
+                        dataSawahFragment.fetchDataFromApi(context);
                     }
                 },
                 new Response.ErrorListener() {
