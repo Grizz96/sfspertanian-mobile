@@ -153,7 +153,7 @@ public class pemupukan extends AppCompatActivity {
     }
 
     private void fetchPupukData() {
-        String url = "https://jejakpadi.com/app/Http/mobileController/spinnerpupuk.php";
+        String url = Db_Contract.urlSpinnerPupuk;
         ArrayAdapter<String> pupukIdAdapter = new ArrayAdapter<>(pemupukan.this, android.R.layout.simple_spinner_item);
         pupukIdAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         pilihPupukSpinner.setAdapter(pupukIdAdapter);
@@ -198,7 +198,7 @@ public class pemupukan extends AppCompatActivity {
         String jumlahPenggunaan = jumlahPemupukanEditText.getText().toString();
         String idpupuk = selectedIdPupukTextView.getText().toString();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://jejakpadi.com/app/Http/mobileController/insert_pupuk.php",
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Db_Contract.urlInsertPupuk,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

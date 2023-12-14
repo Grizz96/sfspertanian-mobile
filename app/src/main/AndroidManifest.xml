@@ -37,8 +37,8 @@
         <activity android:name=".PilihBibitActivity"
             android:exported="true" />
         <activity android:name=".DetailBibitActivity" />
-        <activity android:name=".QCActivity">
-
+        <activity android:name=".QCActivity"></activity>
+        <activity android:name=".PilihSemprotActivity">
         </activity>
         <activity android:name=".GetStartedMainActivity" android:exported="true">
             <intent-filter>
