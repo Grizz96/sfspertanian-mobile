@@ -11,9 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -35,7 +32,7 @@ import java.util.Map;
 public class PenanamanBottomSheetLayout extends BottomSheetDialogFragment {
     private Context context;
     private Calendar calendar = Calendar.getInstance();
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
     private String url = "https://jejakpadi-develop.000webhostapp.com/mobileController/update_tanggal_tanam.php";
     private Button timePickerButton;
     SessionManager sessionManager;
@@ -78,7 +75,7 @@ public class PenanamanBottomSheetLayout extends BottomSheetDialogFragment {
         view.findViewById(R.id.btnSimpan).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String dateTimeString = dateFormat.format(calendar.getTime());
+                String dateString = dateFormat.format(calendar.getTime());
 
                 RequestQueue queue = Volley.newRequestQueue(requireContext());
 
@@ -86,8 +83,8 @@ public class PenanamanBottomSheetLayout extends BottomSheetDialogFragment {
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
-                                if (response.equals("Data berhasil ditambahkan")) {
-                                    showToast("Data berhasil ditambahkan");
+                                if (response.contains("Data berhasil diupdate")) {
+                                    showToast("Data berhasil diupdate");
 
                                     if (onDataAddedListener != null) {
                                         onDataAddedListener.onDataAdded();
@@ -96,8 +93,8 @@ public class PenanamanBottomSheetLayout extends BottomSheetDialogFragment {
                                     // Dismiss the bottom sheet
                                     dismiss();
                                 } else {
-                                    showToast("Data insertion failed. Response: " + response);
-                                    Log.e("DataInsertion", "Error response from server: " + response);
+                                    showToast("Data update failed. Response: " + response);
+                                    Log.e("DataUpdate", "Error response from server: " + response);
                                 }
                             }
                         },
@@ -111,8 +108,8 @@ public class PenanamanBottomSheetLayout extends BottomSheetDialogFragment {
                     @Override
                     protected Map<String, String> getParams() {
                         Map<String, String> params = new HashMap<>();
-                        params.put("tanggal", dateTimeString);
-                        params.put("idSawah", idSawah);
+                        params.put("tanggal_tanam", dateString); // Update to match the key from your PHP script
+                        params.put("id_sawah", idSawah); // Update to match the key from your PHP script
 
                         return params;
                     }
@@ -134,7 +131,7 @@ public class PenanamanBottomSheetLayout extends BottomSheetDialogFragment {
                 calendar.set(Calendar.YEAR, year);
                 calendar.set(Calendar.MONTH, monthOfYear);
                 calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                showTimePicker();
+                updateButtonText();
             }
         };
 
@@ -142,23 +139,9 @@ public class PenanamanBottomSheetLayout extends BottomSheetDialogFragment {
                 calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
     }
 
-    private void showTimePicker() {
-        TimePickerDialog.OnTimeSetListener timeSetListener = new TimePickerDialog.OnTimeSetListener() {
-            @Override
-            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
-                calendar.set(Calendar.MINUTE, minute);
-                updateButtonText();
-            }
-        };
-
-        new TimePickerDialog(requireContext(), timeSetListener, calendar.get(Calendar.HOUR_OF_DAY),
-                calendar.get(Calendar.MINUTE), DateFormat.is24HourFormat(requireContext())).show();
-    }
-
     private void updateButtonText() {
-        SimpleDateFormat dateTimeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
-        String buttonText = dateTimeFormat.format(calendar.getTime());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        String buttonText = dateFormat.format(calendar.getTime());
         timePickerButton.setText(buttonText);
     }
 }
