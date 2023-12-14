@@ -4,10 +4,16 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <WebView
-        android:id="@+id/webview"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
+
     <Button
         android:id="@+id/btnPilihSawah"
         android:layout_marginBottom="20dp"
@@ -20,7 +26,6 @@
         android:textColor="@color/white"
         android:fontFamily="@font/inter_regular"
         android:textSize="11sp"/>
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnGetLocation"
         android:layout_width="wrap_content"
@@ -37,6 +42,5 @@
         android:layout_marginBottom="96dp"
         android:src="@drawable/logo_add_location_foreground"
         android:contentDescription="@string/submit" />
-
 
 </RelativeLayout>

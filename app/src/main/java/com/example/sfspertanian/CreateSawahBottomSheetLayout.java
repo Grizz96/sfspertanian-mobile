@@ -9,6 +9,7 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -53,8 +54,9 @@ public class CreateSawahBottomSheetLayout extends BottomSheetDialogFragment {
     private Button timePickerButton, btnSimpan, btnBatal;
 
     private List<ModelCardSemai> dataItemList;
-    private MapsFragment mapsFragment;
+    MapsFragment mapsFragment;
     SessionManager sessionManager;
+    String latitude, longitude;
 
 
     @Nullable
@@ -77,11 +79,15 @@ public class CreateSawahBottomSheetLayout extends BottomSheetDialogFragment {
         deskripsi = view.findViewById(R.id.etDeskripsi);
         luasSawah = view.findViewById(R.id.etLuasSawah);
         timePickerButton = view.findViewById(R.id.timePickerButton);
-        String lokasiSawahString = MapsFragment.lokasiSawah;
         sessionManager = new SessionManager(requireContext());
         idUser = sessionManager.getUserId();
         btnSimpan = view.findViewById(R.id.btnSimpan);
         btnBatal = view.findViewById(R.id.btnBatal);
+
+        mapsFragment = new MapsFragment();
+        latitude = mapsFragment.getLatitude();
+        longitude = mapsFragment.getLongitude();
+        String lokasiSawahString = "LatLng("+latitude+","+longitude+")";
 
 
         timePickerButton.setOnClickListener(new View.OnClickListener() {
@@ -118,8 +124,16 @@ public class CreateSawahBottomSheetLayout extends BottomSheetDialogFragment {
                                         onDataAddedListener.onDataAdded();
                                     }
 
-                                    // Dismiss the bottom sheet
+                                    // Close the bottom sheet
                                     dismiss();
+
+                                    // If you have a reference to the MapsFragment, you can close it as well
+                                    // For example, assuming you have a reference to the MapsFragment named 'mapsFragment'
+                                    if (mapsFragment != null) {
+                                        mapsFragment.finish();
+                                    }
+
+
                                 } else {
                                     showToast("Data insertion failed. Response: " + response);
                                     Log.e("DataInsertion", "Error response from server: " + response);
