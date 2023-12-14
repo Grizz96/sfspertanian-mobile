@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/unsplash_pilihbibit">
+        <ImageButton
+            android:id="@+id/btnBackBefore"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_back_with_bg"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pilih Semprot"
+            android:layout_centerVertical="true"
+            android:textSize="20sp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/black"
+            android:layout_marginLeft="15dp"
+            android:layout_alignParentLeft="true"/>
+        <Button
+            android:layout_width="140dp"
+            android:layout_height="42dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentRight="true"
+            android:hint="Buat Kombinasi"
+            android:background="@drawable/bg_grey_shadow_radius"
+            android:layout_marginTop="35dp"
+            android:drawableStart="@drawable/logo_add_foreground"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/filter"
+        android:layout_marginHorizontal="20dp"
+        android:layout_below="@+id/header"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <RelativeLayout
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="30dp"
+                android:layout_width="58dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_kategori_pilih_bibit"/>
+                <TextView
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kategori"
+                    android:fontFamily="@font/inter_regular"
+                    android:textColor="@color/text_grey"
+                    android:textSize="10sp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="30dp"
+                android:layout_width="58dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_terbaru_pilih_bibit"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="58dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Berikan Aku Rekomendasi"
+                android:textSize="10sp"/>
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_below="@+id/filter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp">
+        <ScrollView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/horizontalScrollViewGlobal">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <!-- RecyclerView -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </RelativeLayout>
+        </ScrollView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-297dp"
+            android:fontFamily="@font/inter_regular"
+            android:text="Terbaru"
+            android:textColor="@color/text_grey"
+            android:textSize="10sp" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/search"
+        android:layout_width="290dp"
+        android:layout_marginTop="195dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bg_grey_shadow_radius"
+        android:layout_height="50dp">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cari semprotan..."
+            android:fontFamily="@font/inter_regular"
+            android:textSize="12sp"
+            android:layout_marginHorizontal="23dp"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

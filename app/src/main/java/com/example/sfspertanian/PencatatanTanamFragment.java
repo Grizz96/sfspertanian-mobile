@@ -31,7 +31,7 @@ public class PencatatanTanamFragment extends Fragment {
             startActivity(intent);
         });
         cardInfoPemupukan.setOnClickListener(v -> {
-            Intent intent = new Intent(requireActivity(), PilihPupukActivity.class);
+            Intent intent = new Intent(requireActivity(), PilihSemprotActivity.class);
             startActivity(intent);
         });
         cardPenanggulanganHama.setOnClickListener(v -> {

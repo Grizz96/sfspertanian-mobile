@@ -93,6 +93,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <EditText
+                android:id="@+id/jumlahpanen"
                 android:layout_marginHorizontal="5dp"
                 android:layout_weight="3"
                 android:layout_width="wrap_content"

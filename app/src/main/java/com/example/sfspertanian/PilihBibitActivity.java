@@ -72,7 +72,7 @@ public class PilihBibitActivity extends AppCompatActivity {
     }
 
     private void makeVolleyRequest() {
-        String url = "https://jejakpadi.com/app/Http/mobileController/get_data_bibit.php";
+        String url = Db_Contract.urlGetBibit;
 
         JsonArrayRequest request = new JsonArrayRequest(
                 Request.Method.GET,
@@ -88,9 +88,10 @@ public class PilihBibitActivity extends AppCompatActivity {
                                 String namaBibit = jsonObject.getString("nama_bibit");
                                 String deskripsiSingkat = jsonObject.getString("deskripsi_singkat");
                                 String gambarPathMain = jsonObject.getString("gambar_path_main"); // Ambil path gambar
+                                String imagePath = "https://jejakpadi.com/public/assets/img/bibit/" + gambarPathMain;
+                                DataItem dataItem = new DataItem(namaBibit, deskripsiSingkat, imagePath);
 
-                                // Buat objek DataItem dengan atribut baru
-                                DataItem dataItem = new DataItem(namaBibit, deskripsiSingkat, gambarPathMain);
+
                                 dataItemList.add(dataItem);
                             } catch (JSONException e) {
                                 e.printStackTrace();

@@ -51,7 +51,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 
-public class PilihPupukActivity extends AppCompatActivity {
+public class PilihSemprotActivity extends AppCompatActivity {
     ImageButton btnBack;
     private RecyclerView recyclerView;
     private adapter_card_pupuk adapter;
@@ -63,7 +63,7 @@ public class PilihPupukActivity extends AppCompatActivity {
         getWindow().setExitTransition(new Fade());
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pilih_pupuk);
+        setContentView(R.layout.activity_pilih_semprot);
 
         btnBack = findViewById(R.id.btnBackBefore);
 
@@ -77,8 +77,8 @@ public class PilihPupukActivity extends AppCompatActivity {
         adapter = new adapter_card_pupuk(dataItemList, new adapter_card_pupuk.OnItemClickListener() {
             @Override
             public void onItemClick(String pupukName) {
-                Intent intent = new Intent(PilihPupukActivity.this, DetailPupukActivity.class);
-                intent.putExtra("nama_pupuk", pupukName);
+                Intent intent = new Intent(PilihSemprotActivity.this, DetailPupukActivity.class);
+                intent.putExtra("nama_semprot", pupukName);
                 startActivity(intent);
             }
         });
@@ -90,7 +90,7 @@ public class PilihPupukActivity extends AppCompatActivity {
     }
 
     private void makeVolleyRequest() {
-        String url = "https://jejakpadi.com/app/Http/mobileController/get_data_pupuk.php";
+        String url = Db_Contract.urlGetSemprot;
 
         JsonArrayRequest request = new JsonArrayRequest(
                 Request.Method.GET,
@@ -103,10 +103,10 @@ public class PilihPupukActivity extends AppCompatActivity {
                         for (int i = 0; i < response.length(); i++) {
                             try {
                                 JSONObject jsonObject = response.getJSONObject(i);
-                                String namaPupuk = jsonObject.getString("nama_pupuk");
+                                String namaPupuk = jsonObject.getString("nama_semprotan");
                                 String deskripsiSingkat = jsonObject.getString("deskripsi_singkat");
                                 String gambarPathMain = jsonObject.getString("gambar_path_main"); // Ambil path gambar
-                                String imagePath = "https://jejakpadi.com/public/assets/img/pupuk/" + gambarPathMain;
+                                String imagePath = "https://jejakpadi.com/public/assets/img/semprotan/" + gambarPathMain;
                                 DataItem dataItem = new DataItem(namaPupuk, deskripsiSingkat, imagePath);
 
                                 dataItemList.add(dataItem);
@@ -121,7 +121,7 @@ public class PilihPupukActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(PilihPupukActivity.this, "Error loading data", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(PilihSemprotActivity.this, "Error loading data", Toast.LENGTH_SHORT).show();
                     }
                 }
         );
