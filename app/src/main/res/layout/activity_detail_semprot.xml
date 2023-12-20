@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".DetailPupukActivity"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true">
+        <ImageButton
+            android:id="@+id/backToHalamanBefore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/arrow_left_back_foreground"
+            android:layout_marginTop="28dp"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="Rincian"
+                android:textColor="@color/button_green"
+
+                android:textSize="24dp" />
+        </RelativeLayout>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/logo_save"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="45dp"
+            android:layout_marginRight="20dp"
+            />
+
+    </RelativeLayout>
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header">
+        <RelativeLayout
+            android:id="@+id/bigPic"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/card_bg_radius"
+            android:layout_width="278dp"
+            android:layout_height="155dp">
+            <ImageView
+                android:id="@+id/gambar_mainpupuk"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/title"
+            android:layout_below="@+id/bigPic"
+            android:layout_width="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginHorizontal="70dp"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="42dp">
+                <TextView
+                    android:id="@+id/pupukNameTextView"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="10dp"
+                    android:textSize="25sp"
+                    android:textColor="#000000"
+                    android:fontFamily="@font/poppins"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pupuk NPK"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="estimasi biaya:"
+                    android:textColor="#0D986A" />
+                <TextView
+                    android:id="@+id/hargapupukTextView"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="55.000/kg"
+                    android:textColor="#0D986A"/>
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/groupInfo"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/title"
+            android:layout_centerHorizontal="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:id="@+id/groupDeskripsi"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginHorizontal="40dp"
+                    android:layout_below="@+id/groupInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/titlekegunaan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_subrayada"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:text="KEGUNAAN" />
+                    <TextView
+                        android:layout_below="@+id/titlekegunaan"
+                        android:id="@+id/kegunaantv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="10sp"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="Pupuk NPK adalah salah satu varietas padi yang memiliki karakteristik khusus, dan ini telah menjadikannya pilihan yang menarik dalam budidaya padi di berbagai wilayah. Dengan butiran yang besar dan rasa yang enak, varietas ini berkontribusi pada produksi nasi berkualitas tinggi yang banyak digunakan dalam berbagai hidangan."/>
+
+                </RelativeLayout>
+
+
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/groupDeskripsi"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="40dp"
+            android:layout_below="@+id/groupInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/titleDeskripsi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_subrayada"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:text="DESKRIPSI" />
+            <TextView
+                android:id="@+id/deskripsitv"
+                android:layout_below="@+id/titleDeskripsi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:fontFamily="@font/inter_regular"
+                android:text="Pupuk NPK adalah salah satu varietas padi yang memiliki karakteristik khusus, dan ini telah menjadikannya pilihan yang menarik dalam budidaya padi di berbagai wilayah. Dengan butiran yang besar dan rasa yang enak, varietas ini berkontribusi pada produksi nasi berkualitas tinggi yang banyak digunakan dalam berbagai hidangan."/>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+    <Button
+        android:id="@+id/btnPilihPupuk"
+        android:layout_marginBottom="20dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/green_radius_button"
+        android:text="PILIH PUPUK PADI"
+        android:textColor="@color/white"
+        android:fontFamily="@font/inter_regular"
+        android:textSize="11sp"/>
+
+
+</RelativeLayout>

@@ -77,7 +77,7 @@ public class PilihSemprotActivity extends AppCompatActivity {
         adapter = new adapter_card_pupuk(dataItemList, new adapter_card_pupuk.OnItemClickListener() {
             @Override
             public void onItemClick(String pupukName) {
-                Intent intent = new Intent(PilihSemprotActivity.this, DetailPupukActivity.class);
+                Intent intent = new Intent(PilihSemprotActivity.this, DetailSemprotActivity.class);
                 intent.putExtra("nama_semprot", pupukName);
                 startActivity(intent);
             }
